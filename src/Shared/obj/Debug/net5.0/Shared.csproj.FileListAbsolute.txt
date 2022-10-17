@@ -1,0 +1,12 @@
+C:\WorkPlace\Clean Arch\SSDB\src\Shared\bin\Debug\net5.0\SSDB.Shared.deps.json
+C:\WorkPlace\Clean Arch\SSDB\src\Shared\bin\Debug\net5.0\SSDB.Shared.dll
+C:\WorkPlace\Clean Arch\SSDB\src\Shared\bin\Debug\net5.0\SSDB.Shared.pdb
+C:\WorkPlace\Clean Arch\SSDB\src\Shared\obj\Debug\net5.0\Shared.csproj.AssemblyReference.cache
+C:\WorkPlace\Clean Arch\SSDB\src\Shared\obj\Debug\net5.0\Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\WorkPlace\Clean Arch\SSDB\src\Shared\obj\Debug\net5.0\Shared.AssemblyInfoInputs.cache
+C:\WorkPlace\Clean Arch\SSDB\src\Shared\obj\Debug\net5.0\Shared.AssemblyInfo.cs
+C:\WorkPlace\Clean Arch\SSDB\src\Shared\obj\Debug\net5.0\Shared.csproj.CoreCompileInputs.cache
+C:\WorkPlace\Clean Arch\SSDB\src\Shared\obj\Debug\net5.0\SSDB.Shared.dll
+C:\WorkPlace\Clean Arch\SSDB\src\Shared\obj\Debug\net5.0\refint\SSDB.Shared.dll
+C:\WorkPlace\Clean Arch\SSDB\src\Shared\obj\Debug\net5.0\SSDB.Shared.pdb
+C:\WorkPlace\Clean Arch\SSDB\src\Shared\obj\Debug\net5.0\ref\SSDB.Shared.dll

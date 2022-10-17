@@ -1,0 +1,3 @@
+2022-10-08 10:52:15.909 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-08 10:52:16.149 +02:00 [INF] Hosting environment: Development
+2022-10-08 10:52:16.173 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server

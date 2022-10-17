@@ -1,0 +1,12 @@
+C:\WorkPlace\Clean Arch\SSDB\src\Domain\bin\Debug\net5.0\SSDB.Domain.deps.json
+C:\WorkPlace\Clean Arch\SSDB\src\Domain\bin\Debug\net5.0\SSDB.Domain.dll
+C:\WorkPlace\Clean Arch\SSDB\src\Domain\bin\Debug\net5.0\SSDB.Domain.pdb
+C:\WorkPlace\Clean Arch\SSDB\src\Domain\obj\Debug\net5.0\Domain.csproj.AssemblyReference.cache
+C:\WorkPlace\Clean Arch\SSDB\src\Domain\obj\Debug\net5.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\WorkPlace\Clean Arch\SSDB\src\Domain\obj\Debug\net5.0\Domain.AssemblyInfoInputs.cache
+C:\WorkPlace\Clean Arch\SSDB\src\Domain\obj\Debug\net5.0\Domain.AssemblyInfo.cs
+C:\WorkPlace\Clean Arch\SSDB\src\Domain\obj\Debug\net5.0\Domain.csproj.CoreCompileInputs.cache
+C:\WorkPlace\Clean Arch\SSDB\src\Domain\obj\Debug\net5.0\SSDB.Domain.dll
+C:\WorkPlace\Clean Arch\SSDB\src\Domain\obj\Debug\net5.0\refint\SSDB.Domain.dll
+C:\WorkPlace\Clean Arch\SSDB\src\Domain\obj\Debug\net5.0\SSDB.Domain.pdb
+C:\WorkPlace\Clean Arch\SSDB\src\Domain\obj\Debug\net5.0\ref\SSDB.Domain.dll
