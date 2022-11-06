@@ -300,7 +300,7 @@ using System.Security.Claims;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 91 "C:\WorkPlace\Clean Arch\SSDB\src\Client\Shared\NavMenu.razor"
+#line 50 "C:\WorkPlace\Clean Arch\SSDB\src\Client\Shared\NavMenu.razor"
        
     private ClaimsPrincipal _authenticationStateProviderUser;
 

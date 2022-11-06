@@ -10,12 +10,12 @@ namespace SSDB.Application.Specifications.Catalog
             Includes.Add(a => a.University);
             if (!string.IsNullOrEmpty(searchString))
             {
-                Criteria = p => p.Batch != null && (p.NameA.Contains(searchString) || p.Comments.Contains(searchString) || p.Batch.Name.Contains(searchString) || p.University.Name.Contains(searchString));
+                Criteria = p => p.Id != null && (p.NameA.Contains(searchString) || p.Comments.Contains(searchString) || p.Batch.Name.Contains(searchString) || p.University.Name.Contains(searchString));
             }
             else
             {
-                Criteria = p => p.Batch != null;
+                Criteria = p => p.Id != null;
             }
         }
-    }
+    } 
 }

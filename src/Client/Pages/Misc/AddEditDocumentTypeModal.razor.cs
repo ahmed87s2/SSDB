@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Blazored.FluentValidation;
-using SSDB.Application.Features.DocumentTypes.Commands.AddEdit;
+using SSDB.Application.Features.DocumentTypes.Commands;
 using SSDB.Client.Extensions;
 using SSDB.Client.Infrastructure.Managers.Misc.DocumentType;
 using SSDB.Shared.Constants.Application;

@@ -1,8 +1,3 @@
-C:\WorkPlace\Clean Arch\SSDB\src\Infrastructure.Shared\obj\Debug\net5.0\Infrastructure.Shared.csproj.AssemblyReference.cache
-C:\WorkPlace\Clean Arch\SSDB\src\Infrastructure.Shared\obj\Debug\net5.0\Infrastructure.Shared.GeneratedMSBuildEditorConfig.editorconfig
-C:\WorkPlace\Clean Arch\SSDB\src\Infrastructure.Shared\obj\Debug\net5.0\Infrastructure.Shared.AssemblyInfoInputs.cache
-C:\WorkPlace\Clean Arch\SSDB\src\Infrastructure.Shared\obj\Debug\net5.0\Infrastructure.Shared.AssemblyInfo.cs
-C:\WorkPlace\Clean Arch\SSDB\src\Infrastructure.Shared\obj\Debug\net5.0\Infrastructure.Shared.csproj.CoreCompileInputs.cache
 C:\WorkPlace\Clean Arch\SSDB\src\Infrastructure.Shared\bin\Debug\net5.0\SSDB.Infrastructure.Shared.deps.json
 C:\WorkPlace\Clean Arch\SSDB\src\Infrastructure.Shared\bin\Debug\net5.0\SSDB.Infrastructure.Shared.dll
 C:\WorkPlace\Clean Arch\SSDB\src\Infrastructure.Shared\bin\Debug\net5.0\SSDB.Infrastructure.Shared.pdb
@@ -21,6 +16,11 @@ C:\WorkPlace\Clean Arch\SSDB\src\Infrastructure.Shared\bin\Debug\net5.0\it\SSDB.
 C:\WorkPlace\Clean Arch\SSDB\src\Infrastructure.Shared\bin\Debug\net5.0\km\SSDB.Application.resources.dll
 C:\WorkPlace\Clean Arch\SSDB\src\Infrastructure.Shared\bin\Debug\net5.0\ru\SSDB.Application.resources.dll
 C:\WorkPlace\Clean Arch\SSDB\src\Infrastructure.Shared\bin\Debug\net5.0\sv\SSDB.Application.resources.dll
+C:\WorkPlace\Clean Arch\SSDB\src\Infrastructure.Shared\obj\Debug\net5.0\Infrastructure.Shared.csproj.AssemblyReference.cache
+C:\WorkPlace\Clean Arch\SSDB\src\Infrastructure.Shared\obj\Debug\net5.0\Infrastructure.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\WorkPlace\Clean Arch\SSDB\src\Infrastructure.Shared\obj\Debug\net5.0\Infrastructure.Shared.AssemblyInfoInputs.cache
+C:\WorkPlace\Clean Arch\SSDB\src\Infrastructure.Shared\obj\Debug\net5.0\Infrastructure.Shared.AssemblyInfo.cs
+C:\WorkPlace\Clean Arch\SSDB\src\Infrastructure.Shared\obj\Debug\net5.0\Infrastructure.Shared.csproj.CoreCompileInputs.cache
 C:\WorkPlace\Clean Arch\SSDB\src\Infrastructure.Shared\obj\Debug\net5.0\Infrastructure.Shared.csproj.CopyComplete
 C:\WorkPlace\Clean Arch\SSDB\src\Infrastructure.Shared\obj\Debug\net5.0\SSDB.Infrastructure.Shared.dll
 C:\WorkPlace\Clean Arch\SSDB\src\Infrastructure.Shared\obj\Debug\net5.0\refint\SSDB.Infrastructure.Shared.dll

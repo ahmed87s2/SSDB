@@ -1,15 +1,12 @@
-﻿using SSDB.Application.Features.Students.Commands.AddEdit;
-using SSDB.Application.Features.Students.Commands.Delete;
-using SSDB.Application.Features.Students.Queries.Export;
-using SSDB.Application.Features.Students.Queries.GetAllPaged;
-using SSDB.Application.Features.Students.Queries.GetStudentImage;
+﻿using SSDB.Application.Features.Students.Commands;
+using SSDB.Application.Features.Students.Queries;
 using SSDB.Shared.Constants.Permission;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using SSDB.Application.Models;
-using SSDB.Application.Features.Students.Queries.GetStdForReg;
 using System.Collections.Generic;
+using SSDB.Application.Features.Registrations.Queries;
 
 namespace SSDB.Server.Controllers.v1.Catalog
 {
@@ -41,15 +38,41 @@ namespace SSDB.Server.Controllers.v1.Catalog
         }
 
         /// <summary>
+        /// Get Student Details
+        /// </summary>
+        /// <param name="studentNumber">Student Number</param>
+        /// <returns>Status 200 OK</returns>
+        [Authorize(Policy = Permissions.Students.View)]
+        [HttpGet((nameof(GetById)))]
+        public async Task<IActionResult> GetById(string studentNumber)
+        {
+            var Registrations = await _mediator.Send(new GetStudentByIdQuery() { Number = studentNumber });
+            return Ok(Registrations);
+        }
+
+        /// <summary>
+        /// Get Student Info for Add or Edit
+        /// </summary>
+        /// <param name="studentNumber">Student Number</param>
+        /// <returns>Status 200 OK</returns>
+        [Authorize(Policy = Permissions.Students.View)]
+        [HttpGet(nameof(GetByIdForAddEdit))]
+        public async Task<IActionResult> GetByIdForAddEdit(string studentNumber)
+        {
+            var Registrations = await _mediator.Send(new GetStudentGetByIdForAddEditQuery() { Number = studentNumber });
+            return Ok(Registrations);
+        }
+
+        /// <summary>
         /// Get a Student Image by Id
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="studentNumber"></param>
         /// <returns>Status 200 OK</returns>
         [Authorize(Policy = Permissions.Students.View)]
         [HttpGet("image/{id}")]
-        public async Task<IActionResult> GetStudentImageAsync(int id)
+        public async Task<IActionResult> GetStudentImageAsync(string studentNumber)
         {
-            var result = await _mediator.Send(new GetStudentImageQuery(id));
+            var result = await _mediator.Send(new GetStudentImageQuery(studentNumber));
             return Ok(result);
         }
 
@@ -68,13 +91,13 @@ namespace SSDB.Server.Controllers.v1.Catalog
         /// <summary>
         /// Delete a Student
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="studentNumber"></param>
         /// <returns>Status 200 OK response</returns>
         [Authorize(Policy = Permissions.Students.Delete)]
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(string studentNumber)
         {
-            return Ok(await _mediator.Send(new DeleteStudentCommand { Id = id }));
+            return Ok(await _mediator.Send(new DeleteStudentCommand { StudentNumber = studentNumber }));
         }
 
         /// <summary>

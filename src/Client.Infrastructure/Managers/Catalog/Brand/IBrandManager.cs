@@ -2,7 +2,7 @@
 using SSDB.Shared.Wrapper;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using SSDB.Application.Features.Universities.Commands.AddEdit;
+using SSDB.Application.Features.Universities.Commands;
 
 namespace SSDB.Client.Infrastructure.Managers.Catalog.University
 {

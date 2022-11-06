@@ -1,0 +1,312 @@
+2022-11-06 00:08:24.393 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 00:08:24.512 +02:00 [INF] Hosting environment: Development
+2022-11-06 00:08:24.516 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 00:12:43.772 +02:00 [ERR] Failed executing DbCommand (56ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (Size = 4000), @p4='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p5='?' (DbType = Int32), @p6='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p7='?' (Size = 4000), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = DateTime2), @p11='?' (DbType = Int32), @p12='?' (DbType = Int32), @p13='?' (DbType = Int32), @p14='?' (DbType = Int32), @p15='?' (Size = 4000), @p16='?' (DbType = DateTime2), @p17='?' (Size = 4000), @p18='?' (DbType = DateTime2), @p19='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p20='?' (Size = 4000), @p21='?' (Size = 4000), @p22='?' (DbType = Int32), @p23='?' (DbType = Boolean), @p24='?' (Size = 4000), @p25='?' (DbType = Int32), @p26='?' (Size = 4000), @p27='?' (Size = 4000), @p28='?' (DbType = Int32), @p29='?' (DbType = Int32), @p30='?' (Size = 4000), @p31='?' (DbType = Int32), @p32='?' (Size = 4000), @p33='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p34='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p35='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Students] ([Id], [AddmissionFormNo], [AddmissionId], [Address], [AdvisorId], [BatchId], [CGPA], [CertificateType], [Comments], [CreatedBy], [CreatedOn], [CurrencyId], [DepartmentId], [First_semster], [FucultyId], [Gender], [GraduationDate], [LastModifiedBy], [LastModifiedOn], [MedicalFees], [NameA], [NameE], [NationalityId], [NoStudyFees], [Phone], [ProgramId], [Record_Status], [RegType], [SemesterId], [SpecializationId], [Status], [StdPassword], [Std_Picture], [StudyFeesUpdated], [ToLocalCurrency], [UniversityId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25, @p26, @p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35);
+2022-11-06 00:12:43.882 +02:00 [ERR] An exception occurred in the database while saving changes for context type 'SSDB.Infrastructure.Contexts.BlazorHeroContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_Students_Specializations_SpecializationId". The conflict occurred in database "AlahlyaUnvDb", table "dbo.Specializations", column 'Id'.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:560bd0b4-db55-4325-b7ae-74efc44b66db
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_Students_Specializations_SpecializationId". The conflict occurred in database "AlahlyaUnvDb", table "dbo.Specializations", column 'Id'.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:560bd0b4-db55-4325-b7ae-74efc44b66db
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2022-11-06 00:14:08.041 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 00:14:08.112 +02:00 [INF] Hosting environment: Development
+2022-11-06 00:14:08.115 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 00:34:22.238 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 00:34:22.315 +02:00 [INF] Hosting environment: Development
+2022-11-06 00:34:22.319 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 00:35:53.233 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 00:35:53.300 +02:00 [INF] Hosting environment: Development
+2022-11-06 00:35:53.303 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 00:37:32.254 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 00:37:32.330 +02:00 [INF] Hosting environment: Development
+2022-11-06 00:37:32.332 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 00:43:03.051 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 00:43:03.164 +02:00 [INF] Hosting environment: Development
+2022-11-06 00:43:03.167 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 00:48:02.366 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 00:48:02.520 +02:00 [INF] Hosting environment: Development
+2022-11-06 00:48:02.523 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 00:48:59.135 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 00:48:59.260 +02:00 [INF] Hosting environment: Development
+2022-11-06 00:48:59.263 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 00:50:18.772 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 00:50:18.940 +02:00 [INF] Hosting environment: Development
+2022-11-06 00:50:18.947 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 00:52:36.841 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 00:52:36.985 +02:00 [INF] Hosting environment: Development
+2022-11-06 00:52:36.991 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 01:01:26.868 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 01:01:27.017 +02:00 [INF] Hosting environment: Development
+2022-11-06 01:01:27.023 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 01:06:12.897 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 01:06:13.036 +02:00 [INF] Hosting environment: Development
+2022-11-06 01:06:13.039 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 01:13:12.215 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 01:13:12.311 +02:00 [INF] Hosting environment: Development
+2022-11-06 01:13:12.314 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 01:13:54.073 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 01:13:54.201 +02:00 [INF] Hosting environment: Development
+2022-11-06 01:13:54.204 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 01:22:58.021 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 01:22:58.193 +02:00 [INF] Hosting environment: Development
+2022-11-06 01:22:58.199 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 01:24:54.211 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 01:24:54.443 +02:00 [INF] Hosting environment: Development
+2022-11-06 01:24:54.455 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 01:27:06.719 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 01:27:06.933 +02:00 [INF] Hosting environment: Development
+2022-11-06 01:27:06.941 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 01:35:33.604 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 01:35:33.786 +02:00 [INF] Hosting environment: Development
+2022-11-06 01:35:33.793 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 01:40:11.194 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 01:40:11.408 +02:00 [INF] Hosting environment: Development
+2022-11-06 01:40:11.414 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 01:43:44.392 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 01:43:44.533 +02:00 [INF] Hosting environment: Development
+2022-11-06 01:43:44.538 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 01:46:53.867 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 01:46:54.081 +02:00 [INF] Hosting environment: Development
+2022-11-06 01:46:54.087 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 01:50:55.339 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 01:50:55.629 +02:00 [INF] Hosting environment: Development
+2022-11-06 01:50:55.636 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 01:54:25.064 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 01:54:25.261 +02:00 [INF] Hosting environment: Development
+2022-11-06 01:54:25.268 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 01:58:51.086 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 01:58:51.278 +02:00 [INF] Hosting environment: Development
+2022-11-06 01:58:51.283 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 02:01:44.378 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 02:01:44.501 +02:00 [INF] Hosting environment: Development
+2022-11-06 02:01:44.507 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 02:20:25.606 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 02:20:25.833 +02:00 [INF] Hosting environment: Development
+2022-11-06 02:20:25.838 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 02:25:55.162 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 02:25:55.239 +02:00 [INF] Hosting environment: Development
+2022-11-06 02:25:55.242 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 02:32:21.447 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 02:32:21.718 +02:00 [INF] Hosting environment: Development
+2022-11-06 02:32:21.727 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 02:41:50.878 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 02:41:51.087 +02:00 [INF] Hosting environment: Development
+2022-11-06 02:41:51.097 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 02:50:14.550 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 02:50:14.861 +02:00 [INF] Hosting environment: Development
+2022-11-06 02:50:14.870 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 02:57:56.614 +02:00 [ERR] Failed executing DbCommand (100ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Registrations] SET [LastModifiedOn] = @p0, [SemesterId] = @p1, [StudentId] = @p2
+WHERE [Id] = @p3;
+SELECT @@ROWCOUNT;
+2022-11-06 02:57:56.782 +02:00 [ERR] An exception occurred in the database while saving changes for context type 'SSDB.Infrastructure.Contexts.BlazorHeroContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_Registrations_Semesters_SemesterId". The conflict occurred in database "AlahlyaUnvDb", table "dbo.Semesters", column 'Id'.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:cfec495d-0624-4436-87e1-b31cf29216aa
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_Registrations_Semesters_SemesterId". The conflict occurred in database "AlahlyaUnvDb", table "dbo.Semesters", column 'Id'.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:cfec495d-0624-4436-87e1-b31cf29216aa
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2022-11-06 02:59:46.568 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 02:59:46.870 +02:00 [INF] Hosting environment: Development
+2022-11-06 02:59:46.877 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 03:00:28.039 +02:00 [ERR] Failed executing DbCommand (19ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Registrations] SET [LastModifiedOn] = @p0, [SemesterId] = @p1
+WHERE [Id] = @p2;
+SELECT @@ROWCOUNT;
+2022-11-06 03:00:28.126 +02:00 [ERR] An exception occurred in the database while saving changes for context type 'SSDB.Infrastructure.Contexts.BlazorHeroContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_Registrations_Semesters_SemesterId". The conflict occurred in database "AlahlyaUnvDb", table "dbo.Semesters", column 'Id'.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:b96da1c6-9a91-4be0-ba8a-8701ff6adf31
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_Registrations_Semesters_SemesterId". The conflict occurred in database "AlahlyaUnvDb", table "dbo.Semesters", column 'Id'.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:b96da1c6-9a91-4be0-ba8a-8701ff6adf31
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2022-11-06 03:00:29.956 +02:00 [ERR] Failed executing DbCommand (8ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Registrations] SET [LastModifiedOn] = @p0, [SemesterId] = @p1
+WHERE [Id] = @p2;
+SELECT @@ROWCOUNT;
+2022-11-06 03:00:29.960 +02:00 [ERR] An exception occurred in the database while saving changes for context type 'SSDB.Infrastructure.Contexts.BlazorHeroContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_Registrations_Semesters_SemesterId". The conflict occurred in database "AlahlyaUnvDb", table "dbo.Semesters", column 'Id'.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:b96da1c6-9a91-4be0-ba8a-8701ff6adf31
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_Registrations_Semesters_SemesterId". The conflict occurred in database "AlahlyaUnvDb", table "dbo.Semesters", column 'Id'.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:b96da1c6-9a91-4be0-ba8a-8701ff6adf31
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2022-11-06 03:15:58.762 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 03:15:58.970 +02:00 [INF] Hosting environment: Development
+2022-11-06 03:15:58.976 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 03:27:43.766 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 03:27:44.038 +02:00 [INF] Hosting environment: Development
+2022-11-06 03:27:44.044 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 03:29:53.950 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 03:29:54.168 +02:00 [INF] Hosting environment: Development
+2022-11-06 03:29:54.179 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-06 03:32:06.780 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-06 03:32:06.987 +02:00 [INF] Hosting environment: Development
+2022-11-06 03:32:06.997 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server

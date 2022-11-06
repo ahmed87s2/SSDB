@@ -11,7 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Localization;
 
-namespace SSDB.Application.Features.Documents.Commands.AddEdit
+namespace SSDB.Application.Features.Documents.Commands
 {
     public partial class AddEditDocumentCommand : IRequest<Result<int>>
     {

@@ -11,7 +11,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 
-namespace SSDB.Application.Features.DocumentTypes.Commands.AddEdit
+namespace SSDB.Application.Features.DocumentTypes.Commands
 {
     public class AddEditDocumentTypeCommand : IRequest<Result<int>>
     {

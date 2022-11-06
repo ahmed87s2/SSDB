@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using SSDB.Application.Features.Universities.Commands.AddEdit;
+using SSDB.Application.Features.Universities.Commands;
 using SSDB.Application.Features.Universities.Queries.GetAll;
 using SSDB.Application.Features.Universities.Queries.GetById;
 using SSDB.Domain.Entities.Catalog;

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using SSDB.Application.Features.Documents.Commands.AddEdit;
+using SSDB.Application.Features.Documents.Commands;
 using SSDB.Application.Requests;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;

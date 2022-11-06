@@ -1,10 +1,11 @@
 ﻿using System.Linq;
 using SSDB.Application.Configurations;
-using SSDB.Application.Features.ExtendedAttributes.Commands.AddEdit;
-using SSDB.Application.Validators.Features.ExtendedAttributes.Commands.AddEdit;
+using SSDB.Application.Features.ExtendedAttributes.Commands;
+using SSDB.Application.Validators.Features.ExtendedAttributes.Commands;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.Extensions.DependencyInjection;
+using SSDB.Application.Validators.Features.ExtendedAttributes.Commands.AddEdit;
 
 namespace SSDB.Server.Extensions
 {

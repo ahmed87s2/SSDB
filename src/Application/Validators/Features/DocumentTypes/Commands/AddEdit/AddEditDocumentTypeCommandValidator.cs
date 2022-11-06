@@ -1,4 +1,4 @@
-﻿using SSDB.Application.Features.DocumentTypes.Commands.AddEdit;
+﻿using SSDB.Application.Features.DocumentTypes.Commands;
 using FluentValidation;
 using Microsoft.Extensions.Localization;
 

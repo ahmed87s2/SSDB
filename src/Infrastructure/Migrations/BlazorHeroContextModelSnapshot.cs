@@ -367,6 +367,9 @@ namespace SSDB.Infrastructure.Migrations
                     b.Property<int>("BranchId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Comments")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
@@ -375,9 +378,6 @@ namespace SSDB.Infrastructure.Migrations
 
                     b.Property<int>("CurrencyId")
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
 
                     b.Property<double>("Fees")
                         .HasColumnType("float");
@@ -400,14 +400,11 @@ namespace SSDB.Infrastructure.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<int>("StudentId")
-                        .HasColumnType("int");
+                    b.Property<string>("StudentId")
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<double>("StudyFees")
                         .HasColumnType("float");
-
-                    b.Property<string>("comments")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("linkNo")
                         .HasColumnType("int");
@@ -417,6 +414,8 @@ namespace SSDB.Infrastructure.Migrations
                     b.HasIndex("CurrencyId");
 
                     b.HasIndex("SemesterId");
+
+                    b.HasIndex("StudentId");
 
                     b.ToTable("Registrations");
                 });
@@ -489,10 +488,8 @@ namespace SSDB.Infrastructure.Migrations
 
             modelBuilder.Entity("SSDB.Domain.Entities.Catalog.Student", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("AddmissionFormNo")
                         .HasColumnType("nvarchar(max)");
@@ -503,13 +500,13 @@ namespace SSDB.Infrastructure.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("AdvisorId")
+                    b.Property<decimal?>("AdvisorId")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("BatchId")
+                    b.Property<int>("BatchId")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("CGPA")
+                    b.Property<decimal?>("CGPA")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("CertificateType")
@@ -539,7 +536,7 @@ namespace SSDB.Infrastructure.Migrations
                     b.Property<string>("Gender")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("GraduationDate")
+                    b.Property<DateTime?>("GraduationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("LastModifiedBy")
@@ -548,7 +545,7 @@ namespace SSDB.Infrastructure.Migrations
                     b.Property<DateTime?>("LastModifiedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<decimal>("MedicalFees")
+                    b.Property<decimal?>("MedicalFees")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("NameA")
@@ -560,11 +557,8 @@ namespace SSDB.Infrastructure.Migrations
                     b.Property<int>("NationalityId")
                         .HasColumnType("int");
 
-                    b.Property<int>("NoStudyFees")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Number")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("NoStudyFees")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)");
@@ -578,12 +572,6 @@ namespace SSDB.Infrastructure.Migrations
                     b.Property<string>("RegType")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("RegistrationId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("RegistrationId1")
-                        .HasColumnType("int");
-
                     b.Property<int>("SemesterId")
                         .HasColumnType("int");
 
@@ -593,19 +581,16 @@ namespace SSDB.Infrastructure.Migrations
                     b.Property<string>("Status")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("StdPassword")
+                    b.Property<int?>("StdPassword")
                         .HasColumnType("int");
 
                     b.Property<string>("Std_Picture")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("StudentStatus")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("StudyFeesUpdated")
+                    b.Property<decimal?>("StudyFeesUpdated")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<decimal>("ToLocalCurrency")
+                    b.Property<decimal?>("ToLocalCurrency")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int?>("UniversityId")
@@ -624,8 +609,6 @@ namespace SSDB.Infrastructure.Migrations
                     b.HasIndex("FucultyId");
 
                     b.HasIndex("ProgramId");
-
-                    b.HasIndex("RegistrationId1");
 
                     b.HasIndex("SemesterId");
 
@@ -1102,9 +1085,15 @@ namespace SSDB.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("SSDB.Domain.Entities.Catalog.Student", "Student")
+                        .WithMany()
+                        .HasForeignKey("StudentId");
+
                     b.Navigation("Currency");
 
                     b.Navigation("Semester");
+
+                    b.Navigation("Student");
                 });
 
             modelBuilder.Entity("SSDB.Domain.Entities.Catalog.Student", b =>
@@ -1117,7 +1106,9 @@ namespace SSDB.Infrastructure.Migrations
 
                     b.HasOne("SSDB.Domain.Entities.Catalog.Batch", "Batch")
                         .WithMany()
-                        .HasForeignKey("BatchId");
+                        .HasForeignKey("BatchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("SSDB.Domain.Entities.Catalog.Currency", "Currency")
                         .WithMany()
@@ -1142,10 +1133,6 @@ namespace SSDB.Infrastructure.Migrations
                         .HasForeignKey("ProgramId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("SSDB.Domain.Entities.Catalog.Registration", "Registration")
-                        .WithMany()
-                        .HasForeignKey("RegistrationId1");
 
                     b.HasOne("SSDB.Domain.Entities.Catalog.Semester", "Semester")
                         .WithMany()
@@ -1174,8 +1161,6 @@ namespace SSDB.Infrastructure.Migrations
                     b.Navigation("Fuculty");
 
                     b.Navigation("Program");
-
-                    b.Navigation("Registration");
 
                     b.Navigation("Semester");
 

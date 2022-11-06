@@ -300,6 +300,13 @@ using SSDB.Client.Extensions;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 26 "C:\WorkPlace\Clean Arch\SSDB\src\Client\Pages\Content\Dashboard.razor"
+                          string day = DateTime.Now.Month+"-"+DateTime.Now.Year;
+
+#line default
+#line hidden
+#nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private Microsoft.Extensions.Localization.IStringLocalizer<Dashboard> _localizer { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime _jsRuntime { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private ILocalStorageService _localStorage { get; set; }

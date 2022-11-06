@@ -14,7 +14,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 
-namespace SSDB.Application.Features.ExtendedAttributes.Commands.AddEdit
+namespace SSDB.Application.Features.ExtendedAttributes.Commands
 {
     internal class AddEditExtendedAttributeCommandLocalization
     {

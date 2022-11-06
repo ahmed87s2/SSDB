@@ -7,9 +7,9 @@ namespace SSDB.Infrastructure.Repositories
 {
     public class StudentRepository : IStudentRepository
     {
-        private readonly IRepositoryAsync<Student, int> _repository;
+        private readonly IRepositoryAsync<Student, string> _repository;
 
-        public StudentRepository(IRepositoryAsync<Student, int> repository)
+        public StudentRepository(IRepositoryAsync<Student, string> repository)
         {
             _repository = repository;
         }

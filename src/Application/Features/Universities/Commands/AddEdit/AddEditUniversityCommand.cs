@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Localization;
 using SSDB.Shared.Constants.Application;
 
-namespace SSDB.Application.Features.Universities.Commands.AddEdit
+namespace SSDB.Application.Features.Universities.Commands
 {
     public partial class AddEditUniversityCommand : IRequest<Result<int>>
     {

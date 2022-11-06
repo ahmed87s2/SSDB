@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using SSDB.Application.Features.ExtendedAttributes.Commands.AddEdit;
-using SSDB.Application.Features.ExtendedAttributes.Queries.Export;
-using SSDB.Application.Features.ExtendedAttributes.Queries.GetAll;
-using SSDB.Application.Features.ExtendedAttributes.Queries.GetAllByEntityId;
+using SSDB.Application.Features.ExtendedAttributes.Commands;
+using SSDB.Application.Features.ExtendedAttributes.Queries;
 using SSDB.Domain.Contracts;
 using SSDB.Shared.Wrapper;
 

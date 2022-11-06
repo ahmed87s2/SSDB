@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using SSDB.Application.Features.Universities.Commands.AddEdit;
+using SSDB.Application.Features.Universities.Commands;
 
 namespace SSDB.Client.Infrastructure.Managers.Catalog.University
 {

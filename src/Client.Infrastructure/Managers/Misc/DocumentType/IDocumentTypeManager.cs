@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using SSDB.Application.Features.DocumentTypes.Commands.AddEdit;
+using SSDB.Application.Features.DocumentTypes.Commands;
 using SSDB.Application.Features.DocumentTypes.Queries.GetAll;
 using SSDB.Shared.Wrapper;
 

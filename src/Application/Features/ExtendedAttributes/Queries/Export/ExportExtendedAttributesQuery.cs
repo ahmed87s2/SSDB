@@ -15,7 +15,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 
-namespace SSDB.Application.Features.ExtendedAttributes.Queries.Export
+namespace SSDB.Application.Features.ExtendedAttributes.Queries
 {
     internal class ExportExtendedAttributesQueryLocalization
     {

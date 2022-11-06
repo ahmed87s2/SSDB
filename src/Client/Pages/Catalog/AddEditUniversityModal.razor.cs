@@ -5,8 +5,8 @@ using Microsoft.AspNetCore.SignalR.Client;
 using MudBlazor;
 using System.Threading.Tasks;
 using Blazored.FluentValidation;
-using SSDB.Application.Features.Universities.Commands.AddEdit;
 using SSDB.Client.Infrastructure.Managers.Catalog.University;
+using SSDB.Application.Features.Universities.Commands;
 
 namespace SSDB.Client.Pages.Catalog
 {

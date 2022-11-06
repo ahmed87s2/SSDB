@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Blazored.FluentValidation;
-using SSDB.Application.Features.ExtendedAttributes.Commands.AddEdit;
+using SSDB.Application.Features.ExtendedAttributes.Commands;
 using SSDB.Client.Extensions;
 using SSDB.Client.Infrastructure.Managers.ExtendedAttribute;
 using SSDB.Domain.Contracts;

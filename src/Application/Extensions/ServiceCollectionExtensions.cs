@@ -3,14 +3,14 @@ using System.Linq;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
-using SSDB.Application.Features.ExtendedAttributes.Commands.AddEdit;
+using SSDB.Application.Features.ExtendedAttributes.Commands;
 using SSDB.Application.Features.ExtendedAttributes.Commands.Delete;
-using SSDB.Application.Features.ExtendedAttributes.Queries.Export;
 using SSDB.Application.Features.ExtendedAttributes.Queries.GetAll;
 using SSDB.Application.Features.ExtendedAttributes.Queries.GetAllByEntityId;
 using SSDB.Application.Features.ExtendedAttributes.Queries.GetById;
 using SSDB.Domain.Contracts;
 using SSDB.Shared.Wrapper;
+using SSDB.Application.Features.ExtendedAttributes.Queries;
 
 namespace SSDB.Application.Extensions
 {

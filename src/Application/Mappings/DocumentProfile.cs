@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using SSDB.Application.Features.Documents.Commands.AddEdit;
+using SSDB.Application.Features.Documents.Commands;
 using SSDB.Application.Features.Documents.Queries.GetById;
 using SSDB.Domain.Entities.Misc;
 

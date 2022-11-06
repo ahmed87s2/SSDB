@@ -5,7 +5,7 @@ namespace SSDB.Application.Features.Dashboards.Queries.GetData
     public class DashboardDataResponse
     {
         public int StudentCount { get; set; }
-        public int UniversityCount { get; set; }
+        public int RegistrationCount { get; set; }
         public int DocumentCount { get; set; }
         public int DocumentTypeCount { get; set; }
         public int DocumentExtendedAttributeCount { get; set; }

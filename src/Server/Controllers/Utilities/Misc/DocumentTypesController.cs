@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using SSDB.Application.Features.DocumentTypes.Commands.AddEdit;
+using SSDB.Application.Features.DocumentTypes.Commands;
 using SSDB.Application.Features.DocumentTypes.Commands.Delete;
 using SSDB.Application.Features.DocumentTypes.Queries.Export;
 using SSDB.Application.Features.DocumentTypes.Queries.GetAll;

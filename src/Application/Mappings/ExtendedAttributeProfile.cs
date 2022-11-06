@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
-using SSDB.Application.Features.ExtendedAttributes.Commands.AddEdit;
-using SSDB.Application.Features.ExtendedAttributes.Queries.GetAll;
-using SSDB.Application.Features.ExtendedAttributes.Queries.GetAllByEntityId;
+using SSDB.Application.Features.ExtendedAttributes.Commands;
+using SSDB.Application.Features.ExtendedAttributes.Queries;
 using SSDB.Application.Features.ExtendedAttributes.Queries.GetById;
 using SSDB.Domain.Entities.ExtendedAttributes;
 

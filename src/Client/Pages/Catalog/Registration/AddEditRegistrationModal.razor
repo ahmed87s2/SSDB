@@ -1,0 +1,69 @@
+﻿@inject Microsoft.Extensions.Localization.IStringLocalizer<AddEditRegistrationModal> _localizer
+
+<EditForm Model="@AddEditRegistrationModel" OnValidSubmit="SaveAsync">
+    <FluentValidationValidator @ref="_fluentValidationValidator" />
+    <MudDialog>
+        <TitleContent>
+            @{
+                if (AddEditRegistrationModel.Id == 0)
+                {
+                    <MudText Typo="Typo.h6">
+                        <MudIcon Icon="@Icons.Material.Filled.Add" Class="mr-3 mb-n1" />
+                        @_localizer["Add Registration"]
+                    </MudText>
+                }
+                else
+                {
+                    <MudText Typo="Typo.h6">
+                        <MudIcon Icon="@Icons.Material.Filled.Update" Class="mr-3 mb-n1" />
+                        @_localizer["Update Registration"]
+                    </MudText>
+                }
+            }
+        </TitleContent>
+        <DialogContent>
+            <MudGrid>
+                @if (AddEditRegistrationModel.Id != 0)
+                {
+                    <MudItem xs="12" md="4"><MudTextField Disabled For="@(() => AddEditRegistrationModel.Id)" @bind-Value="AddEditRegistrationModel.Id" Label="@_localizer["Id"]" /> </MudItem>
+                }
+                <MudItem xs="12" md="4">
+                    <MudAutocomplete T="string" Label="@_localizer["Student"]" For="@(() => AddEditRegistrationModel.StudentId)"
+                                     @bind-Value="AddEditRegistrationModel.StudentId" ResetValueOnEmptyText="true" SearchFunc="@SearchInStudents" Variant="Variant.Filled"
+                                     ToStringFunc="@(i => _Students.FirstOrDefault(b => b.Value == i)?.Key ?? string.Empty)" OffsetY="true" />
+                </MudItem>
+                <MudItem xs="12" md="4">
+                    <MudAutocomplete T="int" Label="@_localizer["Semester"]" For="@(() => AddEditRegistrationModel.SemesterId)"
+                                     @bind-Value="AddEditRegistrationModel.SemesterId" ResetValueOnEmptyText="true" SearchFunc="@SearchInSemesters" Variant="Variant.Filled"
+                                     ToStringFunc="@(i => _Semesters.FirstOrDefault(b =>int.Parse(b.Value) == i)?.Key ?? string.Empty)" OffsetY="true" />
+                </MudItem>
+                <MudItem xs="12" md="4"><MudTextField  For="@(() => AddEditRegistrationModel.Status)" @bind-Value="AddEditRegistrationModel.Status" Label="@_localizer["Status"]" /> </MudItem>
+                <MudItem xs="12" md="4"><MudTextField  For="@(() => AddEditRegistrationModel.Fees)" @bind-Value="AddEditRegistrationModel.Fees" Label="@_localizer["Fees"]" /> </MudItem>
+                <MudItem xs="12" md="4"><MudTextField  For="@(() => AddEditRegistrationModel.StudyFees)" @bind-Value="AddEditRegistrationModel.StudyFees" Label="@_localizer["StudyFees"]" /> </MudItem>
+                <MudItem xs="12" md="4"><MudTextField  For="@(() => AddEditRegistrationModel.NoStudyFees)" @bind-Value="AddEditRegistrationModel.NoStudyFees" Label="@_localizer["NoStudyFees"]" /> </MudItem>
+                <MudItem xs="12" md="4">
+                    <MudAutocomplete T="int" Label="@_localizer["Currency"]" For="@(() => AddEditRegistrationModel.CurrencyId)"
+                                     @bind-Value="AddEditRegistrationModel.CurrencyId" ResetValueOnEmptyText="true" SearchFunc="@SearchInCurrencies" Variant="Variant.Filled"
+                                     ToStringFunc="@(i => _Currencies.FirstOrDefault(b =>int.Parse(b.Value) == i)?.Key ?? string.Empty)" OffsetY="true" />
+                </MudItem>
+                
+                <MudItem xs="12" md="4"><MudTextField  For="@(() => AddEditRegistrationModel.BranchId)" @bind-Value="AddEditRegistrationModel.BranchId" Label="@_localizer["Branch"]" /> </MudItem>
+                <MudItem xs="12" md="4"><MudTextField  For="@(() => AddEditRegistrationModel.PaymentNo)" @bind-Value="AddEditRegistrationModel.PaymentNo" Label="@_localizer["PaymentNo"]" /> </MudItem>
+                <MudItem xs="12" md="4"><MudTextField  For="@(() => AddEditRegistrationModel.linkNo)" @bind-Value="AddEditRegistrationModel.linkNo" Label="@_localizer["linkNo"]" /> </MudItem>
+                <MudItem xs="12" md="4"><MudTextField  For="@(() => AddEditRegistrationModel.Comments)" @bind-Value="AddEditRegistrationModel.Comments" Label="@_localizer["Comments"]" /> </MudItem>
+                
+            </MudGrid>
+        </DialogContent>
+        <DialogActions>
+            <MudButton DisableElevation Variant="Variant.Filled" OnClick="Cancel">@_localizer["Cancel"]</MudButton>
+            @if (AddEditRegistrationModel.Id != 0)
+            {
+                <MudButton DisableElevation Variant="Variant.Filled" ButtonType="ButtonType.Submit" Disabled="@(!Validated)" Color="Color.Secondary">@_localizer["Update"]</MudButton>
+            }
+            else
+            {
+                <MudButton DisableElevation Variant="Variant.Filled" ButtonType="ButtonType.Submit" Disabled="@(!Validated)" Color="Color.Success">@_localizer["Save"]</MudButton>
+            }
+        </DialogActions>
+    </MudDialog>
+</EditForm>

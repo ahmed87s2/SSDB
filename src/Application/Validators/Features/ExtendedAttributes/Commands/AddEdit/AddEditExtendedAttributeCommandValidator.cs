@@ -1,5 +1,5 @@
 ﻿using System;
-using SSDB.Application.Features.ExtendedAttributes.Commands.AddEdit;
+using SSDB.Application.Features.ExtendedAttributes.Commands;
 using SSDB.Domain.Contracts;
 using SSDB.Domain.Enums;
 using FluentValidation;

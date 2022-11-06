@@ -1,4 +1,4 @@
-﻿namespace SSDB.Application.Features.Students.Queries.GetStudentImage
+﻿namespace SSDB.Application.Features.Students.Queries
 {
     public class GetStudentImageResponse
     {

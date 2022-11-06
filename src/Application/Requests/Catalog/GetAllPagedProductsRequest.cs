@@ -3,5 +3,4 @@
     public class GetAllPagedStudentsRequest : PagedRequest
     {
         public string SearchString { get; set; }
-    }
-}
+    }}

@@ -1,0 +1,119 @@
+﻿@page "/catalog/Students"
+@attribute [Authorize(Policy = Permissions.Students.View)]
+@inject Microsoft.Extensions.Localization.IStringLocalizer<Students> _localizer
+@using SSDB.Application.Features.Students.Queries;
+
+<style>
+    .mud-table-container {
+        overflow: auto;
+    }
+    .mud-table-container {
+        overflow: auto;
+    }
+
+    .mud-table-cell {font-size:inherit;
+        padding: 5px 15px 5px 15px;
+    }
+</style>
+
+<HeroTitle Title="@_localizer["Students"]" Description="@_localizer["Manage Students."]" />
+@if (!_loaded)
+{
+    <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+}
+else
+{
+    <MudTable Elevation="25" ServerData="@(new Func<TableState, Task<TableData<GetAllPagedStudentsResponse>>>(ServerReload))" Hover="true" Dense="@_dense" Bordered="@_bordered" Striped="@_striped" @ref="_table">
+        <ToolBarContent>
+            <div class="justify-center mud-text-align-center">
+                @if (_canCreateStudents)
+                {
+                    <MudButton DisableElevation Variant="Variant.Filled" Color="Color.Primary" @onclick="@(() => InvokeModal(null))" StartIcon="@Icons.Material.Filled.Add" IconColor="Color.Surface">@_localizer["Create"]</MudButton>
+                    <MudButton DisableElevation Variant="Variant.Filled" OnClick="@(() => OnSearch(""))" StartIcon="@Icons.Material.Filled.Refresh" IconColor="Color.Surface" Color="Color.Secondary">@_localizer["Reload"]</MudButton>
+                    @if (_canExportStudents)
+                    {
+                        <MudButton DisableElevation Variant="Variant.Filled" OnClick="ExportToExcel" StartIcon="@Icons.Custom.FileFormats.FileExcel" IconColor="Color.Secondary" Color="Color.Surface" Style="margin-left: 5px;">@_localizer["Export"]</MudButton>
+                    }
+                }
+                else
+                {
+                    <MudButton DisableElevation Variant="Variant.Filled" OnClick="@(() => OnSearch(""))" StartIcon="@Icons.Material.Filled.Refresh" IconColor="Color.Surface" Color="Color.Secondary">@_localizer["Reload"]</MudButton>
+                    @if (_canExportStudents)
+                    {
+                        <MudButton DisableElevation Variant="Variant.Filled" OnClick="ExportToExcel" StartIcon="@Icons.Custom.FileFormats.FileExcel" IconColor="Color.Secondary" Color="Color.Surface" Style="margin-left: 5px;">@_localizer["Export"]</MudButton>
+                    }
+                }
+            </div>
+            <MudToolBarSpacer />
+            @if (_canSearchStudents)
+            {
+                <MudTextField T="string" ValueChanged="@(s=>OnSearch(s))" Placeholder="@_localizer["Search"]" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+            }
+        </ToolBarContent>
+        <HeaderContent>
+            <MudTh><MudTableSortLabel T="GetAllPagedStudentsResponse" SortLabel="Number">@_localizer["Number"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedStudentsResponse" SortLabel="Name">@_localizer["Name"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedStudentsResponse" SortLabel="Phone">@_localizer["Phone"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedStudentsResponse" SortLabel="MedicalFees">@_localizer["MedicalFees"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedStudentsResponse" SortLabel="Status">@_localizer["Status"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedStudentsResponse" SortLabel="GraduationDate">@_localizer["GraduationDate"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedStudentsResponse" SortLabel="Addmission">@_localizer["Addmission"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedStudentsResponse" SortLabel="Department">@_localizer["Department"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedStudentsResponse" SortLabel="Batch">@_localizer["Batch"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedStudentsResponse" SortLabel="Currency">@_localizer["Currency"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedStudentsResponse" SortLabel="Fuculty">@_localizer["Fuculty"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedStudentsResponse" SortLabel="Program">@_localizer["Program"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedStudentsResponse" SortLabel="Specialization">@_localizer["Specialization"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedStudentsResponse" SortLabel="Semester">@_localizer["Semester"]</MudTableSortLabel></MudTh>
+            <MudTh Style="text-align:right">@_localizer["Actions"]</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd DataLabel="Number">@context.Id</MudTd>
+            <MudTd DataLabel="Name"><MudHighlighter Text="@context.NameA" HighlightedText="@_searchString" /></MudTd>
+            <MudTd DataLabel="Phone"><MudHighlighter Text="@context.Phone" HighlightedText="@_searchString" /></MudTd>
+            <MudTd DataLabel="MedicalFees">    <MudHighlighter Text="@context.MedicalFees.ToString()" HighlightedText="@_searchString" /></MudTd>
+            <MudTd DataLabel="Status"><MudHighlighter Text="@context.Status" HighlightedText="@_searchString" /></MudTd>
+            <MudTd DataLabel="GraduationDate">@context.GraduationDate.ToString("dd-MMM-yy")</MudTd>
+            <MudTd DataLabel="Addmission"><MudHighlighter Text="@context.Addmission.Name" HighlightedText="@_searchString"/></MudTd>
+            <MudTd DataLabel="Department"><MudHighlighter Text="@context.Department.NameA" HighlightedText="@_searchString" /></MudTd>
+            <MudTd DataLabel="Batch"><MudHighlighter Text="@context.Batch.Name" HighlightedText="@_searchString"/></MudTd>
+            <MudTd DataLabel="Currency"><MudHighlighter Text="@context.Currency.Name" HighlightedText="@_searchString"/></MudTd>
+            <MudTd DataLabel="Fuculty"><MudHighlighter Text="@context.Fuculty.NameA" HighlightedText="@_searchString" /></MudTd>
+            <MudTd DataLabel="Program"><MudHighlighter Text="@context.Program.NameA" HighlightedText="@_searchString" /></MudTd>
+            <MudTd DataLabel="Specialization"><MudHighlighter Text="@context.Specialization.NameA" HighlightedText="@_searchString" /></MudTd>
+            <MudTd DataLabel="Semester"><MudHighlighter Text="@context.Semester.Name" HighlightedText="@_searchString"/></MudTd>
+
+            <MudTd DataLabel="Actions" Style="text-align: right">
+                @if (_canEditStudents || _canDeleteStudents)
+                {
+                    <MudMenu Label="@_localizer["Actions"]" Variant="Variant.Filled" DisableElevation="true" EndIcon="@Icons.Filled.KeyboardArrowDown" IconColor="Color.Secondary" Direction="Direction.Left" OffsetX="true">
+                        @if (_canEditStudents)
+                        {
+                            <MudMenuItem @onclick="@(() => InvokeModal(@context.Id))">@_localizer["Edit"]</MudMenuItem>
+                        }
+                        @if (_canDeleteStudents)
+                        {
+                            <MudMenuItem @onclick="@(() => Delete(@context.Id))">@_localizer["Delete"]</MudMenuItem>
+                        }
+                    </MudMenu>
+                }
+                else
+                {
+                    <MudButton Variant="Variant.Filled"
+                       DisableElevation="true"
+                       StartIcon="@Icons.Material.Filled.DoNotTouch"
+                       IconColor="Color.Secondary"
+                       Size="Size.Small"
+                       Color="Color.Surface">
+                        @_localizer["No Allowed Actions"]
+                    </MudButton>
+                }
+            </MudTd>
+        </RowTemplate>
+        <FooterContent>
+            </FooterContent>
+        <PagerContent>
+            <TablePager />
+        </PagerContent>
+    </MudTable>
+}

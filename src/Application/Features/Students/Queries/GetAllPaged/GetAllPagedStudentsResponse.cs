@@ -1,13 +1,26 @@
-﻿namespace SSDB.Application.Features.Students.Queries.GetAllPaged
+﻿using SSDB.Domain.Contracts;
+using SSDB.Domain.Entities.Catalog;
+using System.ComponentModel.DataAnnotations;
+using System;
+
+namespace SSDB.Application.Features.Students.Queries
 {
     public class GetAllPagedStudentsResponse
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public int Barcode { get; set; }
-        public string Description { get; set; }
-        public double Rate { get; set; }
-        public string University { get; set; }
-        public int UniversityId { get; set; }
+        public string Id { get; set; }
+        public int First_semster { get; set; }
+        public string Phone { get; set; }
+        public double MedicalFees { get; set; }
+        public string NameA { get; set; }
+        public string Status { get; set; }
+        public DateTime GraduationDate { get; set; }
+        public Addmission Addmission { get; set; }
+        public Department Department { get; set; }
+        public Batch Batch { get; set; }
+        public Currency Currency { get; set; }
+        public Fuculty Fuculty { get; set; }
+        public Program Program { get; set; }
+        public Specialization Specialization { get; set; }
+        public Semester Semester { get; set; }
     }
 }

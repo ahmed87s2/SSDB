@@ -5,12 +5,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SSDB.Domain.Entities.Catalog
 {
-    public class Student : AuditableEntity<int>
+    public class Student : AuditableEntity<string>
     {
-        public string Number { get; set; }
         public string NameA { get; set; }
         public string NameE { get; set; }
-        public int? BatchId { get; set; }
+        public int BatchId { get; set; }
         public int FucultyId { get; set; }
         public int DepartmentId { get; set; }
         public int ProgramId { get; set; }
@@ -24,27 +23,24 @@ namespace SSDB.Domain.Entities.Catalog
         public string CertificateType { get; set; }
         public string Std_Picture { get; set; }
         public int SpecializationId { get; set; }
-        public DateTime GraduationDate { get; set; }
-        public int RegistrationId { get; set; }
-        public decimal MedicalFees { get; set; }
-        public int StudentStatus { get; set; }
-        public int StdPassword { get; set; }
-        public int NoStudyFees { get; set; }
+        public DateTime? GraduationDate { get; set; }
+        public decimal? MedicalFees { get; set; }
+        public int? StdPassword { get; set; }
+        public bool NoStudyFees { get; set; }
         public int CurrencyId { get; set; }
         public string Comments { get; set; }
-        public decimal AdvisorId { get; set; }
+        public decimal? AdvisorId { get; set; }
         public string Record_Status { get; set; }
         public string RegType { get; set; }
-        public decimal CGPA { get; set; }
+        public decimal? CGPA { get; set; }
         public string Status { get; set; }
         public int SemesterId { get; set; }
-        public decimal ToLocalCurrency { get; set; }
-        public decimal StudyFeesUpdated { get; set; }
+        public decimal? ToLocalCurrency { get; set; }
+        public decimal? StudyFeesUpdated { get; set; }
         
         public University University { get; set; }
         public Addmission Addmission { get; set; }
         public Department Department { get; set; }
-        public Registration Registration { get; set; }
         public Batch Batch { get; set; }
         public Currency Currency { get; set; }
         public Fuculty Fuculty { get; set; }

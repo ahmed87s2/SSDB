@@ -16,7 +16,7 @@ namespace SSDB.Client.Pages.Content
 
         [CascadingParameter] private HubConnection HubConnection { get; set; }
         [Parameter] public int StudentCount { get; set; }
-        [Parameter] public int UniversityCount { get; set; }
+        [Parameter] public int RegistrationCount { get; set; }
         [Parameter] public int DocumentCount { get; set; }
         [Parameter] public int DocumentTypeCount { get; set; }
         [Parameter] public int DocumentExtendedAttributeCount { get; set; }
@@ -48,7 +48,7 @@ namespace SSDB.Client.Pages.Content
             if (response.Succeeded)
             {
                 StudentCount = response.Data.StudentCount;
-                UniversityCount = response.Data.UniversityCount;
+                RegistrationCount = response.Data.RegistrationCount;
                 DocumentCount = response.Data.DocumentCount;
                 DocumentTypeCount = response.Data.DocumentTypeCount;
                 DocumentExtendedAttributeCount = response.Data.DocumentExtendedAttributeCount;

@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using SSDB.Application.Features.Universities.Commands.AddEdit;
+using SSDB.Application.Features.Universities.Commands;
 using SSDB.Client.Infrastructure.Managers.Catalog.University;
 using SSDB.Shared.Constants.Permission;
 using Microsoft.AspNetCore.Authorization;

@@ -22,24 +22,28 @@ namespace SSDB.Application.Features.Dashboards.Queries.GetData
     internal class GetDashboardDataQueryHandler : IRequestHandler<GetDashboardDataQuery, Result<DashboardDataResponse>>
     {
         private readonly IUnitOfWork<int> _unitOfWork;
+        private readonly IUnitOfWork<string> _studentUnitOfWork;
         private readonly IUserService _userService;
         private readonly IRoleService _roleService;
         private readonly IStringLocalizer<GetDashboardDataQueryHandler> _localizer;
 
-        public GetDashboardDataQueryHandler(IUnitOfWork<int> unitOfWork, IUserService userService, IRoleService roleService, IStringLocalizer<GetDashboardDataQueryHandler> localizer)
+        public GetDashboardDataQueryHandler(IUnitOfWork<int> unitOfWork, IUserService userService, IRoleService roleService, IStringLocalizer<GetDashboardDataQueryHandler> localizer, IUnitOfWork<string> studentUnitOfWork)
         {
             _unitOfWork = unitOfWork;
             _userService = userService;
             _roleService = roleService;
             _localizer = localizer;
+            _studentUnitOfWork = studentUnitOfWork;
         }
 
         public async Task<Result<DashboardDataResponse>> Handle(GetDashboardDataQuery query, CancellationToken cancellationToken)
         {
             var response = new DashboardDataResponse
             {
-                StudentCount = await _unitOfWork.Repository<Student>().Entities.CountAsync(cancellationToken),
-                UniversityCount = await _unitOfWork.Repository<University>().Entities.CountAsync(cancellationToken),
+                StudentCount = await _studentUnitOfWork.Repository<Student>().Entities.CountAsync(cancellationToken),
+                RegistrationCount = await _unitOfWork.Repository<Registration>().Entities
+                .Where(x=>x.CreatedOn.Month == DateTime.Now.Month && x.CreatedOn.Year == DateTime.Now.Year)
+                .CountAsync(cancellationToken),
                 DocumentCount = await _unitOfWork.Repository<Document>().Entities.CountAsync(cancellationToken),
                 DocumentTypeCount = await _unitOfWork.Repository<DocumentType>().Entities.CountAsync(cancellationToken),
                 DocumentExtendedAttributeCount = await _unitOfWork.Repository<DocumentExtendedAttribute>().Entities.CountAsync(cancellationToken),
@@ -59,7 +63,7 @@ namespace SSDB.Application.Features.Dashboards.Queries.GetData
                 var filterStartDate = new DateTime(selectedYear, month, 01);
                 var filterEndDate = new DateTime(selectedYear, month, DateTime.DaysInMonth(selectedYear, month), 23, 59, 59); // Monthly Based
 
-                StudentsFigure[i - 1] = await _unitOfWork.Repository<Student>().Entities.Where(x => x.CreatedOn >= filterStartDate && x.CreatedOn <= filterEndDate).CountAsync(cancellationToken);
+                StudentsFigure[i - 1] = await _studentUnitOfWork.Repository<Student>().Entities.Where(x => x.CreatedOn >= filterStartDate && x.CreatedOn <= filterEndDate).CountAsync(cancellationToken);
                 UniversitiesFigure[i - 1] = await _unitOfWork.Repository<University>().Entities.Where(x => x.CreatedOn >= filterStartDate && x.CreatedOn <= filterEndDate).CountAsync(cancellationToken);
                 documentsFigure[i - 1] = await _unitOfWork.Repository<Document>().Entities.Where(x => x.CreatedOn >= filterStartDate && x.CreatedOn <= filterEndDate).CountAsync(cancellationToken);
                 documentTypesFigure[i - 1] = await _unitOfWork.Repository<DocumentType>().Entities.Where(x => x.CreatedOn >= filterStartDate && x.CreatedOn <= filterEndDate).CountAsync(cancellationToken);

@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using SSDB.Application.Features.ExtendedAttributes.Commands.AddEdit;
-using SSDB.Application.Features.ExtendedAttributes.Queries.Export;
-using SSDB.Application.Features.ExtendedAttributes.Queries.GetAllByEntityId;
+using SSDB.Application.Features.ExtendedAttributes.Commands;
 using SSDB.Client.Extensions;
 using SSDB.Client.Infrastructure.Managers.ExtendedAttribute;
 using SSDB.Domain.Contracts;
@@ -16,6 +14,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.JSInterop;
 using MudBlazor;
+using SSDB.Application.Features.ExtendedAttributes.Queries;
 
 namespace SSDB.Client.Shared.Components
 {

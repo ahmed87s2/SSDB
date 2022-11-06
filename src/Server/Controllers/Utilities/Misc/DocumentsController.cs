@@ -1,4 +1,4 @@
-﻿using SSDB.Application.Features.Documents.Commands.AddEdit;
+﻿using SSDB.Application.Features.Documents.Commands;
 using SSDB.Application.Features.Documents.Commands.Delete;
 using SSDB.Application.Features.Documents.Queries.GetAll;
 using Microsoft.AspNetCore.Mvc;

@@ -115,7 +115,7 @@ namespace SSDB.Server.Extensions
                         }
                     }
                 }
-
+                
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",

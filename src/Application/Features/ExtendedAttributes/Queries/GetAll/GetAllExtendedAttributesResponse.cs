@@ -3,7 +3,7 @@ using System;
 using SSDB.Domain.Contracts;
 using SSDB.Domain.Enums;
 
-namespace SSDB.Application.Features.ExtendedAttributes.Queries.GetAll
+namespace SSDB.Application.Features.ExtendedAttributes.Queries
 {
     public class GetAllExtendedAttributesResponse<TId, TEntityId> : IEntityAuditableExtendedAttribute
     {

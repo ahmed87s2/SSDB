@@ -1,5 +1,5 @@
 ﻿using System;
-using SSDB.Application.Features.ExtendedAttributes.Queries.Export;
+using SSDB.Application.Features.ExtendedAttributes.Queries;
 using SSDB.Application.Specifications.Base;
 using SSDB.Domain.Contracts;
 

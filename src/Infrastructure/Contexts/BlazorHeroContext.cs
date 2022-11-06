@@ -10,6 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using SSDB.Domain.Entities.ExtendedAttributes;
 using SSDB.Domain.Entities.Misc;
+using Microsoft.Extensions.Configuration;
 
 namespace SSDB.Infrastructure.Contexts
 {
@@ -71,6 +72,7 @@ namespace SSDB.Infrastructure.Contexts
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+
             foreach (var property in builder.Model.GetEntityTypes()
             .SelectMany(t => t.GetProperties())
             .Where(p => p.ClrType == typeof(decimal) || p.ClrType == typeof(decimal?)))
@@ -131,6 +133,11 @@ namespace SSDB.Infrastructure.Contexts
             {
                 entity.ToTable("UserTokens", "Identity");
             });
+
+            builder.Entity<Student>(entity =>
+            entity.Property(e => e.Id)
+                .IsRequired()
+                .HasMaxLength(50));
         }
     }
 }

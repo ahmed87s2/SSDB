@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using SSDB.Application.Features.Documents.Commands.AddEdit;
+using SSDB.Application.Features.Documents.Commands;
 using SSDB.Client.Infrastructure.Managers.Misc.Document;
 using SSDB.Domain.Entities.Misc;
 using SSDB.Shared.Constants.Permission;

@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using SSDB.Application.Features.ExtendedAttributes.Commands.AddEdit;
+using SSDB.Application.Features.ExtendedAttributes.Commands;
 using SSDB.Domain.Entities.ExtendedAttributes;
 using SSDB.Domain.Entities.Misc;
 using SSDB.Server.Controllers.Utilities.ExtendedAttributes.Base;

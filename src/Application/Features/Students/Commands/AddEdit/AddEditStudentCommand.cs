@@ -11,34 +11,60 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Localization;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using System;
 
-namespace SSDB.Application.Features.Students.Commands.AddEdit
+namespace SSDB.Application.Features.Students.Commands
 {
-    public partial class AddEditStudentCommand : IRequest<Result<int>>
+    public partial class AddEditStudentCommand : IRequest<Result<string>>
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         [Required]
-        public string Name { get; set; }
+        public string NameA { get; set; }
         [Required]
-        public int Barcode { get; set; }
+        public string NameE { get; set; }
         [Required]
-        public string Description { get; set; }
-        public string ImageDataURL { get; set; }
+        public int BatchId { get; set; }
+        public string Phone { get; set; }
         [Required]
-        public double Rate { get; set; }
+        public double MedicalFees { get; set; }
         [Required]
-        public int UniversityId { get; set; }
-        public UploadRequest UploadRequest { get; set; }
+        public int FucultyId { get; set; }
+        public int DepartmentId { get; set; }
+        public int ProgramId { get; set; }
+        public int AddmissionId { get; set; }
+        public string AddmissionFormNo { get; set; }
+        public int First_semster { get; set; }
+        public int NationalityId { get; set; }
+        public string Address { get; set; }
+        public string Gender { get; set; }
+        public string CertificateType { get; set; }
+        public string Std_Picture { get; set; }
+        public int SpecializationId { get; set; }
+        public DateTime GraduationDate { get; set; }
+        public int RegistrationId { get; set; }
+        public int StudentStatus { get; set; }
+        public int StdPassword { get; set; }
+        public int NoStudyFees { get; set; }
+        public int CurrencyId { get; set; }
+        public string Comments { get; set; }
+        public decimal AdvisorId { get; set; }
+        public string Record_Status { get; set; }
+        public string RegType { get; set; }
+        public decimal CGPA { get; set; }
+        public string Status { get; set; }
+        public int SemesterId { get; set; }
+        public decimal ToLocalCurrency { get; set; }
+        public decimal StudyFeesUpdated { get; set; }
     }
 
-    internal class AddEditStudentCommandHandler : IRequestHandler<AddEditStudentCommand, Result<int>>
+    internal class AddEditStudentCommandHandler : IRequestHandler<AddEditStudentCommand, Result<string>>
     {
         private readonly IMapper _mapper;
-        private readonly IUnitOfWork<int> _unitOfWork;
+        private readonly IUnitOfWork<string> _unitOfWork;
         private readonly IUploadService _uploadService;
         private readonly IStringLocalizer<AddEditStudentCommandHandler> _localizer;
 
-        public AddEditStudentCommandHandler(IUnitOfWork<int> unitOfWork, IMapper mapper, IUploadService uploadService, IStringLocalizer<AddEditStudentCommandHandler> localizer)
+        public AddEditStudentCommandHandler(IUnitOfWork<string> unitOfWork, IMapper mapper, IUploadService uploadService, IStringLocalizer<AddEditStudentCommandHandler> localizer)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
@@ -46,52 +72,24 @@ namespace SSDB.Application.Features.Students.Commands.AddEdit
             _localizer = localizer;
         }
 
-        public async Task<Result<int>> Handle(AddEditStudentCommand command, CancellationToken cancellationToken)
+        public async Task<Result<string>> Handle(AddEditStudentCommand command, CancellationToken cancellationToken)
         {
-            if (await _unitOfWork.Repository<Student>().Entities.Where(p => p.Id != command.Id)
-                .AnyAsync(p => p.Batch.Id == command.Barcode, cancellationToken))
-            {
-                return await Result<int>.FailAsync(_localizer["Barcode already exists."]);
-            }
+            var student = await _unitOfWork.Repository<Student>().GetByIdAsync(command.Id);
 
-            var uploadRequest = command.UploadRequest;
-            if (uploadRequest != null)
+            if (student==null)
             {
-                uploadRequest.FileName = $"P-{command.Barcode}{uploadRequest.Extension}";
-            }
-
-            if (command.Id == 0)
-            {
-                var student = _mapper.Map<Student>(command);
-                if (uploadRequest != null)
-                {
-                    student.Std_Picture = _uploadService.UploadAsync(uploadRequest);
-                }
-                await _unitOfWork.Repository<Student>().AddAsync(student);
+                var mappedStudent = _mapper.Map<Student>(command);
+                await _unitOfWork.Repository<Student>().AddAsync(mappedStudent);
                 await _unitOfWork.Commit(cancellationToken);
-                return await Result<int>.SuccessAsync(student.Id, _localizer["Student Saved"]);
+
+                return await Result<string>.SuccessAsync(mappedStudent.Id, _localizer["Student Added"]);
             }
             else
             {
-                var student = await _unitOfWork.Repository<Student>().GetByIdAsync(command.Id);
-                if (student != null)
-                {
-                    student.NameA = command.Name ?? student.NameA;
-                    student.Comments = command.Description ?? student.Comments;
-                    if (uploadRequest != null)
-                    {
-                        student.Std_Picture = _uploadService.UploadAsync(uploadRequest);
-                    }
-                    student.Registration.StudyFees = (command.Rate == 0) ? student.Registration.StudyFees : command.Rate;
-                    student.Addmission.Id = (command.UniversityId == 0) ? student.Addmission.Id : command.UniversityId;
-                    await _unitOfWork.Repository<Student>().UpdateAsync(student);
-                    await _unitOfWork.Commit(cancellationToken);
-                    return await Result<int>.SuccessAsync(student.Id, _localizer["Student Updated"]);
-                }
-                else
-                {
-                    return await Result<int>.FailAsync(_localizer["Student Not Found!"]);
-                }
+                var mappedStudent = _mapper.Map(command, student);
+                await _unitOfWork.Repository<Student>().UpdateAsync(mappedStudent);
+                await _unitOfWork.Commit(cancellationToken);
+                return await Result<string>.SuccessAsync(student.Id, _localizer["Student Updated"]);
             }
         }
     }

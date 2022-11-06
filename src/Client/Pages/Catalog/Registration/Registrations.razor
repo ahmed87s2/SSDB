@@ -1,0 +1,109 @@
+﻿@page "/catalog/Registrations"
+@attribute [Authorize(Policy = Permissions.Registrations.View)]
+@inject Microsoft.Extensions.Localization.IStringLocalizer<Registrations> _localizer
+@using SSDB.Application.Features.Registrations.Queries;
+
+
+<style>
+    .mud-table-container {
+        overflow: auto;
+    }
+    .mud-table-container {
+        overflow: auto;
+    }
+
+    .mud-table-cell {font-size:inherit;
+        padding: 5px 15px 5px 15px;
+    }
+</style>
+
+<HeroTitle Title="@_localizer["Registrations"]" Description="@_localizer["Manage Registrations."]" />
+@if (!_loaded)
+{
+    <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+}
+else
+{
+    <MudTable Elevation="25" ServerData="@(new Func<TableState, Task<TableData<GetAllPagedRegistrationsResponse>>>(ServerReload))" Hover="true" Dense="@_dense" Bordered="@_bordered" Striped="@_striped" @ref="_table">
+        <ToolBarContent>
+            <div class="justify-center mud-text-align-center">
+                @if (_canCreateRegistrations)
+                {
+                    <MudButton DisableElevation Variant="Variant.Filled" Color="Color.Primary" @onclick="@(() => InvokeModal(0))" StartIcon="@Icons.Material.Filled.Add" IconColor="Color.Surface">@_localizer["Create"]</MudButton>
+                    <MudButton DisableElevation Variant="Variant.Filled" OnClick="@(() => OnSearch(""))" StartIcon="@Icons.Material.Filled.Refresh" IconColor="Color.Surface" Color="Color.Secondary">@_localizer["Reload"]</MudButton>
+                    @if (_canExportRegistrations)
+                    {
+                        <MudButton DisableElevation Variant="Variant.Filled" OnClick="ExportToExcel" StartIcon="@Icons.Custom.FileFormats.FileExcel" IconColor="Color.Secondary" Color="Color.Surface" Style="margin-left: 5px;">@_localizer["Export"]</MudButton>
+                    }
+                }
+                else
+                {
+                    <MudButton DisableElevation Variant="Variant.Filled" OnClick="@(() => OnSearch(""))" StartIcon="@Icons.Material.Filled.Refresh" IconColor="Color.Surface" Color="Color.Secondary">@_localizer["Reload"]</MudButton>
+                    @if (_canExportRegistrations)
+                    {
+                        <MudButton DisableElevation Variant="Variant.Filled" OnClick="ExportToExcel" StartIcon="@Icons.Custom.FileFormats.FileExcel" IconColor="Color.Secondary" Color="Color.Surface" Style="margin-left: 5px;">@_localizer["Export"]</MudButton>
+                    }
+                }
+            </div>
+            <MudToolBarSpacer />
+            @if (_canSearchRegistrations)
+            {
+                <MudTextField T="string" ValueChanged="@(s=>OnSearch(s))" Placeholder="@_localizer["Search"]" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+            }
+        </ToolBarContent>
+        <HeaderContent>
+            <MudTh><MudTableSortLabel T="GetAllPagedRegistrationsResponse" SortLabel="Date">@_localizer["Date"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedRegistrationsResponse" SortLabel="Student">@_localizer["Student"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedRegistrationsResponse" SortLabel="Semester">@_localizer["Semester"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedRegistrationsResponse" SortLabel="Fees">@_localizer["Fees"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedRegistrationsResponse" SortLabel="StudyFees">@_localizer["StudyFees"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedRegistrationsResponse" SortLabel="BranchId">@_localizer["BranchId"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedRegistrationsResponse" SortLabel="PaymentNo">@_localizer["PaymentNo"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedRegistrationsResponse" SortLabel="linkNo">@_localizer["linkNo"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedRegistrationsResponse" SortLabel="Currency">@_localizer["Currency"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedRegistrationsResponse" SortLabel="Status">@_localizer["Status"]</MudTableSortLabel></MudTh>
+            <MudTh Style="text-align:right">@_localizer["Actions"]</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd DataLabel="Date">@context.Date.ToString("dd-MMM-yy")</MudTd>
+            <MudTd DataLabel="Student"><MudHighlighter Text="@context.Student.NameA" HighlightedText="@_searchString"/></MudTd>
+            <MudTd DataLabel="Semester"><MudHighlighter Text="@context.Semester.Name" HighlightedText="@_searchString" /></MudTd>
+            <MudTd DataLabel="Fees"><MudHighlighter Text="@context.Fees.ToString()" HighlightedText="@_searchString" /></MudTd>
+            <MudTd DataLabel="StudyFees"><MudHighlighter Text="@context.StudyFees.ToString()" HighlightedText="@_searchString" /></MudTd>
+            <MudTd DataLabel="BranchId"><MudHighlighter Text="@context.BranchId.ToString()" HighlightedText="@_searchString" /></MudTd>
+            <MudTd DataLabel="PaymentNo"><MudHighlighter Text="@context.PaymentNo" HighlightedText="@_searchString" /></MudTd>
+            <MudTd DataLabel="linkNo"><MudHighlighter Text="@context.linkNo.ToString()" HighlightedText="@_searchString" /></MudTd>
+            <MudTd DataLabel="Currency"><MudHighlighter Text="@context.Currency.Name" HighlightedText="@_searchString"/></MudTd>
+            <MudTd DataLabel="Status"><MudHighlighter Text="@context.Status.ToString()" HighlightedText="@_searchString" /></MudTd>
+
+            <MudTd DataLabel="Actions" Style="text-align: right">
+                @if (_canEditRegistrations || _canDeleteRegistrations)
+                {
+                    <MudMenu Label="@_localizer["Actions"]" Variant="Variant.Filled" DisableElevation="true" EndIcon="@Icons.Filled.KeyboardArrowDown" IconColor="Color.Secondary" Direction="Direction.Left" OffsetX="true">
+                        @if (_canEditRegistrations)
+                        {
+                            <MudMenuItem @onclick="@(() => InvokeModal(@context.Id))">@_localizer["Edit"]</MudMenuItem>
+                        }
+                        
+                    </MudMenu>
+                }
+                else
+                {
+                    <MudButton Variant="Variant.Filled"
+                       DisableElevation="true"
+                       StartIcon="@Icons.Material.Filled.DoNotTouch"
+                       IconColor="Color.Secondary"
+                       Size="Size.Small"
+                       Color="Color.Surface">
+                        @_localizer["No Allowed Actions"]
+                    </MudButton>
+                }
+            </MudTd>
+        </RowTemplate>
+        <FooterContent>
+        </FooterContent>
+        <PagerContent>
+            <TablePager />
+        </PagerContent>
+    </MudTable>
+}

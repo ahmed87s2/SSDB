@@ -4,7 +4,7 @@ using SSDB.Shared.Constants.Permission;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using SSDB.Application.Features.Universities.Commands.AddEdit;
+using SSDB.Application.Features.Universities.Commands;
 using SSDB.Application.Features.Universities.Commands.Delete;
 using SSDB.Application.Features.Universities.Queries.Export;
 
