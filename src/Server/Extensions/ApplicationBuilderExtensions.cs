@@ -50,7 +50,15 @@ namespace SSDB.Server.Extensions
 
         internal static IApplicationBuilder UseRequestLocalizationByCulture(this IApplicationBuilder app)
         {
-            var supportedCultures = LocalizationConstants.SupportedLanguages.Select(l => new CultureInfo(l.Code)).ToArray();
+            CultureInfo[] supportedCultures;
+            try
+            {
+                supportedCultures = LocalizationConstants.SupportedLanguages.Select(l => new CultureInfo(l.Code)).ToArray();
+            }
+            catch
+            {
+                supportedCultures = LocalizationConstants.SupportedLanguages.Select(l => new CultureInfo("en-US")).ToArray();
+            }
             app.UseRequestLocalization(options =>
             {
                 options.SupportedUICultures = supportedCultures;
