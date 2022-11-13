@@ -5,6 +5,11 @@
         public static readonly LanguageCode[] SupportedLanguages = {
             new LanguageCode
             {
+                Code = "ar-SA",
+                DisplayName= "Arabic"
+            },
+            new LanguageCode
+            {
                 Code = "en-US",
                 DisplayName= "English"
             },
