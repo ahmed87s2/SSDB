@@ -414,6 +414,13 @@
             <param name="command"></param>
             <returns>Status 200 OK</returns>
         </member>
+        <member name="M:SSDB.Server.Controllers.v1.Catalog.StudentsController.ChangeStatus(SSDB.Application.Features.Students.Commands.ChangeStudentStatusCommand)">
+            <summary>
+            Change Student Status
+            </summary>
+            <param name="command"></param>
+            <returns>Status 200 OK</returns>
+        </member>
         <member name="M:SSDB.Server.Controllers.v1.Catalog.StudentsController.Delete(System.String)">
             <summary>
             Delete a Student

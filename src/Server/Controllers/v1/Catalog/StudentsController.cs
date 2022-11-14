@@ -12,7 +12,7 @@ namespace SSDB.Server.Controllers.v1.Catalog
 {
     public class StudentsController : BaseApiController<StudentsController>
     {
-        [Authorize(Policy = Permissions.Students.View)]
+        [AllowAnonymous]
         [HttpGet("GetStdForReg")]
         public async Task<ActionResult<List<StdForReg>>> GetStdForReg()
         {
@@ -84,6 +84,19 @@ namespace SSDB.Server.Controllers.v1.Catalog
         [Authorize(Policy = Permissions.Students.Create)]
         [HttpPost]
         public async Task<IActionResult> Post(AddEditStudentCommand command)
+        {
+            return Ok(await _mediator.Send(command));
+        }
+
+
+        /// <summary>
+        /// Change Student Status
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns>Status 200 OK</returns>
+        [AllowAnonymous]
+        [HttpPost(nameof(ChangeStatus))]
+        public async Task<IActionResult> ChangeStatus(ChangeStudentStatusCommand command)
         {
             return Ok(await _mediator.Send(command));
         }

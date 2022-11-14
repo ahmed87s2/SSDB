@@ -251,17 +251,17 @@
       "mscorlib.dll": "sha256-zMI\/dXK7DoZZ9Qm9U9\/jRN4iQ9Ss3w8\/rwQQxC6SW9Y=",
       "netstandard.dll": "sha256-W3q3PN+lpRB+tRJEIhtMgYOGFv0pauEeeCS9iIRkKAM=",
       "System.Private.CoreLib.dll": "sha256-9rUJv1mXEQdGt\/kWiJ1ITPPzp3cAi3lSmqHVTisp7w0=",
-      "SSDB.Application.dll": "sha256-P3fncHj\/eYnXQfg3DrttR5wLvqewl4wEmWNb0F2tZUY=",
-      "SSDB.Client.Infrastructure.dll": "sha256-tnYBq3YJZlQqwUOeZorJrGawJNk4VCwT1C2BlaPP71Y=",
+      "SSDB.Application.dll": "sha256-Z5YCsLKM1CzGnozfVZNgRDqiykdJwQt3MbO70TsdakM=",
+      "SSDB.Client.Infrastructure.dll": "sha256-dsAWEsljhBu91CPZ95OFdQOG+flDBVlki4bMUiEOqaA=",
       "SSDB.Domain.dll": "sha256-82Px7xBmMzh9m8Gqj\/p3YNIHmrAS0+ht+udf6gpAlOY=",
-      "SSDB.Shared.dll": "sha256-qJjafrkHLqKtpoJfsi5JZ0Uf7z\/Cln31aBdgRfdABHo=",
-      "SSDB.Client.dll": "sha256-TlQPq7qRAEILxlMQuVvukGTp24df2R9Ag65\/5hVDeJA="
+      "SSDB.Shared.dll": "sha256-9fM4SnOsQZDWjP92Eu4pqtSifjGRNh5Q9++G6tLszFI=",
+      "SSDB.Client.dll": "sha256-o+vyi8s68OSVmloqT\/cNH78o7+uwYUNGUs3YuCGMJJo="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "SSDB.Client.pdb": "sha256-rAxDoBvHucLWPsl4PFOKi88bEwHWrBnpBjjs6ttp8SQ="
+      "SSDB.Client.pdb": "sha256-yAK37BWF+n8bAkcH7onTd80XQIP2j4csqnRVBRmJCkk="
     },
     "runtime": {
       "dotnet.timezones.blat": "sha256-8oJip361m8OrfLRJOuIeswWKaoxtT27\/wINCxhn+s4c=",
@@ -274,43 +274,43 @@
     },
     "satelliteResources": {
       "de": {
-        "de\/SSDB.Client.resources.dll": "sha256-UW7BLYtKQWpTL1nZz9bH2YOG4WB2ntznQL7KlJKPtnY=",
-        "de\/SSDB.Application.resources.dll": "sha256-cJyMPFjMVBAkA6IHfkvd0hjYRVAUTvLgqAq65dCg7CA="
+        "de\/SSDB.Client.resources.dll": "sha256-klo3CYb0CaMpAwclbMTdtN+chHsN30JmdsekyCB7ikQ=",
+        "de\/SSDB.Application.resources.dll": "sha256-89yw\/Nwh\/AoesMP58DAfnChP4ed8cipCQbGPcXZ8vlw="
       },
       "en": {
-        "en\/SSDB.Client.resources.dll": "sha256-HQI7wYj2W6\/Qytcsw7J4uER1WEb0AqxYFFrs3LYIKZk=",
-        "en\/SSDB.Client.Infrastructure.resources.dll": "sha256-TRqRlGNugqR4OW1pbU0+yDYNk8AaauSu5aUzCTYXU\/U=",
-        "en\/SSDB.Application.resources.dll": "sha256-iPAic1BwCYftXQ1PF5Xv0c+w+LNYDg+Yt5uT0f4de8E="
+        "en\/SSDB.Client.resources.dll": "sha256-OA5jxHirEIYBQXL8qhm9JjUixRHyvJynIu+4HD2gex0=",
+        "en\/SSDB.Client.Infrastructure.resources.dll": "sha256-b6RH\/9vdmnrxVgMEfCxyWCMqtqwxZJfzzJagL\/ck98k=",
+        "en\/SSDB.Application.resources.dll": "sha256-RY8iZMXFfj3G1RikwV2v47NG06\/WtAh7BF1jaUUgLNs="
       },
       "es": {
-        "es\/SSDB.Client.resources.dll": "sha256-cznBWEdxxPiBi7+JtRq\/tuiLM3HsTtHfWHXpM5rYZng=",
-        "es\/SSDB.Application.resources.dll": "sha256-ciPvcRbT+kaB7\/f6tNW7XOWOldhwRqtzKeNl+XFkTeM="
+        "es\/SSDB.Client.resources.dll": "sha256-lbGPD8X4hgQg6rugsS4ZgvcTvgxToVVGmdvdIUiJ0Ho=",
+        "es\/SSDB.Application.resources.dll": "sha256-LwQebzGAAoH7jzTg6696tJgn8a9WL5gIvd8OliPCJXk="
       },
       "id": {
-        "id\/SSDB.Client.resources.dll": "sha256-xAQvgDCtyUSGWJ\/6DOn9FF\/+QI0c2Ev1m4BLo8H+pN8=",
-        "id\/SSDB.Application.resources.dll": "sha256-cjFIQje0tw7oCk9Iia\/+rFKuDNLChcZZWOCsB9lsL90="
+        "id\/SSDB.Client.resources.dll": "sha256-6kjSvvy2eYKYABiz7rlDNELmVIZqIjkoXCPaEADMfuE=",
+        "id\/SSDB.Application.resources.dll": "sha256-QuVWpjCz4uHWGSezn1K7Q0YRccWSL\/VIX7tvf9XtyvA="
       },
       "it": {
-        "it\/SSDB.Client.resources.dll": "sha256-r88H1ObTgfn+9LX6hgZzTQ9PV8VB3DQukmhBQrJXVGM=",
-        "it\/SSDB.Application.resources.dll": "sha256-QsHPVWahptY\/BiNuJND\/6oqZ5xjjBai55qGKBpU8\/gk="
+        "it\/SSDB.Client.resources.dll": "sha256-faxYBUETqq9HumPpxMMV57\/4NM6K7L\/xA2I5qtrIFt4=",
+        "it\/SSDB.Application.resources.dll": "sha256-p79QgBja\/s6qBUUu6L2XYKJEzH5Lm348LerU8tyJCZY="
       },
       "km": {
-        "km\/SSDB.Client.resources.dll": "sha256-59+zJSKUJV7JCwobeg3r6ux+EYmCds0VNVjsx5lkz94=",
-        "km\/SSDB.Client.Infrastructure.resources.dll": "sha256-QEuW00NJ4hGX877xMrVgsBEk9tDj2XvEY7qvHGs1zY0=",
-        "km\/SSDB.Application.resources.dll": "sha256-\/bhUBY73gZovUSOnThDDFzi4onSBlN7dBk8JymYt8iY="
+        "km\/SSDB.Client.resources.dll": "sha256-H9bEmi\/eDYgHBosN13ZDiguQuaocn61Oc3ZhJqRbuUA=",
+        "km\/SSDB.Client.Infrastructure.resources.dll": "sha256-8KJF30\/kd714ppHFOqGV6iHtJ\/QXEwoy7\/VEmFapGk0=",
+        "km\/SSDB.Application.resources.dll": "sha256-AmbgIbxQVA0tmd2sGHEBOijoPEAZKIejlvKeoRwYN0M="
       },
       "ru": {
-        "ru\/SSDB.Client.resources.dll": "sha256-aRC7qSPa1w\/HkmsVFP6wxr\/jKHJ24Kv+JNd2QZxOTWY=",
-        "ru\/SSDB.Client.Infrastructure.resources.dll": "sha256-gNooKIt\/xa2ZwVuCAWzeRo7gDxIxAoQ3vA\/rihKf60M=",
-        "ru\/SSDB.Application.resources.dll": "sha256-cQbfpS7pknRdPQJSTUBIf1ulJBU\/HRivAoiN2ofCP9M="
+        "ru\/SSDB.Client.resources.dll": "sha256-I2ZxRTVAPh8EmGtFLxVo0J5jsHvmbZTCt2hihQLkKPk=",
+        "ru\/SSDB.Client.Infrastructure.resources.dll": "sha256-q4fufVdz4xA588qB\/Nj5iWrnZzDkzXn\/bcHoD8MMDCw=",
+        "ru\/SSDB.Application.resources.dll": "sha256-+vL9C1UJA+64qXC1S+iXDfPCEN9GXEoPnXIbwGVacIQ="
       },
       "sv": {
-        "sv\/SSDB.Client.resources.dll": "sha256-gnJ45R15rbxxeZhBHzK4SR2u2BHjzaIhC46VDToOLQY=",
-        "sv\/SSDB.Application.resources.dll": "sha256-eZTXqzG9Xs3QkuHtmZW1AzSG2q1x9VFpKywyK+6ciOg="
+        "sv\/SSDB.Client.resources.dll": "sha256-0EXzZyw+XoVvPc3J+Vd9mTnnKwiRXGK1fil5gxqBZEk=",
+        "sv\/SSDB.Application.resources.dll": "sha256-bYskPK+co2Rb+PoKeYB9juSQsZ99Ssgl18TahMkofys="
       },
       "fr": {
-        "fr\/SSDB.Client.resources.dll": "sha256-JNZ+YvLqCGYV9dMaYcyv32wjBR+\/aZzRiri+zlqnRJw=",
-        "fr\/SSDB.Application.resources.dll": "sha256-O401g0sHEf7TT0juCGpWydyfuKgdOrE2HU30jzCa0Dc="
+        "fr\/SSDB.Client.resources.dll": "sha256-86zy0egiktdVtxbN0F3ZMMw+McFw+o67jtCda9SPaQI=",
+        "fr\/SSDB.Application.resources.dll": "sha256-BjLf0NJq96F5+1\/B3aKrq9dYc5n9B+f9x5fe40tIMV8="
       }
     }
   }

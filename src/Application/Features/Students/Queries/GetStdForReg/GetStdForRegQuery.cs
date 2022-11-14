@@ -35,6 +35,7 @@ namespace SSDB.Application.Features.Students.Queries
                 .Include(x => x.Currency)
                 .Include(x => x.Fuculty)
                 .Include(x => x.Semester)
+                .Where(x=>x.Status=="U" || x.Status == "N")
                 .ToListAsync();
 
             var finalList = _mapper.Map<List<StdForReg>>(studetns);

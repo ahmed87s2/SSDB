@@ -14,19 +14,10 @@
         <DataAnnotationsValidator />
         <MudItem xs="12">
             <div class="d-flex justify-center">
-                <MudText Typo="Typo.h4">@_localizer["Title"]</MudText>
+                <MudText Typo="Typo.h4">الجامعة الأهلية</MudText>
             </div>
         </MudItem>
-        <MudItem xs="12">
-            <div class="d-flex justify-center">
-                <MudText>@_localizer["Description"]</MudText>
-            </div>
-        </MudItem>
-        <MudItem xs="12">
-            <div class="d-flex justify-center">
-                <MudText>@_localizer["Don't have an account?"] <MudLink Href="/register">@_localizer["Register here"]</MudLink></MudText>
-            </div>
-        </MudItem>
+        
         <MudItem xs="12">
             <MudTextField T="string" Label="@_localizer["E-mail"]" Variant="Variant.Outlined"
                           @bind-Value="_tokenModel.Email" For="@(() => _tokenModel.Email)" />
@@ -42,11 +33,11 @@
         <MudItem xs="12" Class="d-flex justify-center">
             <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Disabled="@(!Validated)" Color="Color.Primary" Size="Size.Large" Style="width: 100%;">@_localizer["Sign In"]</MudButton>
         </MudItem>
-        <MudItem xs="12">
+        @*<MudItem xs="12">
             <MudButton OnClick="FillAdministratorCredentials">@_localizer["Fill Administrator Credentials"]</MudButton>
         </MudItem>
         <MudItem xs="12">
             <MudButton OnClick="FillBasicUserCredentials">@_localizer["Fill Basic User Credentials"]</MudButton>
-        </MudItem>
+        </MudItem>*@
     </MudGrid>
 </EditForm>

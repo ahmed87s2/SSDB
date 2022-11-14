@@ -212,3 +212,4 @@ C:\WorkPlace\Clean Arch\SSDB\src\Server\obj\Debug\net5.0\refint\SSDB.Server.dll
 C:\WorkPlace\Clean Arch\SSDB\src\Server\obj\Debug\net5.0\SSDB.Server.pdb
 C:\WorkPlace\Clean Arch\SSDB\src\Server\obj\Debug\net5.0\Server.genruntimeconfig.cache
 C:\WorkPlace\Clean Arch\SSDB\src\Server\obj\Debug\net5.0\ref\SSDB.Server.dll
+C:\WorkPlace\Clean Arch\SSDB\src\Server\bin\Debug\net5.0\appsettings.Production.json
