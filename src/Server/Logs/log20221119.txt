@@ -1,0 +1,209 @@
+2022-11-19 11:59:51.624 +02:00 [INF] Now listening on: https://localhost:5001
+2022-11-19 11:59:51.697 +02:00 [INF] Now listening on: http://localhost:5000
+2022-11-19 11:59:51.701 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-19 11:59:51.702 +02:00 [INF] Hosting environment: Development
+2022-11-19 11:59:51.703 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-19 12:00:03.132 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at SSDB.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\WorkPlace\Clean Arch\SSDB\src\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-11-19 12:00:03.132 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at SSDB.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\WorkPlace\Clean Arch\SSDB\src\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-11-19 12:00:03.410 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at SSDB.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\WorkPlace\Clean Arch\SSDB\src\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-11-19 12:00:03.638 +02:00 [ERR] Connection id "0HMMA2J6MSI6G", Request id "0HMMA2J6MSI6G:00000007": An unhandled exception was thrown by the application.
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at SSDB.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\WorkPlace\Clean Arch\SSDB\src\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Builder.Extensions.MapWhenMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2022-11-19 12:00:03.638 +02:00 [ERR] Connection id "0HMMA2J6MSI6G", Request id "0HMMA2J6MSI6G:0000000D": An unhandled exception was thrown by the application.
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at SSDB.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\WorkPlace\Clean Arch\SSDB\src\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Builder.Extensions.MapWhenMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2022-11-19 12:00:03.643 +02:00 [ERR] Connection id "0HMMA2J6MSI6G", Request id "0HMMA2J6MSI6G:0000000F": An unhandled exception was thrown by the application.
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at SSDB.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\WorkPlace\Clean Arch\SSDB\src\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Builder.Extensions.MapWhenMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2022-11-19 12:04:38.013 +02:00 [ERR] Failed executing DbCommand (14ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AddmissionFormNo], [t].[AddmissionId], [t].[Address], [t].[AdvisorId], [t].[BatchId], [t].[CGPA], [t].[CertificateType], [t].[Comments], [t].[CreatedBy], [t].[CreatedOn], [t].[CurrencyId], [t].[DepartmentId], [t].[First_semster], [t].[FucultyId], [t].[Gender], [t].[GraduationDate], [t].[LastModifiedBy], [t].[LastModifiedOn], [t].[MedicalFees], [t].[NameA], [t].[NameE], [t].[NationalityId], [t].[NoStudyFees], [t].[Panalty], [t].[Phone], [t].[ProgramId], [t].[Record_Status], [t].[RegType], [t].[RegistrationFees], [t].[SemesterId], [t].[SpecializationId], [t].[Status], [t].[StdPassword], [t].[Std_Picture], [t].[StudyFeesUpdated], [t].[ToLocalCurrency], [t].[UniversityId], [a].[Id], [a].[CreatedBy], [a].[CreatedOn], [a].[Date], [a].[LastModifiedBy], [a].[LastModifiedOn], [a].[Name], [a].[Type], [d].[Id], [d].[CreatedBy], [d].[CreatedOn], [d].[FacultyId], [d].[FucultyId], [d].[LastModifiedBy], [d].[LastModifiedOn], [d].[NameA], [d].[NameE], [d].[Number], [b].[Id], [b].[CreatedBy], [b].[CreatedOn], [b].[LastModifiedBy], [b].[LastModifiedOn], [b].[Name], [c].[Id], [c].[Adjust], [c].[CreatedBy], [c].[CreatedOn], [c].[LastModifiedBy], [c].[LastModifiedOn], [c].[Name], [f].[Id], [f].[CreatedBy], [f].[CreatedOn], [f].[LastModifiedBy], [f].[LastModifiedOn], [f].[NameA], [f].[NameE], [f].[OrderColumn], [f].[OrderId], [f].[ShortName], [p].[Id], [p].[CreatedBy], [p].[CreatedOn], [p].[LastModifiedBy], [p].[LastModifiedOn], [p].[NameA], [p].[NameE], [s0].[Id], [s0].[CreatedBy], [s0].[CreatedOn], [s0].[FacultyId], [s0].[LastModifiedBy], [s0].[LastModifiedOn], [s0].[MaxHours], [s0].[Name], [s0].[ProgramId], [s1].[Id], [s1].[CreatedBy], [s1].[CreatedOn], [s1].[LastModifiedBy], [s1].[LastModifiedOn], [s1].[NameA], [s1].[NameE], [u].[Id], [u].[Amount], [u].[CreatedBy], [u].[CreatedOn], [u].[Description], [u].[LastModifiedBy], [u].[LastModifiedOn], [u].[Name]
+FROM (
+    SELECT [s].[Id], [s].[AddmissionFormNo], [s].[AddmissionId], [s].[Address], [s].[AdvisorId], [s].[BatchId], [s].[CGPA], [s].[CertificateType], [s].[Comments], [s].[CreatedBy], [s].[CreatedOn], [s].[CurrencyId], [s].[DepartmentId], [s].[First_semster], [s].[FucultyId], [s].[Gender], [s].[GraduationDate], [s].[LastModifiedBy], [s].[LastModifiedOn], [s].[MedicalFees], [s].[NameA], [s].[NameE], [s].[NationalityId], [s].[NoStudyFees], [s].[Panalty], [s].[Phone], [s].[ProgramId], [s].[Record_Status], [s].[RegType], [s].[RegistrationFees], [s].[SemesterId], [s].[SpecializationId], [s].[Status], [s].[StdPassword], [s].[Std_Picture], [s].[StudyFeesUpdated], [s].[ToLocalCurrency], [s].[UniversityId]
+    FROM [Students] AS [s]
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN [Addmissions] AS [a] ON [t].[AddmissionId] = [a].[Id]
+INNER JOIN [Departments] AS [d] ON [t].[DepartmentId] = [d].[Id]
+INNER JOIN [Batches] AS [b] ON [t].[BatchId] = [b].[Id]
+INNER JOIN [Currencies] AS [c] ON [t].[CurrencyId] = [c].[Id]
+INNER JOIN [Fuculties] AS [f] ON [t].[FucultyId] = [f].[Id]
+INNER JOIN [Programs] AS [p] ON [t].[ProgramId] = [p].[Id]
+INNER JOIN [Semesters] AS [s0] ON [t].[SemesterId] = [s0].[Id]
+INNER JOIN [Specializations] AS [s1] ON [t].[SpecializationId] = [s1].[Id]
+LEFT JOIN [Universities] AS [u] ON [t].[UniversityId] = [u].[Id]
+2022-11-19 12:04:38.044 +02:00 [ERR] An exception occurred while iterating over the results of a query for context type 'SSDB.Infrastructure.Contexts.BlazorHeroContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'Panalty'.
+Invalid column name 'RegistrationFees'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:d7c79a01-8a64-4273-a554-ca2296ce260f
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'Panalty'.
+Invalid column name 'RegistrationFees'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:d7c79a01-8a64-4273-a554-ca2296ce260f
+Error Number:207,State:1,Class:16
+2022-11-19 12:05:54.389 +02:00 [ERR] Failed executing DbCommand (7ms) [Parameters=[@__request_StudentNumber_0='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[AddmissionFormNo], [s].[AddmissionId], [s].[Address], [s].[AdvisorId], [s].[BatchId], [s].[CGPA], [s].[CertificateType], [s].[Comments], [s].[CreatedBy], [s].[CreatedOn], [s].[CurrencyId], [s].[DepartmentId], [s].[First_semster], [s].[FucultyId], [s].[Gender], [s].[GraduationDate], [s].[LastModifiedBy], [s].[LastModifiedOn], [s].[MedicalFees], [s].[NameA], [s].[NameE], [s].[NationalityId], [s].[NoStudyFees], [s].[Panalty], [s].[Phone], [s].[ProgramId], [s].[Record_Status], [s].[RegType], [s].[RegistrationFees], [s].[SemesterId], [s].[SpecializationId], [s].[Status], [s].[StdPassword], [s].[Std_Picture], [s].[StudyFeesUpdated], [s].[ToLocalCurrency], [s].[UniversityId], [c].[Id], [c].[Adjust], [c].[CreatedBy], [c].[CreatedOn], [c].[LastModifiedBy], [c].[LastModifiedOn], [c].[Name], [f].[Id], [f].[CreatedBy], [f].[CreatedOn], [f].[LastModifiedBy], [f].[LastModifiedOn], [f].[NameA], [f].[NameE], [f].[OrderColumn], [f].[OrderId], [f].[ShortName], [s0].[Id], [s0].[CreatedBy], [s0].[CreatedOn], [s0].[FacultyId], [s0].[LastModifiedBy], [s0].[LastModifiedOn], [s0].[MaxHours], [s0].[Name], [s0].[ProgramId], [s1].[Id], [s1].[CreatedBy], [s1].[CreatedOn], [s1].[LastModifiedBy], [s1].[LastModifiedOn], [s1].[NameA], [s1].[NameE], [b].[Id], [b].[CreatedBy], [b].[CreatedOn], [b].[LastModifiedBy], [b].[LastModifiedOn], [b].[Name], [d].[Id], [d].[CreatedBy], [d].[CreatedOn], [d].[FacultyId], [d].[FucultyId], [d].[LastModifiedBy], [d].[LastModifiedOn], [d].[NameA], [d].[NameE], [d].[Number]
+FROM [Students] AS [s]
+INNER JOIN [Currencies] AS [c] ON [s].[CurrencyId] = [c].[Id]
+INNER JOIN [Fuculties] AS [f] ON [s].[FucultyId] = [f].[Id]
+INNER JOIN [Semesters] AS [s0] ON [s].[SemesterId] = [s0].[Id]
+INNER JOIN [Specializations] AS [s1] ON [s].[SpecializationId] = [s1].[Id]
+INNER JOIN [Batches] AS [b] ON [s].[BatchId] = [b].[Id]
+INNER JOIN [Departments] AS [d] ON [s].[DepartmentId] = [d].[Id]
+WHERE ([s].[Id] = @__request_StudentNumber_0) AND [s].[Status] IN (N'U', N'N')
+2022-11-19 12:05:54.395 +02:00 [ERR] An exception occurred while iterating over the results of a query for context type 'SSDB.Infrastructure.Contexts.BlazorHeroContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'Panalty'.
+Invalid column name 'RegistrationFees'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:d7c79a01-8a64-4273-a554-ca2296ce260f
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'Panalty'.
+Invalid column name 'RegistrationFees'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:d7c79a01-8a64-4273-a554-ca2296ce260f
+Error Number:207,State:1,Class:16
+2022-11-19 12:07:26.078 +02:00 [INF] Now listening on: https://localhost:5001
+2022-11-19 12:07:26.110 +02:00 [INF] Now listening on: http://localhost:5000
+2022-11-19 12:07:26.113 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-19 12:07:26.113 +02:00 [INF] Hosting environment: Development
+2022-11-19 12:07:26.114 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-19 12:14:39.251 +02:00 [INF] Now listening on: https://localhost:5001
+2022-11-19 12:14:39.307 +02:00 [INF] Now listening on: http://localhost:5000
+2022-11-19 12:14:39.312 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-19 12:14:39.312 +02:00 [INF] Hosting environment: Development
+2022-11-19 12:14:39.313 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-19 12:40:48.248 +02:00 [INF] Now listening on: https://localhost:5001
+2022-11-19 12:40:48.296 +02:00 [INF] Now listening on: http://localhost:5000
+2022-11-19 12:40:48.299 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-19 12:40:48.300 +02:00 [INF] Hosting environment: Development
+2022-11-19 12:40:48.301 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-19 13:11:44.868 +02:00 [INF] Now listening on: https://localhost:5001
+2022-11-19 13:11:44.913 +02:00 [INF] Now listening on: http://localhost:5000
+2022-11-19 13:11:44.917 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-19 13:11:44.918 +02:00 [INF] Hosting environment: Development
+2022-11-19 13:11:44.918 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-19 13:18:24.780 +02:00 [INF] Now listening on: https://localhost:5001
+2022-11-19 13:18:24.822 +02:00 [INF] Now listening on: http://localhost:5000
+2022-11-19 13:18:24.824 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-19 13:18:24.825 +02:00 [INF] Hosting environment: Development
+2022-11-19 13:18:24.826 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-19 13:22:11.438 +02:00 [INF] Now listening on: https://localhost:5001
+2022-11-19 13:22:11.475 +02:00 [INF] Now listening on: http://localhost:5000
+2022-11-19 13:22:11.478 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-19 13:22:11.479 +02:00 [INF] Hosting environment: Development
+2022-11-19 13:22:11.480 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-19 13:29:40.425 +02:00 [INF] Now listening on: https://localhost:5001
+2022-11-19 13:29:40.467 +02:00 [INF] Now listening on: http://localhost:5000
+2022-11-19 13:29:40.470 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-19 13:29:40.470 +02:00 [INF] Hosting environment: Development
+2022-11-19 13:29:40.471 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-19 13:34:08.511 +02:00 [INF] Now listening on: https://localhost:5001
+2022-11-19 13:34:08.550 +02:00 [INF] Now listening on: http://localhost:5000
+2022-11-19 13:34:08.555 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-19 13:34:08.555 +02:00 [INF] Hosting environment: Development
+2022-11-19 13:34:08.556 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-19 13:36:17.034 +02:00 [INF] Now listening on: https://localhost:5001
+2022-11-19 13:36:17.081 +02:00 [INF] Now listening on: http://localhost:5000
+2022-11-19 13:36:17.084 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-19 13:36:17.085 +02:00 [INF] Hosting environment: Development
+2022-11-19 13:36:17.086 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-19 13:38:44.323 +02:00 [INF] Now listening on: https://localhost:5001
+2022-11-19 13:38:44.366 +02:00 [INF] Now listening on: http://localhost:5000
+2022-11-19 13:38:44.370 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-19 13:38:44.371 +02:00 [INF] Hosting environment: Development
+2022-11-19 13:38:44.372 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-19 13:43:18.229 +02:00 [INF] Now listening on: https://localhost:5001
+2022-11-19 13:43:18.281 +02:00 [INF] Now listening on: http://localhost:5000
+2022-11-19 13:43:18.284 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-19 13:43:18.285 +02:00 [INF] Hosting environment: Development
+2022-11-19 13:43:18.286 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server

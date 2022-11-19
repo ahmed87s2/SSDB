@@ -60,6 +60,14 @@
                 </MudItem>
 
                 <MudItem xs="12" md="4">
+                    <MudTextField For="@(() => AddEditStudentModel.RegistrationFees)" @bind-Value="AddEditStudentModel.RegistrationFees" Label="@_localizer["Registration Fees"]" />
+                </MudItem>
+
+                <MudItem xs="12" md="4">
+                    <MudTextField For="@(() => AddEditStudentModel.Panalty)" @bind-Value="AddEditStudentModel.Panalty" Label="@_localizer["Panalty"]" />
+                </MudItem>
+
+                <MudItem xs="12" md="4">
                     <MudAutocomplete T="int" Label="@_localizer["Addmission"]" For="@(() => AddEditStudentModel.AddmissionId)"
                                      @bind-Value="AddEditStudentModel.AddmissionId" ResetValueOnEmptyText="true" SearchFunc="@SearchInAddmissions" Variant="Variant.Filled"
                                      ToStringFunc="@(i => _Admissions.FirstOrDefault(b => int.Parse(b.Value) == i)?.Key ?? string.Empty)" OffsetY="true" />
@@ -71,6 +79,7 @@
                                      ToStringFunc="@(i => _Departments.FirstOrDefault(b => int.Parse(b.Value) == i)?.Key ?? string.Empty)" OffsetY="true" />
                 </MudItem>
 
+                
 
                 <MudItem xs="12" md="4">      
                     <MudAutocomplete T="int" Label="@_localizer["Fuculty"]" For="@(() => AddEditStudentModel.FucultyId)"
@@ -89,6 +98,8 @@
                                      @bind-Value="AddEditStudentModel.SemesterId" ResetValueOnEmptyText="true" SearchFunc="@SearchInSemesters" Variant="Variant.Filled"
                                      ToStringFunc="@(i => _Semesters.FirstOrDefault(b => int.Parse(b.Value) == i)?.Key ?? string.Empty)" OffsetY="true" />
                 </MudItem>
+
+                
 
                 <MudItem xs="12" md="4">
                     <MudAutocomplete T="int" Label="@_localizer["Currency"]" For="@(() => AddEditStudentModel.CurrencyId)"

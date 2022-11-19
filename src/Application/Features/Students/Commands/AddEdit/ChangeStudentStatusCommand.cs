@@ -43,6 +43,8 @@ namespace SSDB.Application.Features.Students.Commands
             }
 
             student.Status = command.Status;
+            student.Comments += $" ,{student.Panalty} Pannelty on [{DateTime.Now}]";
+            student.Panalty = 0;
             await _unitOfWork.Repository<Student>().UpdateAsync(student);
             await _unitOfWork.Commit(cancellationToken);
             return await Result<string>.SuccessAsync(student.Id, _localizer["Student Updated"]);

@@ -11,11 +11,11 @@ namespace SSDB.Application.Mappings
     {
         public RegistrationProfile()
         {
-            CreateMap<AddEditRegistrationCommand, Registration>().ReverseMap();
+            CreateMap<AddRegistrationCommand, Registration>().ReverseMap();
             CreateMap<GetRegistrationByIdResponse, Registration>().ReverseMap();
             CreateMap<GetRegistrationByIdResponse, Registration>().ReverseMap();
             CreateMap<GetAllPagedRegistrationsResponse, Registration>().ReverseMap();
-            CreateMap<GetRegistrationByIdResponse, AddEditRegistrationCommand>().ReverseMap();
+            CreateMap<GetRegistrationByIdResponse, AddRegistrationCommand>().ReverseMap();
             CreateMap<PaginatedResult<GetAllPagedRegistrationsResponse>, PaginatedResult<Registration>>().ReverseMap();
 
         }

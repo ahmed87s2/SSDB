@@ -60,7 +60,7 @@ namespace SSDB.Server.Controllers.v1.Catalog
         /// <returns>Status 200 OK</returns>
         [AllowAnonymous]
         [HttpPost]
-        public async Task<IActionResult> Post(AddEditRegistrationCommand command)
+        public async Task<IActionResult> Post(AddRegistrationCommand command)
         {
             return Ok(await _mediator.Send(command));
         }

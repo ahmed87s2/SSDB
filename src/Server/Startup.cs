@@ -71,7 +71,7 @@ namespace SSDB.Server
         {
             app.UseCors();
             app.UseExceptionHandling(env);
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseMiddleware<ErrorHandlerMiddleware>();
             app.UseBlazorFrameworkFiles();
             app.UseStaticFiles();

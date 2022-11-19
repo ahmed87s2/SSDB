@@ -102,6 +102,18 @@ namespace SSDB.Server.Controllers.v1.Catalog
         }
 
         /// <summary>
+        /// Get Student Registration Info By Student Number
+        /// </summary>
+        /// <param name="studentNumber"></param>
+        /// <returns>Status 200 OK</returns>
+        [AllowAnonymous]
+        [HttpGet(nameof(GetStudentRegistrationInfoById))]
+        public async Task<IActionResult> GetStudentRegistrationInfoById(string studentNumber)
+        {
+            return Ok(await _mediator.Send(new GetStudentRegistrationInfoQuery() { StudentNumber = studentNumber }));
+        }
+
+        /// <summary>
         /// Delete a Student
         /// </summary>
         /// <param name="studentNumber"></param>

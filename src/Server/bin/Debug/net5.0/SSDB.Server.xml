@@ -362,7 +362,7 @@
             <param name="id">Registration Id</param>
             <returns>Status 200 OK</returns>
         </member>
-        <member name="M:SSDB.Server.Controllers.v1.Catalog.RegistrationsController.Post(SSDB.Application.Features.Registrations.Commands.AddEditRegistrationCommand)">
+        <member name="M:SSDB.Server.Controllers.v1.Catalog.RegistrationsController.Post(SSDB.Application.Features.Registrations.Commands.AddRegistrationCommand)">
             <summary>
             Add/Edit a Registration
             </summary>
@@ -419,6 +419,13 @@
             Change Student Status
             </summary>
             <param name="command"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SSDB.Server.Controllers.v1.Catalog.StudentsController.GetStudentRegistrationInfoById(System.String)">
+            <summary>
+            Get Student Registration Info By Student Number
+            </summary>
+            <param name="studentNumber"></param>
             <returns>Status 200 OK</returns>
         </member>
         <member name="M:SSDB.Server.Controllers.v1.Catalog.StudentsController.Delete(System.String)">

@@ -4,7 +4,7 @@ using Microsoft.Extensions.Localization;
 
 namespace SSDB.Application.Validators.Features.Registrations.Commands.AddEdit
 {
-    public class AddEditRegistrationCommandValidator : AbstractValidator<AddEditRegistrationCommand>
+    public class AddEditRegistrationCommandValidator : AbstractValidator<AddRegistrationCommand>
     {
         public AddEditRegistrationCommandValidator(IStringLocalizer<AddEditRegistrationCommandValidator> localizer)
         {

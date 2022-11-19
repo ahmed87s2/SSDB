@@ -28,21 +28,34 @@
         <MudLayout RightToLeft="@_rightToLeft">
             <MudAppBar Elevation="25">
                 <MudIcon Icon="@CustomIcons.BlazorHero" Size="Size.Large" ViewBox="0 0 500 500" />
-                <MudText Typo="Typo.h6" Class="ml-4">ِالجامعة الأهلية</MudText>
+                <MudText Typo="Typo.h6" Class="ml-4">الجامعة الأهلية</MudText>
                 <MudToolBar DisableGutters="true">
                     <MudIconButton Icon="@Icons.Material.Outlined.Menu" Color="Color.Inherit" OnClick="@((e) => DrawerToggle())" Class="ml-3" />
                 </MudToolBar>
                 <MudAppBarSpacer />
-                    <MudHidden Breakpoint="Breakpoint.MdAndUp" Invert="true">
-                        <MudDivider Vertical="true" FlexItem="true" DividerType="DividerType.Middle" Class="mx-4 my-5" />
-                        <MudTooltip Text="@localizer["Toggle Dark Mode"]">
-                            <MudIconButton Icon="@Icons.Material.Filled.Brightness4" Color="Color.Inherit" OnClick="@((e) => DarkMode())" />
-                        </MudTooltip>
-                        
-                    </MudHidden>
-                    <MudHidden Breakpoint="Breakpoint.SmAndDown" Invert="true">
-                        
-                    </MudHidden>
+                <MudHidden Breakpoint="Breakpoint.MdAndUp" Invert="true">
+                    <MudDivider Vertical="true" FlexItem="true" DividerType="DividerType.Middle" Class="mx-4 my-5" />
+                    
+                    <LanguageSelector />
+                    <MudTooltip Text="@localizer["Toggle right-to-left/left-to-right"]">
+                        <MudIconButton Icon="@Icons.Material.Filled.FormatTextdirectionRToL" Color="Color.Inherit" OnClick="@((e) => RightToLeftToggle())" />
+                    </MudTooltip>
+                    <MudTooltip Text="@localizer["Toggle Dark Mode"]">
+                        <MudIconButton Icon="@Icons.Material.Filled.Brightness4" Color="Color.Inherit" OnClick="@((e) => DarkMode())" />
+                    </MudTooltip>
+                    
+                </MudHidden>
+                <MudHidden Breakpoint="Breakpoint.SmAndDown" Invert="true">
+                    <LanguageSelector />
+                    <MudMenu Icon="@Icons.Filled.Settings" Color="Color.Inherit" Dense="true" Direction="Direction.Right" OffsetY="true">
+                        <div class="px-2">
+                            <MudTooltip Text="@localizer["Toggle Dark Mode"]">
+                                <MudIconButton Icon="@Icons.Material.Filled.Brightness4" Color="Color.Inherit" OnClick="@((e) => DarkMode())" />
+                            </MudTooltip>
+                           
+                        </div>
+                    </MudMenu>
+                </MudHidden>
                 <MudMenu Direction="_rightToLeft ? Direction.Right : Direction.Left" OffsetX="true" Dense="true" Class="mt-1 ml-4">
                     <ActivatorContent>
                         @if (string.IsNullOrEmpty(ImageDataUrl))

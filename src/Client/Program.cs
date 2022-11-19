@@ -24,10 +24,7 @@ namespace SSDB.Client
             {
                 CultureInfo culture;
                 var preference = await storageService.GetPreference() as ClientPreference;
-                if (preference != null)
-                    culture = new CultureInfo(preference.LanguageCode);
-                else
-                    culture = new CultureInfo(LocalizationConstants.SupportedLanguages.FirstOrDefault()?.Code ?? "en-US");
+                culture = new CultureInfo(preference.LanguageCode);
                 CultureInfo.DefaultThreadCurrentCulture = culture;
                 CultureInfo.DefaultThreadCurrentUICulture = culture;
             }

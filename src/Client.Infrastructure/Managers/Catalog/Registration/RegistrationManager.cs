@@ -38,13 +38,13 @@ namespace SSDB.Client.Infrastructure.Managers.Catalog.Registration
             return await response.ToResult<GetRegistrationByIdResponse>();
         }
 
-        public async Task<IResult<AddEditRegistrationCommand>> GetForAddEdit(int id)
+        public async Task<IResult<AddRegistrationCommand>> GetForAddEdit(int id)
         {
             var response = await _httpClient.GetAsync(Routes.RegistrationsEndpoints.GetForAddEdit + id);
-            return await response.ToResult<AddEditRegistrationCommand>();
+            return await response.ToResult<AddRegistrationCommand>();
         }
 
-        public async Task<IResult<int>> SaveAsync(AddEditRegistrationCommand request)
+        public async Task<IResult<int>> SaveAsync(AddRegistrationCommand request)
         {
             var response = await _httpClient.PostAsJsonAsync(Routes.RegistrationsEndpoints.Save, request);
             return await response.ToResult<int>();

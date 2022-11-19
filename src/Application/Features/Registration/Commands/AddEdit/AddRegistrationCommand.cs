@@ -12,10 +12,11 @@ using Microsoft.Extensions.Localization;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using System;
+using static SSDB.Shared.Constants.Permission.Permissions;
 
 namespace SSDB.Application.Features.Registrations.Commands
 {
-    public partial class AddEditRegistrationCommand : IRequest<Result<int>>
+    public partial class AddRegistrationCommand : IRequest<Result<int>>
     {
         public int Id { get; set; }
         [Required]
@@ -35,44 +36,43 @@ namespace SSDB.Application.Features.Registrations.Commands
         public string Comments { get; set; }
     }
 
-    internal class AddEditRegistrationCommandHandler : IRequestHandler<AddEditRegistrationCommand, Result<int>>
+    internal class AddRegistrationCommandHandler : IRequestHandler<AddRegistrationCommand, Result<int>>
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork<int> _unitOfWork;
-        private readonly IStringLocalizer<AddEditRegistrationCommandHandler> _localizer;
+        private readonly IUnitOfWork<string> _studentUnitOfWork;
+        private readonly IStringLocalizer<AddRegistrationCommandHandler> _localizer;
 
-        public AddEditRegistrationCommandHandler(IUnitOfWork<int> unitOfWork, IMapper mapper, IStringLocalizer<AddEditRegistrationCommandHandler> localizer)
+        public AddRegistrationCommandHandler(IUnitOfWork<int> unitOfWork, IMapper mapper, IStringLocalizer<AddRegistrationCommandHandler> localizer, IUnitOfWork<string> studentUnitOfWork)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
             _localizer = localizer;
+            _studentUnitOfWork = studentUnitOfWork;
         }
 
-        public async Task<Result<int>> Handle(AddEditRegistrationCommand command, CancellationToken cancellationToken)
+        public async Task<Result<int>> Handle(AddRegistrationCommand command, CancellationToken cancellationToken)
         {
-            
+
             if (command.Id == default)
             {
                 var Registration = _mapper.Map<Registration>(command);
                 await _unitOfWork.Repository<Registration>().AddAsync(Registration);
+
+
+                var student = await _studentUnitOfWork.Repository<Student>().GetByIdAsync(command.StudentId);
+                student.Status = "D";
+                student.Comments += $" ,{student.Panalty} Pannelty on [{DateTime.Now}]";
+                student.Panalty = 0;
+                await _studentUnitOfWork.Repository<Student>().UpdateAsync(student);
+                
                 await _unitOfWork.Commit(cancellationToken);
                 return await Result<int>.SuccessAsync(Registration.Id, _localizer["Registration Added"]);
             }
-            else
-            {
-                var Registration = await _unitOfWork.Repository<Registration>().GetByIdAsync(command.Id);
-                if (Registration != null)
-                {
-                    var mappedRegistration = _mapper.Map(command, Registration);
-                    await _unitOfWork.Repository<Registration>().UpdateAsync(Registration);
-                    await _unitOfWork.Commit(cancellationToken);
-                    return await Result<int>.SuccessAsync(Registration.Id, _localizer["Registration Updated"]);
-                }
-                else
-                {
-                    return await Result<int>.FailAsync(_localizer["Registration Not Found!"]);
-                }
-            }
+
+            return await Result<int>.FailAsync(_localizer["UnAuthorized to update registration"]);
+
         }
     }
+
 }
