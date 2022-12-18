@@ -53,6 +53,8 @@ namespace SSDB.Application.Features.Students.Commands
         public decimal CGPA { get; set; }
         public string Status { get; set; }
         public int SemesterId { get; set; }
+        public decimal RegistrationFees { get; set; }
+        public int Panalty { get; set; }
         public decimal ToLocalCurrency { get; set; }
         public decimal StudyFeesUpdated { get; set; }
     }

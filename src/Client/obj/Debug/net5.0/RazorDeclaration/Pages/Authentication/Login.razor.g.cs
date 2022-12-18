@@ -292,12 +292,12 @@ using SSDB.Client.Extensions;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.LayoutAttribute(typeof(MainLayout))]
-    [Microsoft.AspNetCore.Components.RouteAttribute("/login")]
-    public partial class Login : Microsoft.AspNetCore.Components.ComponentBase
+    [global::Microsoft.AspNetCore.Components.LayoutAttribute(typeof(MainLayout))]
+    [global::Microsoft.AspNetCore.Components.RouteAttribute("/login")]
+    public partial class Login : global::Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
-        protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
+        protected override void BuildRenderTree(global::Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998

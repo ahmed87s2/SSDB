@@ -1,0 +1,25 @@
+2022-11-15 00:13:34.162 +02:00 [INF] Now listening on: https://localhost:5001
+2022-11-15 00:13:34.344 +02:00 [INF] Now listening on: http://localhost:5000
+2022-11-15 00:13:34.361 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-15 00:13:34.365 +02:00 [INF] Hosting environment: Development
+2022-11-15 00:13:34.371 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-15 00:15:51.790 +02:00 [INF] Now listening on: https://localhost:5001
+2022-11-15 00:15:51.925 +02:00 [INF] Now listening on: http://localhost:5000
+2022-11-15 00:15:51.937 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-15 00:15:51.939 +02:00 [INF] Hosting environment: Development
+2022-11-15 00:15:51.942 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-15 00:36:13.514 +02:00 [INF] Now listening on: https://localhost:5001
+2022-11-15 00:36:13.897 +02:00 [INF] Now listening on: http://localhost:5000
+2022-11-15 00:36:13.925 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-15 00:36:13.962 +02:00 [INF] Hosting environment: Development
+2022-11-15 00:36:13.990 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-15 01:16:05.487 +02:00 [INF] Now listening on: https://localhost:5001
+2022-11-15 01:16:05.590 +02:00 [INF] Now listening on: http://localhost:5000
+2022-11-15 01:16:05.596 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-15 01:16:05.597 +02:00 [INF] Hosting environment: Development
+2022-11-15 01:16:05.598 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server
+2022-11-15 01:20:12.168 +02:00 [INF] Now listening on: https://localhost:5001
+2022-11-15 01:20:12.276 +02:00 [INF] Now listening on: http://localhost:5000
+2022-11-15 01:20:12.281 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-15 01:20:12.282 +02:00 [INF] Hosting environment: Development
+2022-11-15 01:20:12.284 +02:00 [INF] Content root path: C:\WorkPlace\Clean Arch\SSDB\src\Server

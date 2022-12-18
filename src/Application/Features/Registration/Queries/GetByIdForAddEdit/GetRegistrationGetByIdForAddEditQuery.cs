@@ -16,12 +16,12 @@ using SSDB.Application.Features.Registrations.Commands;
 
 namespace SSDB.Application.Features.Registrations.Queries
 {
-    public class GetRegistrationGetByIdForAddEditQuery : IRequest<Result<AddEditRegistrationCommand>>
+    public class GetRegistrationGetByIdForAddEditQuery : IRequest<Result<AddRegistrationCommand>>
     {
         public int Id { get; set; }
     }
 
-    internal class  GetRegistrationGetByIdForAddEditQueryHandler : IRequestHandler<GetRegistrationGetByIdForAddEditQuery, Result<AddEditRegistrationCommand>>
+    internal class  GetRegistrationGetByIdForAddEditQueryHandler : IRequestHandler<GetRegistrationGetByIdForAddEditQuery, Result<AddRegistrationCommand>>
     {
         private readonly IUnitOfWork<int> _unitOfWork;
         private readonly IMapper _mapper;
@@ -31,11 +31,11 @@ namespace SSDB.Application.Features.Registrations.Queries
             _mapper = mapper;
         }
 
-        public async Task<Result<AddEditRegistrationCommand>> Handle(GetRegistrationGetByIdForAddEditQuery request, CancellationToken cancellationToken)
+        public async Task<Result<AddRegistrationCommand>> Handle(GetRegistrationGetByIdForAddEditQuery request, CancellationToken cancellationToken)
         {
             var data = await _unitOfWork.Repository<Registration>().GetByIdAsync(request.Id);
-            var mappedData = _mapper.Map<AddEditRegistrationCommand>(data);
-            return  await Result<AddEditRegistrationCommand>.SuccessAsync(mappedData);
+            var mappedData = _mapper.Map<AddRegistrationCommand>(data);
+            return  await Result<AddRegistrationCommand>.SuccessAsync(mappedData);
         }
     }
 }

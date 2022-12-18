@@ -50,7 +50,7 @@ namespace SSDB.Server
             services.AddRepositories();
             services.AddExtendedAttributesUnitOfWork();
             services.AddSharedInfrastructure(_configuration);
-            services.RegisterSwagger();
+            services.RegisterSwagger(_configuration);
             services.AddInfrastructureMappings();
             services.AddHangfire(x => x.UseSqlServerStorage(_configuration.GetConnectionString("DefaultConnection")));
             services.AddHangfireServer();
@@ -71,7 +71,7 @@ namespace SSDB.Server
         {
             app.UseCors();
             app.UseExceptionHandling(env);
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseMiddleware<ErrorHandlerMiddleware>();
             app.UseBlazorFrameworkFiles();
             app.UseStaticFiles();

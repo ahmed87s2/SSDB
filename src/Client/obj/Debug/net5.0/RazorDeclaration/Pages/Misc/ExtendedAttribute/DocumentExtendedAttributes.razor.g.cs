@@ -306,11 +306,11 @@ using SSDB.Domain.Entities.ExtendedAttributes;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/extended-attributes/{EntityName}/{EntityIdString}")]
+    [global::Microsoft.AspNetCore.Components.RouteAttribute("/extended-attributes/{EntityName}/{EntityIdString}")]
     public partial class DocumentExtendedAttributes : ExtendedAttributes<int, int, Document, DocumentExtendedAttribute>
     {
         #pragma warning disable 1998
-        protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
+        protected override void BuildRenderTree(global::Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998

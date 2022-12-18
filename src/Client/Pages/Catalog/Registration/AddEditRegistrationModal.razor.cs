@@ -27,7 +27,7 @@ namespace SSDB.Client.Pages.Catalog.Registration
         [Inject] private IRegistrationManager RegistrationManager { get; set; }
         [Inject] private IUtilitiesManager utilitiesManager { get; set; }
 
-        [Parameter] public AddEditRegistrationCommand AddEditRegistrationModel { get; set; } = new();
+        [Parameter] public AddRegistrationCommand AddEditRegistrationModel { get; set; } = new();
         [CascadingParameter] private HubConnection HubConnection { get; set; }
         [CascadingParameter] private MudDialogInstance MudDialog { get; set; }
 

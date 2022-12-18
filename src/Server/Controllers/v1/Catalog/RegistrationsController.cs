@@ -58,9 +58,9 @@ namespace SSDB.Server.Controllers.v1.Catalog
         /// </summary>
         /// <param name="command"></param>
         /// <returns>Status 200 OK</returns>
-        [Authorize(Policy = Permissions.Registrations.Create)]
+        [AllowAnonymous]
         [HttpPost]
-        public async Task<IActionResult> Post(AddEditRegistrationCommand command)
+        public async Task<IActionResult> Post(AddRegistrationCommand command)
         {
             return Ok(await _mediator.Send(command));
         }

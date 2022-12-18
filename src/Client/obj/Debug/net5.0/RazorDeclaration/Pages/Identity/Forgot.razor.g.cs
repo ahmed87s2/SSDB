@@ -292,12 +292,12 @@ using SSDB.Client.Extensions;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.LayoutAttribute(typeof(MainLayout))]
-    [Microsoft.AspNetCore.Components.RouteAttribute("/account/forgot-password")]
-    public partial class Forgot : Microsoft.AspNetCore.Components.ComponentBase
+    [global::Microsoft.AspNetCore.Components.LayoutAttribute(typeof(MainLayout))]
+    [global::Microsoft.AspNetCore.Components.RouteAttribute("/account/forgot-password")]
+    public partial class Forgot : global::Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
-        protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
+        protected override void BuildRenderTree(global::Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998

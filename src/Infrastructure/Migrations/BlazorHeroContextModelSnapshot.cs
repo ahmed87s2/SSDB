@@ -489,6 +489,7 @@ namespace SSDB.Infrastructure.Migrations
             modelBuilder.Entity("SSDB.Domain.Entities.Catalog.Student", b =>
                 {
                     b.Property<string>("Id")
+                        .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("AddmissionFormNo")
@@ -560,6 +561,9 @@ namespace SSDB.Infrastructure.Migrations
                     b.Property<bool>("NoStudyFees")
                         .HasColumnType("bit");
 
+                    b.Property<int>("Panalty")
+                        .HasColumnType("int");
+
                     b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)");
 
@@ -571,6 +575,9 @@ namespace SSDB.Infrastructure.Migrations
 
                     b.Property<string>("RegType")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("RegistrationFees")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("SemesterId")
                         .HasColumnType("int");
@@ -587,7 +594,7 @@ namespace SSDB.Infrastructure.Migrations
                     b.Property<string>("Std_Picture")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal?>("StudyFeesUpdated")
+                    b.Property<decimal>("StudyFeesUpdated")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal?>("ToLocalCurrency")

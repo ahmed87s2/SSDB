@@ -36,8 +36,9 @@ namespace SSDB.Domain.Entities.Catalog
         public string Status { get; set; }
         public int SemesterId { get; set; }
         public decimal? ToLocalCurrency { get; set; }
-        public decimal? StudyFeesUpdated { get; set; }
-        
+        public decimal StudyFeesUpdated { get; set; }
+        public decimal RegistrationFees { get; set; }
+        public int Panalty { get; set; }
         public University University { get; set; }
         public Addmission Addmission { get; set; }
         public Department Department { get; set; }
