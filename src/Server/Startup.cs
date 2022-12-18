@@ -50,7 +50,7 @@ namespace SSDB.Server
             services.AddRepositories();
             services.AddExtendedAttributesUnitOfWork();
             services.AddSharedInfrastructure(_configuration);
-            services.RegisterSwagger();
+            services.RegisterSwagger(_configuration);
             services.AddInfrastructureMappings();
             services.AddHangfire(x => x.UseSqlServerStorage(_configuration.GetConnectionString("DefaultConnection")));
             services.AddHangfireServer();

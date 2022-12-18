@@ -299,12 +299,12 @@ using System.Globalization;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/chat/{CId}")]
-    [Microsoft.AspNetCore.Components.RouteAttribute("/chat")]
-    public partial class Chat : Microsoft.AspNetCore.Components.ComponentBase
+    [global::Microsoft.AspNetCore.Components.RouteAttribute("/chat/{CId}")]
+    [global::Microsoft.AspNetCore.Components.RouteAttribute("/chat")]
+    public partial class Chat : global::Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
-        protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
+        protected override void BuildRenderTree(global::Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998

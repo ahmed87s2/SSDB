@@ -93,7 +93,7 @@ namespace SSDB.Server.Extensions
             return applicationSettingsConfiguration.Get<AppConfiguration>();
         }
 
-        internal static void RegisterSwagger(this IServiceCollection services)
+        internal static void RegisterSwagger(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddSwaggerGen(async c =>
             {
@@ -115,8 +115,8 @@ namespace SSDB.Server.Extensions
                         }
                     }
                 }
-                
-                c.SwaggerDoc("v1", new OpenApiInfo
+                string path = configuration.GetValue<string>("SwaggerPath");
+                c.SwaggerDoc(path, new OpenApiInfo
                 {
                     Version = "v1",
                     Title = "SSDB",

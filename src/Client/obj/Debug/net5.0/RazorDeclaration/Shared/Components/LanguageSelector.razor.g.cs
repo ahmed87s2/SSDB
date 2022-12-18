@@ -292,10 +292,10 @@ using SSDB.Shared.Constants.Localization;
 #line default
 #line hidden
 #nullable disable
-    public partial class LanguageSelector : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class LanguageSelector : global::Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
-        protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
+        protected override void BuildRenderTree(global::Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
