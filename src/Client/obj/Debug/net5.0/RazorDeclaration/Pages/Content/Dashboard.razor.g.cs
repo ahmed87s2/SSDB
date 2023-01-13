@@ -13,280 +13,280 @@ namespace SSDB.Client.Pages.Content
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 2 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 2 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 3 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using System.Net.Http.Json;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 4 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 5 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 6 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 7 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 8 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 9 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 10 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using Microsoft.AspNetCore.Components.WebAssembly.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 11 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 12 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 12 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using Microsoft.AspNetCore.Identity;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 13 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using MudBlazor;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 14 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 14 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using Blazored.LocalStorage;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 15 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 15 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using Blazored.FluentValidation;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 18 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 18 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using SSDB.Client.Infrastructure.Managers.Identity.Account;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 19 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 19 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using SSDB.Client.Infrastructure.Managers.Identity.Authentication;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 20 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 20 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using SSDB.Client.Infrastructure.Managers.Identity.Roles;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 21 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 21 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using SSDB.Client.Infrastructure.Managers.Identity.RoleClaims;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 22 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 22 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using SSDB.Client.Infrastructure.Managers.Identity.Users;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 23 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 23 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using SSDB.Client.Infrastructure.Managers.Preferences;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 24 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 24 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using SSDB.Client.Infrastructure.Managers.Interceptors;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 25 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 25 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using SSDB.Client.Infrastructure.Managers.Catalog.Student;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 26 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 26 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using SSDB.Client.Infrastructure.Managers.Catalog.University;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 27 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 27 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using SSDB.Client.Infrastructure.Managers.Dashboard;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 28 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 28 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using SSDB.Client.Infrastructure.Managers.Communication;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 29 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 29 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using SSDB.Client.Infrastructure.Managers.Audit;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 30 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 30 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using SSDB.Client.Infrastructure.Managers.Misc.Document;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 31 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 31 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using SSDB.Client.Infrastructure.Managers.Misc.DocumentType;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 34 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 34 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using SSDB.Shared.Constants.Permission;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 35 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 35 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using SSDB.Client.Shared.Components;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 37 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 37 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using SSDB.Client;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 38 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 38 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using SSDB.Client.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 39 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 39 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using SSDB.Client.Shared.Dialogs;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 40 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 40 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using SSDB.Client.Infrastructure.Settings;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 42 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 42 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using SSDB.Application.Requests.Identity;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 44 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 44 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using SSDB.Client.Pages.Authentication;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 46 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 46 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using SSDB.Client.Infrastructure.Authentication;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 47 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 47 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 using SSDB.Client.Extensions;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 49 "C:\WorkPlace\Clean Arch\SSDB\src\Client\_Imports.razor"
+#line 49 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 [Authorize]
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\WorkPlace\Clean Arch\SSDB\src\Client\Pages\Content\Dashboard.razor"
+#line 2 "D:\WorkSpace\SSDB_Universities\src\Client\Pages\Content\Dashboard.razor"
            [Authorize(Policy = Permissions.Dashboards.View)]
 
 #line default
@@ -301,7 +301,7 @@ using SSDB.Client.Extensions;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 26 "C:\WorkPlace\Clean Arch\SSDB\src\Client\Pages\Content\Dashboard.razor"
+#line 26 "D:\WorkSpace\SSDB_Universities\src\Client\Pages\Content\Dashboard.razor"
                           string day = DateTime.Now.Month+"-"+DateTime.Now.Year;
 
 #line default
