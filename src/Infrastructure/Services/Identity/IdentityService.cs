@@ -43,7 +43,7 @@ namespace SSDB.Infrastructure.Services.Identity
 
         public async Task<Result<TokenResponse>> LoginAsync(TokenRequest model)
         {
-            var user = await _userManager.FindByEmailAsync(model.Email);
+            var user = await _userManager.FindByNameAsync(model.UserName);
             if (user == null)
             {
                 return await Result<TokenResponse>.FailAsync(_localizer["User Not Found."]);
@@ -52,10 +52,7 @@ namespace SSDB.Infrastructure.Services.Identity
             {
                 return await Result<TokenResponse>.FailAsync(_localizer["User Not Active. Please contact the administrator."]);
             }
-            if (!user.EmailConfirmed)
-            {
-                return await Result<TokenResponse>.FailAsync(_localizer["E-Mail not confirmed."]);
-            }
+            
             var passwordValid = await _userManager.CheckPasswordAsync(user, model.Password);
             if (!passwordValid)
             {
@@ -114,6 +111,7 @@ namespace SSDB.Infrastructure.Services.Identity
 
             var claims = new List<Claim>
             {
+                new(ClaimTypes.GroupSid, (user.UniversityId??0).ToString()),
                 new(ClaimTypes.NameIdentifier, user.Id),
                 new(ClaimTypes.Email, user.Email),
                 new(ClaimTypes.Name, user.FirstName),

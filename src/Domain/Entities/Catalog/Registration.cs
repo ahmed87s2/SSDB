@@ -15,11 +15,15 @@ namespace SSDB.Domain.Entities.Catalog
         public int CurrencyId { get; set; }
         public string PaymentNo { get; set; }
         public int BranchId { get; set; }
+        public int UniversityId { get; set; }
         public int linkNo { get; set; }
         public string Comments { get; set; }
         [ForeignKey("StudentId")]
         public Student Student { get; set; }
         public Semester Semester { get; set; }
         public Currency Currency { get; set; }
+        public University University { get; set; }
+
+
     }
 }

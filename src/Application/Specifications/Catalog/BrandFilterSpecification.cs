@@ -9,7 +9,7 @@ namespace SSDB.Application.Specifications.Catalog
         {
             if (!string.IsNullOrEmpty(searchString))
             {
-                Criteria = p => p.Name.Contains(searchString) || p.Description.Contains(searchString);
+                Criteria = p => p.Name.Contains(searchString) || p.Type.Contains(searchString);
             }
             else
             {

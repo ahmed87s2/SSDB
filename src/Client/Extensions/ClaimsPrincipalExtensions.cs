@@ -18,5 +18,8 @@ namespace SSDB.Client.Extensions
 
         internal static string GetUserId(this ClaimsPrincipal claimsPrincipal)
            => claimsPrincipal.FindFirstValue(ClaimTypes.NameIdentifier);
+        
+        internal static string GetUniversityId(this ClaimsPrincipal claimsPrincipal)
+           => claimsPrincipal.FindFirstValue(ClaimTypes.GroupSid);
     }
 }

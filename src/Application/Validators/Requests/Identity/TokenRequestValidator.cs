@@ -8,9 +8,8 @@ namespace SSDB.Application.Validators.Requests.Identity
     {
         public TokenRequestValidator(IStringLocalizer<TokenRequestValidator> localizer)
         {
-            RuleFor(request => request.Email)
-                .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["Email is required"])
-                .EmailAddress().WithMessage(x => localizer["Email is not correct"]);
+            RuleFor(request => request.UserName)
+                .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["UserName is required"]);
             RuleFor(request => request.Password)
                 .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["Password is required!"]);
         }

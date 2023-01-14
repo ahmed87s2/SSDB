@@ -39,6 +39,7 @@ namespace SSDB.Domain.Entities.Catalog
         public decimal StudyFeesUpdated { get; set; }
         public decimal RegistrationFees { get; set; }
         public int Panalty { get; set; }
+        public int UniversityId { get; set; }
         public University University { get; set; }
         public Addmission Addmission { get; set; }
         public Department Department { get; set; }

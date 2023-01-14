@@ -1,4 +1,6 @@
-﻿namespace SSDB.Application.Responses.Identity
+﻿using SSDB.Domain.Entities.Catalog;
+
+namespace SSDB.Application.Responses.Identity
 {
     public class UserResponse
     {
@@ -11,5 +13,6 @@
         public bool EmailConfirmed { get; set; }
         public string PhoneNumber { get; set; }
         public string ProfilePictureDataUrl { get; set; }
+        public University University { get; set; }
     }
 }

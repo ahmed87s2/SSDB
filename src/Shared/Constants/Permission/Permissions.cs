@@ -23,6 +23,7 @@ namespace SSDB.Shared.Constants.Permission
             public const string Delete = "Permissions.Registrations.Delete";
             public const string Export = "Permissions.Registrations.Export";
             public const string Search = "Permissions.Registrations.Search";
+            public const string UpdateInfo = "Permissions.Registrations.UpdateInfo";
         }
 
         public static class Universities

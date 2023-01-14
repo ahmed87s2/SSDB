@@ -155,7 +155,12 @@ namespace SSDB.Infrastructure.Migrations
                     b.Property<string>("Type")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("UniversityId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UniversityId");
 
                     b.ToTable("Addmissions");
                 });
@@ -182,7 +187,12 @@ namespace SSDB.Infrastructure.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("UniversityId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UniversityId");
 
                     b.ToTable("Batches");
                 });
@@ -212,7 +222,12 @@ namespace SSDB.Infrastructure.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("UniversityId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UniversityId");
 
                     b.ToTable("Currencies");
                 });
@@ -229,9 +244,6 @@ namespace SSDB.Infrastructure.Migrations
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("FacultyId")
-                        .HasColumnType("int");
 
                     b.Property<int?>("FucultyId")
                         .HasColumnType("int");
@@ -251,9 +263,14 @@ namespace SSDB.Infrastructure.Migrations
                     b.Property<string>("Number")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("UniversityId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("FucultyId");
+
+                    b.HasIndex("UniversityId");
 
                     b.ToTable("Departments");
                 });
@@ -292,7 +309,12 @@ namespace SSDB.Infrastructure.Migrations
                     b.Property<string>("ShortName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("UniversityId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UniversityId");
 
                     b.ToTable("Fuculties");
                 });
@@ -327,6 +349,68 @@ namespace SSDB.Infrastructure.Migrations
                     b.ToTable("Nationalities");
                 });
 
+            modelBuilder.Entity("SSDB.Domain.Entities.Catalog.Payment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CurrencyName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FucultyName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("LastModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("NoStudyFees")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Note")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PaymentNo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("RegistrationFees")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Semester")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StudentNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("UniversityId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UniversityId");
+
+                    b.ToTable("Payments");
+                });
+
             modelBuilder.Entity("SSDB.Domain.Entities.Catalog.Program", b =>
                 {
                     b.Property<int>("Id")
@@ -352,7 +436,12 @@ namespace SSDB.Infrastructure.Migrations
                     b.Property<string>("NameE")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("UniversityId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UniversityId");
 
                     b.ToTable("Programs");
                 });
@@ -406,6 +495,9 @@ namespace SSDB.Infrastructure.Migrations
                     b.Property<double>("StudyFees")
                         .HasColumnType("float");
 
+                    b.Property<int>("UniversityId")
+                        .HasColumnType("int");
+
                     b.Property<int>("linkNo")
                         .HasColumnType("int");
 
@@ -416,6 +508,8 @@ namespace SSDB.Infrastructure.Migrations
                     b.HasIndex("SemesterId");
 
                     b.HasIndex("StudentId");
+
+                    b.HasIndex("UniversityId");
 
                     b.ToTable("Registrations");
                 });
@@ -451,7 +545,12 @@ namespace SSDB.Infrastructure.Migrations
                     b.Property<int>("ProgramId")
                         .HasColumnType("int");
 
+                    b.Property<int>("UniversityId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UniversityId");
 
                     b.ToTable("Semesters");
                 });
@@ -481,7 +580,12 @@ namespace SSDB.Infrastructure.Migrations
                     b.Property<string>("NameE")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("UniversityId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UniversityId");
 
                     b.ToTable("Specializations");
                 });
@@ -600,7 +704,7 @@ namespace SSDB.Infrastructure.Migrations
                     b.Property<decimal?>("ToLocalCurrency")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("UniversityId")
+                    b.Property<int>("UniversityId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -626,15 +730,12 @@ namespace SSDB.Infrastructure.Migrations
                     b.ToTable("Students");
                 });
 
-            modelBuilder.Entity("SSDB.Domain.Entities.Catalog.University", b =>
+            modelBuilder.Entity("SSDB.Domain.Entities.Catalog.StudentsRegistrationInfo", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
@@ -642,7 +743,10 @@ namespace SSDB.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Description")
+                    b.Property<string>("CurrencyName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FucultyName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastModifiedBy")
@@ -654,9 +758,112 @@ namespace SSDB.Infrastructure.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("NoStudyFees")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Note")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PaymentNo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("RegistrationFees")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Semester")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StudentNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UniversityId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("UniversityId");
+
+                    b.ToTable("StudentsRegistrationInfo");
+                });
+
+            modelBuilder.Entity("SSDB.Domain.Entities.Catalog.University", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ConfigsId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("LastModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UniversityConfigsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ConfigsId");
+
                     b.ToTable("Universities");
+                });
+
+            modelBuilder.Entity("SSDB.Domain.Entities.Catalog.UniversityConfigs", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Body")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("LastModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Token")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UniversityId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Url")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UniversityConfigs");
                 });
 
             modelBuilder.Entity("SSDB.Domain.Entities.ExtendedAttributes.DocumentExtendedAttribute", b =>
@@ -995,6 +1202,9 @@ namespace SSDB.Infrastructure.Migrations
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
+                    b.Property<int?>("UniversityId")
+                        .HasColumnType("int");
+
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -1008,6 +1218,8 @@ namespace SSDB.Infrastructure.Migrations
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.HasIndex("UniversityId");
 
                     b.ToTable("Users", "Identity");
                 });
@@ -1069,13 +1281,69 @@ namespace SSDB.Infrastructure.Migrations
                     b.Navigation("ToUser");
                 });
 
+            modelBuilder.Entity("SSDB.Domain.Entities.Catalog.Addmission", b =>
+                {
+                    b.HasOne("SSDB.Domain.Entities.Catalog.University", null)
+                        .WithMany("Addmissions")
+                        .HasForeignKey("UniversityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SSDB.Domain.Entities.Catalog.Batch", b =>
+                {
+                    b.HasOne("SSDB.Domain.Entities.Catalog.University", null)
+                        .WithMany("Batches")
+                        .HasForeignKey("UniversityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SSDB.Domain.Entities.Catalog.Currency", b =>
+                {
+                    b.HasOne("SSDB.Domain.Entities.Catalog.University", null)
+                        .WithMany("Currencies")
+                        .HasForeignKey("UniversityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("SSDB.Domain.Entities.Catalog.Department", b =>
                 {
-                    b.HasOne("SSDB.Domain.Entities.Catalog.Fuculty", "Fuculty")
-                        .WithMany()
+                    b.HasOne("SSDB.Domain.Entities.Catalog.Fuculty", null)
+                        .WithMany("Departments")
                         .HasForeignKey("FucultyId");
 
-                    b.Navigation("Fuculty");
+                    b.HasOne("SSDB.Domain.Entities.Catalog.University", null)
+                        .WithMany("Departments")
+                        .HasForeignKey("UniversityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SSDB.Domain.Entities.Catalog.Fuculty", b =>
+                {
+                    b.HasOne("SSDB.Domain.Entities.Catalog.University", null)
+                        .WithMany("Fuculties")
+                        .HasForeignKey("UniversityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SSDB.Domain.Entities.Catalog.Payment", b =>
+                {
+                    b.HasOne("SSDB.Domain.Entities.Catalog.University", null)
+                        .WithMany("Payments")
+                        .HasForeignKey("UniversityId");
+                });
+
+            modelBuilder.Entity("SSDB.Domain.Entities.Catalog.Program", b =>
+                {
+                    b.HasOne("SSDB.Domain.Entities.Catalog.University", null)
+                        .WithMany("Programs")
+                        .HasForeignKey("UniversityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("SSDB.Domain.Entities.Catalog.Registration", b =>
@@ -1096,11 +1364,37 @@ namespace SSDB.Infrastructure.Migrations
                         .WithMany()
                         .HasForeignKey("StudentId");
 
+                    b.HasOne("SSDB.Domain.Entities.Catalog.University", "University")
+                        .WithMany("Registrations")
+                        .HasForeignKey("UniversityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Currency");
 
                     b.Navigation("Semester");
 
                     b.Navigation("Student");
+
+                    b.Navigation("University");
+                });
+
+            modelBuilder.Entity("SSDB.Domain.Entities.Catalog.Semester", b =>
+                {
+                    b.HasOne("SSDB.Domain.Entities.Catalog.University", null)
+                        .WithMany("Semesters")
+                        .HasForeignKey("UniversityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SSDB.Domain.Entities.Catalog.Specialization", b =>
+                {
+                    b.HasOne("SSDB.Domain.Entities.Catalog.University", null)
+                        .WithMany("Specializations")
+                        .HasForeignKey("UniversityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("SSDB.Domain.Entities.Catalog.Student", b =>
@@ -1154,8 +1448,10 @@ namespace SSDB.Infrastructure.Migrations
                         .IsRequired();
 
                     b.HasOne("SSDB.Domain.Entities.Catalog.University", "University")
-                        .WithMany()
-                        .HasForeignKey("UniversityId");
+                        .WithMany("Students")
+                        .HasForeignKey("UniversityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Addmission");
 
@@ -1174,6 +1470,24 @@ namespace SSDB.Infrastructure.Migrations
                     b.Navigation("Specialization");
 
                     b.Navigation("University");
+                });
+
+            modelBuilder.Entity("SSDB.Domain.Entities.Catalog.StudentsRegistrationInfo", b =>
+                {
+                    b.HasOne("SSDB.Domain.Entities.Catalog.University", null)
+                        .WithMany("RegistrationInfo")
+                        .HasForeignKey("UniversityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SSDB.Domain.Entities.Catalog.University", b =>
+                {
+                    b.HasOne("SSDB.Domain.Entities.Catalog.UniversityConfigs", "Configs")
+                        .WithMany()
+                        .HasForeignKey("ConfigsId");
+
+                    b.Navigation("Configs");
                 });
 
             modelBuilder.Entity("SSDB.Domain.Entities.ExtendedAttributes.DocumentExtendedAttribute", b =>
@@ -1207,6 +1521,47 @@ namespace SSDB.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Role");
+                });
+
+            modelBuilder.Entity("SSDB.Infrastructure.Models.Identity.BlazorHeroUser", b =>
+                {
+                    b.HasOne("SSDB.Domain.Entities.Catalog.University", "University")
+                        .WithMany()
+                        .HasForeignKey("UniversityId");
+
+                    b.Navigation("University");
+                });
+
+            modelBuilder.Entity("SSDB.Domain.Entities.Catalog.Fuculty", b =>
+                {
+                    b.Navigation("Departments");
+                });
+
+            modelBuilder.Entity("SSDB.Domain.Entities.Catalog.University", b =>
+                {
+                    b.Navigation("Addmissions");
+
+                    b.Navigation("Batches");
+
+                    b.Navigation("Currencies");
+
+                    b.Navigation("Departments");
+
+                    b.Navigation("Fuculties");
+
+                    b.Navigation("Payments");
+
+                    b.Navigation("Programs");
+
+                    b.Navigation("RegistrationInfo");
+
+                    b.Navigation("Registrations");
+
+                    b.Navigation("Semesters");
+
+                    b.Navigation("Specializations");
+
+                    b.Navigation("Students");
                 });
 
             modelBuilder.Entity("SSDB.Domain.Entities.Misc.Document", b =>

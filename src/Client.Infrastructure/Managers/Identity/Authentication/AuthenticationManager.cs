@@ -57,7 +57,7 @@ namespace SSDB.Client.Infrastructure.Managers.Identity.Authentication
                 {
                     await _localStorage.SetItemAsync(StorageConstants.Local.UserImageURL, userImageURL);
                 }
-                ((BlazorHeroStateProvider)this._authenticationStateProvider).MarkUserAsAuthenticated(model.Email);
+                ((BlazorHeroStateProvider)this._authenticationStateProvider).MarkUserAsAuthenticated(model.UserName);
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 return await Result.SuccessAsync();
             }

@@ -4,30 +4,43 @@
 <UserCard />
 <MudNavMenu>
     <MudNavLink Href="/" Match="NavLinkMatch.All" Icon="@Icons.Material.Outlined.Home">@_localizer["Home"]</MudNavLink>
-    
+
     @if (_canViewDashboards)
     {
         <MudNavLink Href="/dashboard" Icon="@Icons.Material.Outlined.Dashboard">
             @_localizer["Dashboard"]
         </MudNavLink>
     }
-    @if (_canViewStudents || _canViewUniversities)
+
+    <MudListSubheader Class="mt-2 mb-n2">@_localizer["Catalog Management"]</MudListSubheader>
+    @if (_canViewStudents)
     {
-        <MudListSubheader Class="mt-2 mb-n2">@_localizer["Catalog Management"]</MudListSubheader>
-        @if (_canViewStudents)
-        {
-            <MudNavLink Href="/catalog/Students" Icon="@Icons.Material.Outlined.CallToAction">
-                @_localizer["Students"]
-            </MudNavLink>
-        }
-        @if (_canViewUniversities)
-        {
-            <MudNavLink Href="/catalog/Registrations" Icon="@Icons.Material.Outlined.CallToAction">
-                @_localizer["Registrations"]
-            </MudNavLink>
-        }
+        <MudNavLink Href="/catalog/Students" Icon="@Icons.Material.Outlined.GroupWork">
+            @_localizer["Students"]
+        </MudNavLink>
     }
-    
+    @if (_canViewUniversities)
+    {
+        <MudNavLink Href="/catalog/Universities" Icon="@Icons.Material.Outlined.ModelTraining">
+            @_localizer["Universities"]
+        </MudNavLink>
+    }
+
+    @if (_canViewRegistrations)
+    {
+        <MudNavLink Href="/catalog/Registrations" Icon="@Icons.Material.Outlined.CheckCircleOutline">
+            @_localizer["Registrations"]
+        </MudNavLink>
+    }
+
+
+
+    @if (_canUpdateRegistrationInfo)
+    {
+        <MudNavLink Href="/catalog/Registrations/UpdateRegistrationInfo" Icon="@Icons.Material.Outlined.MarkChatRead">
+            @_localizer["Update Registration Info"]
+        </MudNavLink>
+    }
 
     @if (_canViewUsers || _canViewRoles)
     {
@@ -43,8 +56,8 @@
             <MudNavLink Href="/identity/roles" Icon="@Icons.Material.Outlined.Person">@_localizer["Roles"]</MudNavLink>
         }
     }
-   
-   
+
+
 </MudNavMenu>
 
 @code {
@@ -60,6 +73,8 @@
     private bool _canViewChat;
     private bool _canViewStudents;
     private bool _canViewUniversities;
+    private bool _canViewRegistrations;
+    private bool _canUpdateRegistrationInfo;
 
     protected override async Task OnParametersSetAsync()
     {
@@ -74,5 +89,7 @@
         _canViewChat = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Communication.Chat)).Succeeded;
         _canViewStudents = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Students.View)).Succeeded;
         _canViewUniversities = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Universities.View)).Succeeded;
+        _canViewRegistrations = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Registrations.View)).Succeeded;
+        _canUpdateRegistrationInfo = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Registrations.UpdateInfo)).Succeeded;
     }
 }

@@ -46,7 +46,7 @@ namespace SSDB.Infrastructure.Services.Identity
         public async Task<Result<string>> DeleteAsync(string id)
         {
             var existingRole = await _roleManager.FindByIdAsync(id);
-            if (existingRole.Name != RoleConstants.AdministratorRole && existingRole.Name != RoleConstants.BasicRole)
+            if (existingRole.Name != RoleConstants.AdministratorRole && existingRole.Name != RoleConstants.InhouseRole && existingRole.Name  != RoleConstants.OutSourceRole)
             {
                 bool roleIsNotUsed = true;
                 var allUsers = await _userManager.Users.ToListAsync();
@@ -162,7 +162,7 @@ namespace SSDB.Infrastructure.Services.Identity
             else
             {
                 var existingRole = await _roleManager.FindByIdAsync(request.Id);
-                if (existingRole.Name == RoleConstants.AdministratorRole || existingRole.Name == RoleConstants.BasicRole)
+                if (existingRole.Name == RoleConstants.AdministratorRole || existingRole.Name == RoleConstants.InhouseRole || existingRole.Name == RoleConstants.OutSourceRole)
                 {
                     return await Result<string>.FailAsync(string.Format(_localizer["Not allowed to modify {0} Role."], existingRole.Name));
                 }

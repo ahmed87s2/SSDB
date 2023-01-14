@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using SSDB.Application.Enums;
 using SSDB.Application.Features.Utilities.GetDropDownListInfo;
 using SSDB.Application.Interfaces.Repositories;
+using SSDB.Application.Interfaces.Services;
+using SSDB.Application.Interfaces.Services.Identity;
 using SSDB.Domain.Entities.Catalog;
 using SSDB.Shared.Wrapper;
 using System.Collections.Generic;
@@ -21,11 +23,15 @@ namespace SSDB.Application.Features.Utilities.Queries
     {
         private readonly IUnitOfWork<string> _studentUnitOfWork;
         private readonly IUnitOfWork<int> _unitOfWork;
+        private readonly ICurrentUserService _currentUser;
+        private readonly IUserService _userService;
 
-        public GetDropDownListInfoQueryHandler(IUnitOfWork<int> unitOfWork, IUnitOfWork<string> studentUnitOfWork)
+        public GetDropDownListInfoQueryHandler(IUnitOfWork<int> unitOfWork, IUnitOfWork<string> studentUnitOfWork, ICurrentUserService currentUser, IUserService userService)
         {
             _unitOfWork = unitOfWork;
             _studentUnitOfWork = studentUnitOfWork;
+            _currentUser = currentUser;
+            _userService = userService;
         }
 
         public async Task<Result<List<DropDownListItemResponse>>> Handle(GetDropdownListDataQuery request, CancellationToken cancellationToken)
@@ -52,6 +58,8 @@ namespace SSDB.Application.Features.Utilities.Queries
                     return Result<List<DropDownListItemResponse>>.Success(await getSpecializationsInfo());
                 case ListType.Students:
                     return Result<List<DropDownListItemResponse>>.Success(await getStudentsInfo());
+                case ListType.Universities:
+                    return Result<List<DropDownListItemResponse>>.Success(await getUniversitiesInfo());
                 default:
                     return Result<List<DropDownListItemResponse>>.Fail("Invalid Request");
             }
@@ -59,31 +67,52 @@ namespace SSDB.Application.Features.Utilities.Queries
         
         private async Task<List<DropDownListItemResponse>> getAddmissionsInfo()
         {
-            return await _unitOfWork.Repository<Addmission>().Entities
-                .Select(x => new DropDownListItemResponse{Key = x.Name, Value = x.Id.ToString()}).ToListAsync();
+            var addmissions = _unitOfWork.Repository<Addmission>().Entities;
+            if(!(await _userService.IsAdminAsync(_currentUser.UserId)))
+            {
+                addmissions = addmissions.Where(x => x.UniversityId == int.Parse(_currentUser.UniversityId));
+            }
+            return await addmissions.Select(x => new DropDownListItemResponse{Key = x.Name, Value = x.Id.ToString()}).ToListAsync();
         }
 
         private async Task<List<DropDownListItemResponse>> getBatchesInfo()
         {
-            return await _unitOfWork.Repository<Batch>().Entities
+            var batches = _unitOfWork.Repository<Batch>().Entities;
+            if (!(await _userService.IsAdminAsync(_currentUser.UserId)))
+            {
+                batches = batches.Where(x => x.UniversityId == int.Parse(_currentUser.UniversityId));
+            }
+            return await batches
                 .Select(x => new DropDownListItemResponse { Key = x.Name, Value = x.Id.ToString() }).ToListAsync();
         }
         private async Task<List<DropDownListItemResponse>> getCurrenciesInfo()
         {
-            return await _unitOfWork.Repository<Currency>().Entities
-                .Select(x => new DropDownListItemResponse { Key = $"{x.Name} | {x.Adjust}" , Value = x.Id.ToString() }).ToListAsync();
+            var currencies = _unitOfWork.Repository<Currency>().Entities;
+            if (!(await _userService.IsAdminAsync(_currentUser.UserId)))
+            {
+                currencies = currencies.Where(x => x.UniversityId == int.Parse(_currentUser.UniversityId));
+            }
+            return await currencies.Select(x => new DropDownListItemResponse { Key = $"{x.Name} | {x.Adjust}" , Value = x.Id.ToString() }).ToListAsync();
         }
 
         private async Task<List<DropDownListItemResponse>> getDepartmentsInfo()
         {
-            return await _unitOfWork.Repository<Department>().Entities
-                .Select(x => new DropDownListItemResponse { Key = x.NameA, Value = x.Id.ToString() }).ToListAsync();
+            var departments = _unitOfWork.Repository<Department>().Entities;
+            if (!(await _userService.IsAdminAsync(_currentUser.UserId)))
+            {
+                departments = departments.Where(x => x.UniversityId == int.Parse(_currentUser.UniversityId));
+            }
+            return await departments.Select(x => new DropDownListItemResponse { Key = x.NameA, Value = x.Id.ToString() }).ToListAsync();
         }
 
         private async Task<List<DropDownListItemResponse>> getFucultiesInfo()
         {
-            return await _unitOfWork.Repository<Fuculty>().Entities
-                .Select(x => new DropDownListItemResponse { Key = x.NameA, Value = x.Id.ToString() }).ToListAsync();
+            var fuculties = _unitOfWork.Repository<Fuculty>().Entities;
+            if (!(await _userService.IsAdminAsync(_currentUser.UserId)))
+            {
+                fuculties = fuculties.Where(x => x.UniversityId == int.Parse(_currentUser.UniversityId));
+            }
+            return await fuculties.Select(x => new DropDownListItemResponse { Key = x.NameA, Value = x.Id.ToString() }).ToListAsync();
         }
         private async Task<List<DropDownListItemResponse>> getNationalitiesInfo()
         {
@@ -93,24 +122,49 @@ namespace SSDB.Application.Features.Utilities.Queries
 
         private async Task<List<DropDownListItemResponse>> getProgramsInfo()
         {
-            return await _unitOfWork.Repository<Program>().Entities
-                .Select(x => new DropDownListItemResponse { Key = x.NameA, Value = x.Id.ToString() }).ToListAsync();
+            var programs = _unitOfWork.Repository<Program>().Entities;
+            if (!(await _userService.IsAdminAsync(_currentUser.UserId)))
+            {
+                programs = programs.Where(x => x.UniversityId == int.Parse(_currentUser.UniversityId));
+            }
+            return await programs.Select(x => new DropDownListItemResponse { Key = x.NameA, Value = x.Id.ToString() }).ToListAsync();
         }
         private async Task<List<DropDownListItemResponse>> getSemestersInfo()
         {
-            return await _unitOfWork.Repository<Semester>().Entities
-                .Select(x => new DropDownListItemResponse { Key = x.Name, Value = x.Id.ToString() }).ToListAsync();
+            var semesters = _unitOfWork.Repository<Semester>().Entities;
+            if (!(await _userService.IsAdminAsync(_currentUser.UserId)))
+            {
+                semesters = semesters.Where(x => x.UniversityId == int.Parse(_currentUser.UniversityId));
+            }
+            return await semesters.Select(x => new DropDownListItemResponse { Key = x.Name, Value = x.Id.ToString() }).ToListAsync();
         }
         private async Task<List<DropDownListItemResponse>> getSpecializationsInfo()
         {
-            return await _unitOfWork.Repository<Specialization>().Entities
-                .Select(x => new DropDownListItemResponse { Key = x.NameA, Value = x.Id.ToString() }).ToListAsync();
+            var specializations = _unitOfWork.Repository<Specialization>().Entities;
+            if (!(await _userService.IsAdminAsync(_currentUser.UserId)))
+            {
+                specializations = specializations.Where(x => x.UniversityId == int.Parse(_currentUser.UniversityId));
+            }
+            return await specializations.Select(x => new DropDownListItemResponse { Key = x.NameA, Value = x.Id.ToString() }).ToListAsync();
+        }
+        private async Task<List<DropDownListItemResponse>> getUniversitiesInfo()
+        {
+            var universities = _unitOfWork.Repository<University>().Entities;
+            if (!(await _userService.IsAdminAsync(_currentUser.UserId)))
+            {
+                universities = universities.Where(x => x.Id == int.Parse(_currentUser.UniversityId));
+            }
+            return await universities.Select(x => new DropDownListItemResponse { Key = x.Name, Value = x.Id.ToString() }).ToListAsync();
         }
 
         private async Task<List<DropDownListItemResponse>> getStudentsInfo()
         {
-            var studetns = await _studentUnitOfWork.Repository<Student>().Entities
-                .Select(x => new DropDownListItemResponse
+            var students = _studentUnitOfWork.Repository<Student>().Entities;
+            if (!(await _userService.IsAdminAsync(_currentUser.UserId)))
+            {
+                students = students.Where(x => x.UniversityId == int.Parse(_currentUser.UniversityId));
+            }
+            var studetns = await students.Select(x => new DropDownListItemResponse
                 {
                     Key = x.NameA,
                     Value = x.Id

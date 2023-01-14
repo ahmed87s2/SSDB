@@ -20,5 +20,7 @@ namespace SSDB.Application.Interfaces.Repositories
         Task UpdateAsync(T entity);
 
         Task DeleteAsync(T entity);
+        Task AddAsync(List<T> entities);
+        Task DeleteAsync(List<T> entities);
     }
 }

@@ -362,6 +362,13 @@
             <param name="id">Registration Id</param>
             <returns>Status 200 OK</returns>
         </member>
+        <member name="M:SSDB.Server.Controllers.v1.Catalog.RegistrationsController.UpdateRegistrationInfo(SSDB.Application.Features.Registrations.Commands.UpdateRegistrationInfoCommand)">
+            <summary>
+            Update students registration info
+            </summary>
+            <param name="command">Registration Id</param>
+            <returns>Status 200 OK</returns>
+        </member>
         <member name="M:SSDB.Server.Controllers.v1.Catalog.RegistrationsController.Post(SSDB.Application.Features.Registrations.Commands.AddRegistrationCommand)">
             <summary>
             Add/Edit a Registration

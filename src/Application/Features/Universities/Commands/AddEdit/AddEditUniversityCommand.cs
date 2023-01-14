@@ -17,9 +17,9 @@ namespace SSDB.Application.Features.Universities.Commands
         [Required]
         public string Name { get; set; }
         [Required]
-        public string Description { get; set; }
+        public string Type { get; set; }
         [Required]
-        public decimal Amount { get; set; }
+        public bool IsActive { get; set; }
     }
 
     internal class AddEditUniversityCommandHandler : IRequestHandler<AddEditUniversityCommand, Result<int>>
@@ -49,9 +49,9 @@ namespace SSDB.Application.Features.Universities.Commands
                 var University = await _unitOfWork.Repository<University>().GetByIdAsync(command.Id);
                 if (University != null)
                 {
-                    University.Name = command.Name ?? University.Name;
-                    University.Amount = (command.Amount == 0) ? University.Amount : command.Amount;
-                    University.Description = command.Description ?? University.Description;
+                    University.Name = command.Name;
+                    University.IsActive = command.IsActive;
+                    University.Type = command.Type;
                     await _unitOfWork.Repository<University>().UpdateAsync(University);
                     await _unitOfWork.CommitAndRemoveCache(cancellationToken, ApplicationConstants.Cache.GetAllUniversitiesCacheKey);
                     return await Result<int>.SuccessAsync(University.Id, _localizer["University Updated"]);

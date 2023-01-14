@@ -22,6 +22,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
+using SSDB.Shared.Models;
 
 namespace SSDB.Infrastructure.Services.Identity
 {
@@ -55,7 +56,7 @@ namespace SSDB.Infrastructure.Services.Identity
 
         public async Task<Result<List<UserResponse>>> GetAllAsync()
         {
-            var users = await _userManager.Users.ToListAsync();
+            var users = await _userManager.Users.Include(x=>x.University).ToListAsync();
             var result = _mapper.Map<List<UserResponse>>(users);
             return await Result<List<UserResponse>>.SuccessAsync(result);
         }
@@ -75,7 +76,8 @@ namespace SSDB.Infrastructure.Services.Identity
                 UserName = request.UserName,
                 PhoneNumber = request.PhoneNumber,
                 IsActive = request.ActivateUser,
-                EmailConfirmed = request.AutoConfirmEmail
+                EmailConfirmed = request.AutoConfirmEmail,
+                UniversityId = request.UniversityId
             };
 
             if (!string.IsNullOrWhiteSpace(request.PhoneNumber))
@@ -93,7 +95,7 @@ namespace SSDB.Infrastructure.Services.Identity
                 var result = await _userManager.CreateAsync(user, request.Password);
                 if (result.Succeeded)
                 {
-                    await _userManager.AddToRoleAsync(user, RoleConstants.BasicRole);
+                    //await _userManager.AddToRoleAsync(user, RoleConstants.BasicRole);
                     if (!request.AutoConfirmEmail)
                     {
                         var verificationUri = await SendVerificationEmail(user, origin);
@@ -133,7 +135,8 @@ namespace SSDB.Infrastructure.Services.Identity
 
         public async Task<IResult<UserResponse>> GetAsync(string userId)
         {
-            var user = await _userManager.Users.Where(u => u.Id == userId).FirstOrDefaultAsync();
+            var user = await _userManager.Users.Include(x => x.University)
+                .Where(u => u.Id == userId).FirstOrDefaultAsync();
             var result = _mapper.Map<UserResponse>(user);
             return await Result<UserResponse>.SuccessAsync(result);
         }
@@ -273,6 +276,14 @@ namespace SSDB.Infrastructure.Services.Identity
         {
             var count = await _userManager.Users.CountAsync();
             return count;
+        }
+        public async Task<bool> IsAdminAsync(string userId)
+        {
+            var user = await _userManager.Users.Include(x => x.University)
+                .Where(u => u.Id == userId).FirstOrDefaultAsync();
+
+            var isAdmin = await _userManager.IsInRoleAsync(user, RoleConstants.AdministratorRole);
+            return isAdmin;
         }
 
         public async Task<string> ExportToExcelAsync(string searchString = "")

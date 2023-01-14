@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using SSDB.Application.Interfaces.Chat;
 using SSDB.Application.Models.Chat;
+using SSDB.Domain.Entities.Catalog;
 
 namespace SSDB.Infrastructure.Models.Identity
 {
@@ -32,6 +33,8 @@ namespace SSDB.Infrastructure.Models.Identity
         public DateTime RefreshTokenExpiryTime { get; set; }
         public virtual ICollection<ChatHistory<BlazorHeroUser>> ChatHistoryFromUsers { get; set; }
         public virtual ICollection<ChatHistory<BlazorHeroUser>> ChatHistoryToUsers { get; set; }
+        public int? UniversityId { get; internal set; }
+        public University University { get; internal set; }
 
         public BlazorHeroUser()
         {

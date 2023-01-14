@@ -113,8 +113,8 @@ namespace SSDB.Client.Infrastructure.Settings
         {
             Palette = new Palette()
             {
-                Primary = "#1E88E5",
-                AppbarBackground = "#1E88E5",
+                Primary = "#009933",
+                AppbarBackground = "#009933",
                 Background = Colors.Grey.Lighten5,
                 DrawerBackground = "#FFF",
                 DrawerText = "rgba(0,0,0, 0.7)",
@@ -128,7 +128,7 @@ namespace SSDB.Client.Infrastructure.Settings
         {
             Palette = new Palette()
             {
-                Primary = "#1E88E5",
+                Primary = "#009933",
                 Success = "#007E33",
                 Black = "#27272f",
                 Background = "#32333d",

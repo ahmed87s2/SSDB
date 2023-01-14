@@ -12,6 +12,7 @@ using System;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace SSDB.Infrastructure
 {
@@ -40,7 +41,7 @@ namespace SSDB.Infrastructure
         public void Initialize()
         {
             AddAdministrator();
-            AddBasicUser();
+            AddOtherUsersAndRoles();
             _db.SaveChanges();
         }
 
@@ -60,10 +61,10 @@ namespace SSDB.Infrastructure
                 //Check if User Exists
                 var superUser = new BlazorHeroUser
                 {
-                    FirstName = "Mukesh",
-                    LastName = "Murugan",
-                    Email = "mukesh@blazorhero.com",
-                    UserName = "mukesh",
+                    FirstName = "Emad",
+                    LastName = "Elhaj",
+                    Email = "emadfrind2all@gmail.com",
+                    UserName = "Admin",
                     EmailConfirmed = true,
                     PhoneNumberConfirmed = true,
                     CreatedOn = DateTime.Now,
@@ -93,38 +94,95 @@ namespace SSDB.Infrastructure
             }).GetAwaiter().GetResult();
         }
 
-        private void AddBasicUser()
+        private void AddOtherUsersAndRoles()
         {
             Task.Run(async () =>
             {
                 //Check if Role Exists
-                var basicRole = new BlazorHeroRole(RoleConstants.BasicRole, _localizer["Basic role with default permissions"]);
-                var basicRoleInDb = await _roleManager.FindByNameAsync(RoleConstants.BasicRole);
-                if (basicRoleInDb == null)
+
+                var rolesToBeCreated = new List<BlazorHeroRole>();
+                rolesToBeCreated.Add(new BlazorHeroRole(RoleConstants.InhouseRole, _localizer["Inhouse university role."]));
+                rolesToBeCreated.Add(new BlazorHeroRole(RoleConstants.OutSourceRole, _localizer["OutSource university role."]));
+
+                foreach (var role in rolesToBeCreated)
                 {
-                    await _roleManager.CreateAsync(basicRole);
-                    _logger.LogInformation(_localizer["Seeded Basic Role."]);
+                    var basicRoleInDb = await _roleManager.FindByNameAsync(role.Name);
+                    if (basicRoleInDb == null)
+                    {
+                        await _roleManager.CreateAsync(role);
+                        await GetRolePermissionsAsync(role);
+                        _logger.LogInformation(_localizer[$"Seeded {role.Name} Role."]);
+                    }
                 }
-                //Check if User Exists
-                var basicUser = new BlazorHeroUser
+
+
+
+                //Seed Users
+                var usersToBeCreated = new List<BlazorHeroUser>();
+                usersToBeCreated.Add(new BlazorHeroUser
                 {
-                    FirstName = "John",
-                    LastName = "Doe",
-                    Email = "john@blazorhero.com",
-                    UserName = "johndoe",
+                    FirstName = RoleConstants.InhouseRole,
+                    LastName = "User",
+                    Email = "inhouse@gmail.com",
+                    UserName = "InhouseUser",
                     EmailConfirmed = true,
                     PhoneNumberConfirmed = true,
                     CreatedOn = DateTime.Now,
                     IsActive = true
-                };
-                var basicUserInDb = await _userManager.FindByEmailAsync(basicUser.Email);
-                if (basicUserInDb == null)
+                });
+
+                usersToBeCreated.Add(new BlazorHeroUser
                 {
-                    await _userManager.CreateAsync(basicUser, UserConstants.DefaultPassword);
-                    await _userManager.AddToRoleAsync(basicUser, RoleConstants.BasicRole);
-                    _logger.LogInformation(_localizer["Seeded User with Basic Role."]);
+                    FirstName = RoleConstants.OutSourceRole,
+                    LastName = "User",
+                    Email = "outsource@gmail.com",
+                    UserName = "OutsourceUser",
+                    EmailConfirmed = true,
+                    PhoneNumberConfirmed = true,
+                    CreatedOn = DateTime.Now,
+                    IsActive = true
+                });
+
+                foreach(var user in usersToBeCreated)
+                {
+                    var basicUserInDb = await _userManager.FindByNameAsync(user.UserName);
+                    if (basicUserInDb == null)
+                    {
+                        await _userManager.CreateAsync(user, UserConstants.DefaultPassword);
+                        await _userManager.AddToRoleAsync(user, user.FirstName);
+                        _logger.LogInformation(_localizer[$"Seeded User with {user.FirstName} Role."]);
+                    }
                 }
+                
             }).GetAwaiter().GetResult();
+        }
+
+
+        private async Task GetRolePermissionsAsync(BlazorHeroRole role)
+        {
+            var allowedPermissions = new List<string>();
+            if (role.Name == RoleConstants.InhouseRole)
+            {                
+                allowedPermissions.Add(Permissions.Students.View);
+                allowedPermissions.Add(Permissions.Students.Create);
+                allowedPermissions.Add(Permissions.Students.Edit);
+                allowedPermissions.Add(Permissions.Students.Delete);
+                allowedPermissions.Add(Permissions.Students.Export);
+                allowedPermissions.Add(Permissions.Students.Search);
+                allowedPermissions.Add(Permissions.Registrations.View);
+                allowedPermissions.Add(Permissions.Registrations.Search);
+                allowedPermissions.Add(Permissions.Registrations.Export);
+                allowedPermissions.Add(Permissions.Registrations.UpdateInfo);
+            }
+            if (role.Name == RoleConstants.OutSourceRole)
+            {
+                allowedPermissions.Add(Permissions.Registrations.UpdateInfo);
+            }
+
+            foreach (var permission in allowedPermissions)
+            {
+                await _roleManager.AddPermissionClaim(role, permission);
+            }
         }
     }
 }

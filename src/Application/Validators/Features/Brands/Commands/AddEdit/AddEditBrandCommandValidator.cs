@@ -10,10 +10,8 @@ namespace SSDB.Application.Validators.Features.Universities.Commands.AddEdit
         {
             RuleFor(request => request.Name)
                 .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["Name is required!"]);
-            RuleFor(request => request.Description)
+            RuleFor(request => request.Type)
                 .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["Description is required!"]);
-            RuleFor(request => request.Amount)
-                .GreaterThan(0).WithMessage(x => localizer["Tax must be greater than 0"]);
         }
     }
 }

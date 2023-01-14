@@ -25,9 +25,20 @@ namespace SSDB.Infrastructure.Repositories
             return entity;
         }
 
+        public async Task AddAsync(List<T> entities)
+        {
+            await _dbContext.Set<T>().AddRangeAsync(entities);
+        }
+
         public Task DeleteAsync(T entity)
         {
             _dbContext.Set<T>().Remove(entity);
+            return Task.CompletedTask;
+        }
+
+        public Task DeleteAsync(List<T> entities)
+        {
+            _dbContext.Set<T>().RemoveRange(entities);
             return Task.CompletedTask;
         }
 

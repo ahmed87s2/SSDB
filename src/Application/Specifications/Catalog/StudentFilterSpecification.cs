@@ -16,6 +16,7 @@ namespace SSDB.Application.Specifications.Catalog
             {
                 Criteria = p => p.Id != null;
             }
+
         }
     } 
 }

@@ -49,8 +49,8 @@ namespace SSDB.Application.Features.Universities.Queries.Export
             {
                 { _localizer["Id"], item => item.Id },
                 { _localizer["Name"], item => item.Name },
-                { _localizer["Description"], item => item.Description },
-                { _localizer["Amount"], item => item.Amount }
+                { _localizer["Type"], item => item.Type },
+                { _localizer["IsActive"], item => item.IsActive }
             }, sheetName: _localizer["Universities"]);
 
             return await Result<string>.SuccessAsync(data: data);

@@ -22,6 +22,9 @@ else
                     <MudCardContent Class="pa-46" Style="padding:26px!important">
                         <MudGrid>
                             <MudCheckBox @bind-Checked="@_active" Label="@_localizer["Active?"]" Color="Color.Primary"></MudCheckBox>
+                            @*<MudAutocomplete T="int" Label="@_localizer["University"]" For="@(() => _universityId)"
+                                             @bind-Value="@_universityId" ResetValueOnEmptyText="true" SearchFunc="@SearchInUniversities" Variant="Variant.Filled"
+                                             ToStringFunc="@(i => _Universities.FirstOrDefault(b => int.Parse(b.Value) == i)?.Key ?? string.Empty)" OffsetY="true" />*@
                             <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto" OnClick="ToggleUserStatus" ButtonType="ButtonType.Submit">@_localizer["Save Changes"]</MudButton>
                         </MudGrid>
                     </MudCardContent>
@@ -71,6 +74,10 @@ else
                         </MudItem>
                         <MudItem xs="12" md="6">
                             <MudField Label="@_localizer["Email"]" Variant="Variant.Text">@_email</MudField>
+                        </MudItem>
+
+                        <MudItem xs="12" md="6">
+                            <MudField Label="@_localizer["University"]" Variant="Variant.Text">@_universityName</MudField>
                         </MudItem>
                     </MudGrid>
                 </MudCardContent>

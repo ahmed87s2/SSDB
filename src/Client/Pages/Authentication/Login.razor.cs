@@ -27,7 +27,7 @@ namespace SSDB.Client.Pages.Authentication
             var result = await _authenticationManager.Login(_tokenModel);
             if (result.Succeeded)
             {
-                _snackBar.Add(string.Format(_localizer["Welcome {0}"], _tokenModel.Email), Severity.Success);
+                _snackBar.Add(string.Format(_localizer["Welcome {0}"], _tokenModel.UserName), Severity.Success);
                 _navigationManager.NavigateTo("/", true);
             }
             else
@@ -61,13 +61,13 @@ namespace SSDB.Client.Pages.Authentication
 
         private void FillAdministratorCredentials()
         {
-            _tokenModel.Email = "mukesh@blazorhero.com";
+            _tokenModel.UserName = "mukesh@blazorhero.com";
             _tokenModel.Password = "123Pa$$word!";
         }
 
         private void FillBasicUserCredentials()
         {
-            _tokenModel.Email = "john@blazorhero.com";
+            _tokenModel.UserName = "john@blazorhero.com";
             _tokenModel.Password = "123Pa$$word!";
         }
     }

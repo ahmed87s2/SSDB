@@ -8,5 +8,6 @@ namespace SSDB.Domain.Entities.Catalog
         public int ProgramId { get; set; }
         public double MaxHours { get; set; }
         public string FacultyId { get; set; }
+        public int UniversityId { get; set; }
     }
 }

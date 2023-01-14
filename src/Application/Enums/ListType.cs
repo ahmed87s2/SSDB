@@ -12,5 +12,6 @@
         Semesters,
         Specializations,
         Students,
+        Universities
     }
 }

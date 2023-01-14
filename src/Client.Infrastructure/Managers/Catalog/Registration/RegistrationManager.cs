@@ -49,5 +49,11 @@ namespace SSDB.Client.Infrastructure.Managers.Catalog.Registration
             var response = await _httpClient.PostAsJsonAsync(Routes.RegistrationsEndpoints.Save, request);
             return await response.ToResult<int>();
         }
+
+        public async Task<IResult<string>> UpdateRegistrationAsync(UpdateRegistrationInfoCommand request)
+        {
+            var response = await _httpClient.PostAsJsonAsync(Routes.RegistrationsEndpoints.UpdateRegistrationInfo, request);
+            return await response.ToResult<string>();
+        }
     }
 }

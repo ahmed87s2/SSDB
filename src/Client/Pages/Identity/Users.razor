@@ -49,6 +49,7 @@ else
             <MudTh><MudTableSortLabel SortBy="new Func<UserResponse, object>(x => x.UserName)">@_localizer["UserName"]</MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel SortBy="new Func<UserResponse, object>(x => x.Email)">@_localizer["Email"]</MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel SortBy="new Func<UserResponse, object>(x => x.PhoneNumber)">@_localizer["PhoneNumber"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortBy="new Func<UserResponse, object>(x => x.University.Name)">@_localizer["University"]</MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel SortBy="new Func<UserResponse, object>(x => x.EmailConfirmed)">@_localizer["Email Confirmation"]</MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel SortBy="new Func<UserResponse, object>(x => x.IsActive)">@_localizer["Active"]</MudTableSortLabel></MudTh>
             <MudTh Style="text-align:right">@_localizer["Actions"]</MudTh>
@@ -68,6 +69,9 @@ else
             </MudTd>
             <MudTd DataLabel="PhoneNumber">
                 <MudHighlighter Text="@context.PhoneNumber" HighlightedText="@_searchString" />
+            </MudTd>
+            <MudTd DataLabel="University">
+                <MudHighlighter Text="@context.University.Name" HighlightedText="@_searchString" />
             </MudTd>
             <MudTd DataLabel="EmailConfirmed"><MudCheckBox @bind-Checked="@context.EmailConfirmed" ReadOnly Color="Color.Secondary"></MudCheckBox></MudTd>
             <MudTd DataLabel="Active"><MudCheckBox @bind-Checked="@context.IsActive" ReadOnly Color="Color.Secondary"></MudCheckBox></MudTd>

@@ -8,5 +8,6 @@ namespace SSDB.Domain.Entities.Catalog
         public string Name { get; set; }
         public string Type { get; set; }
         public DateTime Date { get; set; }
+        public int UniversityId { get; set; }
     }
 }
