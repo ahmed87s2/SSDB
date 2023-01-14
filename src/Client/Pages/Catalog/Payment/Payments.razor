@@ -1,0 +1,70 @@
+﻿@page "/catalog/Payments"
+@attribute [Authorize(Policy = Permissions.Payments.View)]
+@inject Microsoft.Extensions.Localization.IStringLocalizer<Payments> _localizer
+@using SSDB.Application.Features.Payments.Queries;
+
+
+<style>
+    .mud-table-container {
+        overflow: auto;
+    }
+    .mud-table-container {
+        overflow: auto;
+    }
+
+    .mud-table-cell {font-size:inherit;
+        padding: 5px 15px 5px 15px;
+    }
+</style>
+
+<HeroTitle Title="@_localizer["Payments"]" Description="@_localizer["Manage Payments."]" />
+@if (!_loaded)
+{
+    <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+}
+else
+{
+    <MudTable Elevation="25" ServerData="@(new Func<TableState, Task<TableData<GetAllPagedPaymentsResponse>>>(ServerReload))" Hover="true" Dense="@_dense" Bordered="@_bordered" Striped="@_striped" @ref="_table">
+        <ToolBarContent>
+            <div class="justify-center mud-text-align-center">
+                <MudButton DisableElevation Variant="Variant.Filled" OnClick="@(() => OnSearch(""))" StartIcon="@Icons.Material.Filled.Refresh" IconColor="Color.Surface" Color="Color.Secondary">@_localizer["Reload"]</MudButton>
+                @if (_canExportPayments)
+                {
+                    <MudButton DisableElevation Variant="Variant.Filled" OnClick="ExportToExcel" StartIcon="@Icons.Custom.FileFormats.FileExcel" IconColor="Color.Secondary" Color="Color.Surface" Style="margin-left: 5px;">@_localizer["Export"]</MudButton>
+                }
+            </div>
+            <MudToolBarSpacer />
+            @if (_canSearchPayments)
+            {
+                <MudTextField T="string" ValueChanged="@(s=>OnSearch(s))" Placeholder="@_localizer["Search"]" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+            }
+        </ToolBarContent>
+        <HeaderContent>
+            <MudTh><MudTableSortLabel T="GetAllPagedPaymentsResponse" SortLabel="PaymentNo">@_localizer["PaymentNo"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedPaymentsResponse" SortLabel="Date">@_localizer["Date"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedPaymentsResponse" SortLabel="Student">@_localizer["Student"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedPaymentsResponse" SortLabel="Semester">@_localizer["Semester"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedPaymentsResponse" SortLabel="Fees">@_localizer["Fees"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedPaymentsResponse" SortLabel="StudyFees">@_localizer["NoStudyFees"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedPaymentsResponse" SortLabel="Currency">@_localizer["Currency"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedPaymentsResponse" SortLabel="Status">@_localizer["Status"]</MudTableSortLabel></MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd DataLabel="PaymentNo"><MudHighlighter Text="@context.PaymentNo" HighlightedText="@_searchString" /></MudTd>
+            <MudTd DataLabel="Date">@context.Date.ToString("dd-MMM-yy")</MudTd>
+            <MudTd DataLabel="Student"><MudHighlighter Text="@context.Name" HighlightedText="@_searchString"/></MudTd>
+            <MudTd DataLabel="Semester"><MudHighlighter Text="@context.Semester" HighlightedText="@_searchString" /></MudTd>
+            <MudTd DataLabel="Fees"><MudHighlighter Text="@context.RegistrationFees.ToString()" HighlightedText="@_searchString" /></MudTd>
+            <MudTd DataLabel="NoStudyFees"><MudCheckBox @bind-Checked="@context.NoStudyFees" Color="Color.Primary"></MudCheckBox></MudTd>
+            <MudTd DataLabel="Currency"><MudHighlighter Text="@context.CurrencyName" HighlightedText="@_searchString"/></MudTd>
+            <MudTd DataLabel="Status"><MudHighlighter Text="@context.Status" HighlightedText="@_searchString" /></MudTd>
+
+            
+        </RowTemplate>
+        <FooterContent>
+        </FooterContent>
+        <PagerContent>
+            <TablePager />
+        </PagerContent>
+    </MudTable>
+}

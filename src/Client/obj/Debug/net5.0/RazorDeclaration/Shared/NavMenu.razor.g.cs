@@ -300,7 +300,7 @@ using System.Security.Claims;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 50 "D:\WorkSpace\SSDB_Universities\src\Client\Shared\NavMenu.razor"
+#line 69 "D:\WorkSpace\SSDB_Universities\src\Client\Shared\NavMenu.razor"
        
     private ClaimsPrincipal _authenticationStateProviderUser;
 
@@ -314,6 +314,9 @@ using System.Security.Claims;
     private bool _canViewChat;
     private bool _canViewStudents;
     private bool _canViewUniversities;
+    private bool _canViewRegistrations;
+    private bool _canViewPayments;
+    private bool _canUpdateRegistrationInfo;
 
     protected override async Task OnParametersSetAsync()
     {
@@ -328,6 +331,9 @@ using System.Security.Claims;
         _canViewChat = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Communication.Chat)).Succeeded;
         _canViewStudents = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Students.View)).Succeeded;
         _canViewUniversities = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Universities.View)).Succeeded;
+        _canViewRegistrations = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Registrations.View)).Succeeded;
+        _canViewPayments = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Payments.View)).Succeeded;
+        _canUpdateRegistrationInfo = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Registrations.UpdateInfo)).Succeeded;
     }
 
 #line default

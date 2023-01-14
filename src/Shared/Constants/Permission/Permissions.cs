@@ -25,6 +25,23 @@ namespace SSDB.Shared.Constants.Permission
             public const string Search = "Permissions.Registrations.Search";
             public const string UpdateInfo = "Permissions.Registrations.UpdateInfo";
         }
+        
+        public static class RegistrationInfo
+        {
+            public const string View = "Permissions.RegistrationInfo.View";
+            public const string Export = "Permissions.RegistrationInfo.Export";
+            public const string Search = "Permissions.RegistrationInfo.Search";
+            public const string UpdateInfo = "Permissions.RegistrationInfo.UpdateInfo";
+        }
+        public static class Payments
+        {
+            public const string View = "Permissions.Payments.View";
+            public const string Create = "Permissions.Payments.Create";
+            public const string Edit = "Permissions.Payments.Edit";
+            public const string Delete = "Permissions.Payments.Delete";
+            public const string Export = "Permissions.Payments.Export";
+            public const string Search = "Permissions.Payments.Search";
+        }
 
         public static class Universities
         {

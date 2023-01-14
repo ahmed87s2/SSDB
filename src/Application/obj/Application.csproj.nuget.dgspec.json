@@ -1,46 +1,38 @@
 {
   "format": 1,
   "restore": {
-    "C:\\WorkPlace\\Clean Arch\\SSDB\\src\\Application\\Application.csproj": {}
+    "D:\\WorkSpace\\SSDB_Universities\\src\\Application\\Application.csproj": {}
   },
   "projects": {
-    "C:\\WorkPlace\\Clean Arch\\SSDB\\src\\Application\\Application.csproj": {
+    "D:\\WorkSpace\\SSDB_Universities\\src\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\WorkPlace\\Clean Arch\\SSDB\\src\\Application\\Application.csproj",
+        "projectUniqueName": "D:\\WorkSpace\\SSDB_Universities\\src\\Application\\Application.csproj",
         "projectName": "SSDB.Application",
-        "projectPath": "C:\\WorkPlace\\Clean Arch\\SSDB\\src\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\AhmedAli\\.nuget\\packages\\",
-        "outputPath": "C:\\WorkPlace\\Clean Arch\\SSDB\\src\\Application\\obj\\",
+        "projectPath": "D:\\WorkSpace\\SSDB_Universities\\src\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\ahmed\\.nuget\\packages\\",
+        "outputPath": "D:\\WorkSpace\\SSDB_Universities\\src\\Application\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\AhmedAli\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ahmed\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 20.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\WorkPlace\\Clean Arch\\SSDB\\src\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\WorkPlace\\Clean Arch\\SSDB\\src\\Domain\\Domain.csproj"
+              "D:\\WorkSpace\\SSDB_Universities\\src\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\WorkSpace\\SSDB_Universities\\src\\Domain\\Domain.csproj"
               },
-              "C:\\WorkPlace\\Clean Arch\\SSDB\\src\\Shared\\Shared.csproj": {
-                "projectPath": "C:\\WorkPlace\\Clean Arch\\SSDB\\src\\Shared\\Shared.csproj"
+              "D:\\WorkSpace\\SSDB_Universities\\src\\Shared\\Shared.csproj": {
+                "projectPath": "D:\\WorkSpace\\SSDB_Universities\\src\\Shared\\Shared.csproj"
               }
             }
           }
@@ -116,32 +108,24 @@
         }
       }
     },
-    "C:\\WorkPlace\\Clean Arch\\SSDB\\src\\Domain\\Domain.csproj": {
+    "D:\\WorkSpace\\SSDB_Universities\\src\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\WorkPlace\\Clean Arch\\SSDB\\src\\Domain\\Domain.csproj",
+        "projectUniqueName": "D:\\WorkSpace\\SSDB_Universities\\src\\Domain\\Domain.csproj",
         "projectName": "SSDB.Domain",
-        "projectPath": "C:\\WorkPlace\\Clean Arch\\SSDB\\src\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\AhmedAli\\.nuget\\packages\\",
-        "outputPath": "C:\\WorkPlace\\Clean Arch\\SSDB\\src\\Domain\\obj\\",
+        "projectPath": "D:\\WorkSpace\\SSDB_Universities\\src\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\ahmed\\.nuget\\packages\\",
+        "outputPath": "D:\\WorkSpace\\SSDB_Universities\\src\\Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\AhmedAli\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ahmed\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 20.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -179,32 +163,24 @@
         }
       }
     },
-    "C:\\WorkPlace\\Clean Arch\\SSDB\\src\\Shared\\Shared.csproj": {
+    "D:\\WorkSpace\\SSDB_Universities\\src\\Shared\\Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\WorkPlace\\Clean Arch\\SSDB\\src\\Shared\\Shared.csproj",
+        "projectUniqueName": "D:\\WorkSpace\\SSDB_Universities\\src\\Shared\\Shared.csproj",
         "projectName": "SSDB.Shared",
-        "projectPath": "C:\\WorkPlace\\Clean Arch\\SSDB\\src\\Shared\\Shared.csproj",
-        "packagesPath": "C:\\Users\\AhmedAli\\.nuget\\packages\\",
-        "outputPath": "C:\\WorkPlace\\Clean Arch\\SSDB\\src\\Shared\\obj\\",
+        "projectPath": "D:\\WorkSpace\\SSDB_Universities\\src\\Shared\\Shared.csproj",
+        "packagesPath": "C:\\Users\\ahmed\\.nuget\\packages\\",
+        "outputPath": "D:\\WorkSpace\\SSDB_Universities\\src\\Shared\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\AhmedAli\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ahmed\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 20.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

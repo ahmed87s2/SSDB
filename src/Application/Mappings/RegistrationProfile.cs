@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
+using SSDB.Application.Features.RegistrationInfo.Queries;
 using SSDB.Application.Features.Registrations.Commands;
 using SSDB.Application.Features.Registrations.Queries;
 using SSDB.Application.Features.Students.Queries;
 using SSDB.Domain.Entities.Catalog;
 using SSDB.Shared.Wrapper;
+using System.Collections.Generic;
 
 namespace SSDB.Application.Mappings
 {
@@ -17,6 +19,10 @@ namespace SSDB.Application.Mappings
             CreateMap<GetAllPagedRegistrationsResponse, Registration>().ReverseMap();
             CreateMap<GetRegistrationByIdResponse, AddRegistrationCommand>().ReverseMap();
             CreateMap<PaginatedResult<GetAllPagedRegistrationsResponse>, PaginatedResult<Registration>>().ReverseMap();
+            
+            CreateMap<StudentsRegistrationInfo, Payment>().ReverseMap();
+            CreateMap<StudentsRegistrationInfo, GetAllPagedRegistrationInfoResponse>().ReverseMap();
+            CreateMap<PaginatedResult<StudentsRegistrationInfo>, PaginatedResult<GetAllPagedRegistrationInfoResponse>>().ReverseMap();
             CreateMap<StudentsRegistrationInfo, Registration>().ReverseMap()
                  .ForMember(d => d.Name, opt => opt.MapFrom(s => s.Student.NameA))
                  .ForMember(d => d.RegistrationFees, opt => opt.MapFrom(s => s.Fees))

@@ -356,6 +356,9 @@ namespace SSDB.Infrastructure.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("BranchId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
@@ -401,7 +404,7 @@ namespace SSDB.Infrastructure.Migrations
                     b.Property<string>("StudentNumber")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UniversityId")
+                    b.Property<int>("UniversityId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -1334,7 +1337,9 @@ namespace SSDB.Infrastructure.Migrations
                 {
                     b.HasOne("SSDB.Domain.Entities.Catalog.University", null)
                         .WithMany("Payments")
-                        .HasForeignKey("UniversityId");
+                        .HasForeignKey("UniversityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("SSDB.Domain.Entities.Catalog.Program", b =>

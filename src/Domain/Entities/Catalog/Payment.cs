@@ -16,5 +16,7 @@ namespace SSDB.Domain.Entities.Catalog
         public string Semester { get; set; }
         public string PaymentNo { get; set; }
         public string Status { get; set; }
+        public int UniversityId { get; set; }
+        public string BranchId { get; set; }
     }
 }

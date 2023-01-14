@@ -28,16 +28,22 @@
 
     @if (_canViewRegistrations)
     {
-        <MudNavLink Href="/catalog/Registrations" Icon="@Icons.Material.Outlined.CheckCircleOutline">
+        <MudNavLink Href="/catalog/RegistrationInfo" Icon="@Icons.Material.Outlined.CheckCircleOutline">
             @_localizer["Registrations"]
         </MudNavLink>
     }
 
+    @if (_canViewPayments)
+    {
+        <MudNavLink Href="/catalog/Payments" Icon="@Icons.Material.Outlined.Payment">
+            @_localizer["Payments"]
+        </MudNavLink>
+    }
 
 
     @if (_canUpdateRegistrationInfo)
     {
-        <MudNavLink Href="/catalog/Registrations/UpdateRegistrationInfo" Icon="@Icons.Material.Outlined.MarkChatRead">
+        <MudNavLink Href="/catalog/UpdateRegistrationInfo" Icon="@Icons.Material.Outlined.MarkChatRead">
             @_localizer["Update Registration Info"]
         </MudNavLink>
     }
@@ -74,6 +80,7 @@
     private bool _canViewStudents;
     private bool _canViewUniversities;
     private bool _canViewRegistrations;
+    private bool _canViewPayments;
     private bool _canUpdateRegistrationInfo;
 
     protected override async Task OnParametersSetAsync()
@@ -90,6 +97,7 @@
         _canViewStudents = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Students.View)).Succeeded;
         _canViewUniversities = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Universities.View)).Succeeded;
         _canViewRegistrations = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Registrations.View)).Succeeded;
+        _canViewPayments = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Payments.View)).Succeeded;
         _canUpdateRegistrationInfo = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Registrations.UpdateInfo)).Succeeded;
     }
 }

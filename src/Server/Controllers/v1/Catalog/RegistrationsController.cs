@@ -4,6 +4,7 @@ using SSDB.Shared.Constants.Permission;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using SSDB.Application.Features.RegistrationInfo;
 
 namespace SSDB.Server.Controllers.v1.Catalog
 {
@@ -50,6 +51,19 @@ namespace SSDB.Server.Controllers.v1.Catalog
         {
             var Registrations = await _mediator.Send(new GetRegistrationGetByIdForAddEditQuery() { Id = id });
             return Ok(Registrations);
+        }
+
+        /// <summary>
+        /// Update students registration info
+        /// </summary>
+        /// <param name="query">Registration Id</param>
+        /// <returns>Status 200 OK</returns>
+        [Authorize(Policy = Permissions.Registrations.View)]
+        [HttpGet(nameof(GetRegistrationInfo))]
+        public async Task<ActionResult<GetRegistrationInfoByIdResponse>> GetRegistrationInfo([FromRoute]GetRegistrationInfoByIdQuery query)
+        {
+            var RegistrationInforesult = await _mediator.Send(query);
+            return Ok(RegistrationInforesult);
         }
 
         /// <summary>

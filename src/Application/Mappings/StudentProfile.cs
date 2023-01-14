@@ -16,6 +16,13 @@ namespace SSDB.Application.Mappings
             CreateMap<GetAllPagedStudentsResponse, Student>().ReverseMap();
             CreateMap<GetStudentByIdResponse, Student>().ReverseMap();
             CreateMap<GetRegistrationById_StudentResponse, Student>().ReverseMap();
+            CreateMap<StudentsRegistrationInfo, Student>().ReverseMap()
+                .ForMember(d => d.Name, opt => opt.MapFrom(s => s.NameA))
+                .ForMember(d => d.Semester, opt => opt.MapFrom(s => s.Semester.Name))
+                .ForMember(d => d.CurrencyName, opt => opt.MapFrom(s => s.Currency.Name))
+                .ForMember(d => d.Note, opt => opt.MapFrom(s => s.Comments))
+                .ForMember(d => d.FucultyName, opt => opt.MapFrom(s => s.Fuculty.NameA));
+
             CreateMap<PaginatedResult<GetAllPagedStudentsResponse>, PaginatedResult<Student>>().ReverseMap();
             CreateMap<GetAllPagedRegistrations_StudentResponse, Student>().ReverseMap();
             CreateMap<StdForReg, Student>().ReverseMap()
@@ -24,7 +31,7 @@ namespace SSDB.Application.Mappings
                 .ForMember(d => d.StudentNumber, opt => opt.MapFrom(x => x.Id))
                 .ForMember(d => d.StudentNameA, opt => opt.MapFrom(x => x.NameA))
                 .ForMember(d => d.Facultynumber, opt => opt.MapFrom(x => x.Fuculty.NameA));
-            
+
             CreateMap<GetStudentRegistrationInfoByIdResponse, Student>().ReverseMap()
                 .ForMember(d => d.Name, opt => opt.MapFrom(x => x.NameA))
                 .ForMember(d => d.Batch, opt => opt.MapFrom(x => x.Batch.Name))
@@ -36,9 +43,9 @@ namespace SSDB.Application.Mappings
                 .ForMember(d => d.Student_no, opt => opt.MapFrom(x => x.Id))
                 .ForMember(d => d.Currency, opt => opt.MapFrom(x => x.Currency.Name))
                 .ForMember(d => d.Title, opt => opt.MapFrom(x => x.Specialization.NameA))
-                .ForMember(d => d.Total_amount, opt => opt.MapFrom(x => x.StudyFeesUpdated+x.MedicalFees+x.RegistrationFees))
+                .ForMember(d => d.Total_amount, opt => opt.MapFrom(x => x.StudyFeesUpdated + x.MedicalFees + x.RegistrationFees))
                 ;
         }
-        
+
     }
 }

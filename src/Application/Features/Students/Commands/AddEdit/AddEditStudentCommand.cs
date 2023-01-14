@@ -64,14 +64,16 @@ namespace SSDB.Application.Features.Students.Commands
         private readonly IMapper _mapper;
         private readonly IUnitOfWork<string> _unitOfWork;
         private readonly IUploadService _uploadService;
+        private readonly ICurrentUserService _currentUser;
         private readonly IStringLocalizer<AddEditStudentCommandHandler> _localizer;
 
-        public AddEditStudentCommandHandler(IUnitOfWork<string> unitOfWork, IMapper mapper, IUploadService uploadService, IStringLocalizer<AddEditStudentCommandHandler> localizer)
+        public AddEditStudentCommandHandler(IUnitOfWork<string> unitOfWork, IMapper mapper, IUploadService uploadService, IStringLocalizer<AddEditStudentCommandHandler> localizer, ICurrentUserService currentUser)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
             _uploadService = uploadService;
             _localizer = localizer;
+            _currentUser = currentUser;
         }
 
         public async Task<Result<string>> Handle(AddEditStudentCommand command, CancellationToken cancellationToken)
@@ -81,14 +83,15 @@ namespace SSDB.Application.Features.Students.Commands
             if (student==null)
             {
                 var mappedStudent = _mapper.Map<Student>(command);
+                mappedStudent.UniversityId = int.Parse(_currentUser.UniversityId);
                 await _unitOfWork.Repository<Student>().AddAsync(mappedStudent);
                 await _unitOfWork.Commit(cancellationToken);
-
                 return await Result<string>.SuccessAsync(mappedStudent.Id, _localizer["Student Added"]);
             }
             else
             {
                 var mappedStudent = _mapper.Map(command, student);
+                mappedStudent.UniversityId = int.Parse(_currentUser.UniversityId);
                 await _unitOfWork.Repository<Student>().UpdateAsync(mappedStudent);
                 await _unitOfWork.Commit(cancellationToken);
                 return await Result<string>.SuccessAsync(student.Id, _localizer["Student Updated"]);

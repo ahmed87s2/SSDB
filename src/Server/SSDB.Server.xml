@@ -338,6 +338,54 @@
             <param name="languageCode"></param>
             <returns>Status 200 OK</returns>
         </member>
+        <member name="M:SSDB.Server.Controllers.v1.Catalog.PaymentsController.GetAll(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get All Payments
+            </summary>
+            <param name="pageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="searchString"></param>
+            <param name="orderBy"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SSDB.Server.Controllers.v1.Catalog.PaymentsController.GetById(System.Int32)">
+            <summary>
+            Get Payment Details
+            </summary>
+            <param name="id">Payment Id</param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SSDB.Server.Controllers.v1.Catalog.PaymentsController.Post(SSDB.Application.Features.Payments.Commands.AddPaymentCommand)">
+            <summary>
+            Add/Edit a Payment
+            </summary>
+            <param name="command"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SSDB.Server.Controllers.v1.Catalog.PaymentsController.Export(System.String)">
+            <summary>
+            Search Payments and Export to Excel
+            </summary>
+            <param name="searchString"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SSDB.Server.Controllers.v1.Catalog.RegistrationInfoController.GetAll(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get All RegistrationInfo
+            </summary>
+            <param name="pageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="searchString"></param>
+            <param name="orderBy"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SSDB.Server.Controllers.v1.Catalog.RegistrationInfoController.GetRegistrationInfo(SSDB.Application.Features.RegistrationInfo.GetRegistrationInfoByIdQuery)">
+            <summary>
+            Update students registration info
+            </summary>
+            <param name="query">Registration Id</param>
+            <returns>Status 200 OK</returns>
+        </member>
         <member name="M:SSDB.Server.Controllers.v1.Catalog.RegistrationsController.GetAll(System.Int32,System.Int32,System.String,System.String)">
             <summary>
             Get All Registrations
@@ -360,6 +408,13 @@
             Get Registration Info for Add or Edit
             </summary>
             <param name="id">Registration Id</param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SSDB.Server.Controllers.v1.Catalog.RegistrationsController.GetRegistrationInfo(SSDB.Application.Features.RegistrationInfo.GetRegistrationInfoByIdQuery)">
+            <summary>
+            Update students registration info
+            </summary>
+            <param name="query">Registration Id</param>
             <returns>Status 200 OK</returns>
         </member>
         <member name="M:SSDB.Server.Controllers.v1.Catalog.RegistrationsController.UpdateRegistrationInfo(SSDB.Application.Features.Registrations.Commands.UpdateRegistrationInfoCommand)">

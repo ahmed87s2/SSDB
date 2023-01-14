@@ -172,11 +172,16 @@ namespace SSDB.Infrastructure
                 allowedPermissions.Add(Permissions.Registrations.View);
                 allowedPermissions.Add(Permissions.Registrations.Search);
                 allowedPermissions.Add(Permissions.Registrations.Export);
-                allowedPermissions.Add(Permissions.Registrations.UpdateInfo);
+                allowedPermissions.Add(Permissions.Payments.View);
+                allowedPermissions.Add(Permissions.Payments.Search);
+                allowedPermissions.Add(Permissions.Payments.Export);
             }
             if (role.Name == RoleConstants.OutSourceRole)
             {
                 allowedPermissions.Add(Permissions.Registrations.UpdateInfo);
+                allowedPermissions.Add(Permissions.Payments.View);
+                allowedPermissions.Add(Permissions.Payments.Search);
+                allowedPermissions.Add(Permissions.Payments.Export);
             }
 
             foreach (var permission in allowedPermissions)
