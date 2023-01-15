@@ -53,7 +53,7 @@ namespace SSDB.Application.Features.Registrations.Queries
                 { _localizer["Id"], item => item.Id },
                 { _localizer["Date"], item => item.CreatedOn },
                 { _localizer["Student Number"], item => item.Student.Id },
-                { _localizer["Name"], item => item.Student.NameA },
+                { _localizer["Name"], item => item.Student.FirstNameA },
                 { _localizer["Status"], item => item.Status },
                 { _localizer["Fees"], item => item.Fees },
                 { _localizer["Study Fees"], item => item.StudyFees },

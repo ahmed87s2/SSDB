@@ -66,20 +66,7 @@ namespace SSDB.Server.Controllers.v1.Catalog
             return Ok(RegistrationInforesult);
         }
 
-        /// <summary>
-        /// Update students registration info
-        /// </summary>
-        /// <param name="command">Registration Id</param>
-        /// <returns>Status 200 OK</returns>
-        [Authorize(Policy = Permissions.Registrations.UpdateInfo)]
-        [HttpPost(nameof(UpdateRegistrationInfo))]
-        public async Task<IActionResult> UpdateRegistrationInfo(UpdateRegistrationInfoCommand command)
-        {
-            var RegistrationInforesult = await _mediator.Send(command);
-            return Ok(RegistrationInforesult);
-        }
-
-
+        
         /// <summary>
         /// Add/Edit a Registration
         /// </summary>

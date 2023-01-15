@@ -279,6 +279,13 @@ using SSDB.Client.Extensions;
 #line hidden
 #nullable disable
 #nullable restore
+#line 1 "D:\WorkSpace\SSDB_Universities\src\Client\Pages\Catalog\Student\AddEditStudentModal.razor"
+using SSDB.Domain.Enums;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 49 "D:\WorkSpace\SSDB_Universities\src\Client\_Imports.razor"
 [Authorize]
 

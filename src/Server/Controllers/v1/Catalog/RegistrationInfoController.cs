@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using SSDB.Application.Features.RegistrationInfo;
+using SSDB.Application.Features.Registrations.Commands;
 
 namespace SSDB.Server.Controllers.v1.Catalog
 {
@@ -39,6 +40,20 @@ namespace SSDB.Server.Controllers.v1.Catalog
             var RegistrationInforesult = await _mediator.Send(query);
             return Ok(RegistrationInforesult);
         }
+
+        /// <summary>
+        /// Update students registration info
+        /// </summary>
+        /// <param name="command">Registration Id</param>
+        /// <returns>Status 200 OK</returns>
+        [Authorize(Policy = Permissions.RegistrationInfo.UpdateInfo)]
+        [HttpPost(nameof(UpdateRegistrationInfo))]
+        public async Task<IActionResult> UpdateRegistrationInfo(UpdateRegistrationInfoCommand command)
+        {
+            var RegistrationInforesult = await _mediator.Send(command);
+            return Ok(RegistrationInforesult);
+        }
+
 
     }
 }

@@ -19,9 +19,25 @@ namespace SSDB.Application.Features.Students.Commands
     {
         public string Id { get; set; }
         [Required]
-        public string NameA { get; set; }
+        public string FirstNameA { get; set; }
         [Required]
-        public string NameE { get; set; }
+        public string FourthNameA { get; set; }
+        [Required]
+        public string SecondNameA { get; set; }
+        [Required]
+        public string ThirdNameA { get; set; }
+        [Required]
+        public string FirstNameE { get; set; }
+        [Required]
+        public string SecondNameE { get; set; }
+        [Required]
+        public string ThirdNameE { get; set; }
+        [Required]
+        public string FourthNameE { get; set; }
+
+        public string IdentityNo { get; set; }
+        public string SeatNo { get; set; }
+        public int DegreeId { get; set; }
         [Required]
         public int BatchId { get; set; }
         public string Phone { get; set; }

@@ -42,6 +42,7 @@ namespace SSDB.Client.Pages.Catalog.Student
         private List<DropDownListItemResponse> _Nationalities = new();
         private List<DropDownListItemResponse> _Programs = new();
         private List<DropDownListItemResponse> _Specializations = new();
+        private List<DropDownListItemResponse> _Degrees = new();
 
         public void Cancel()
         {
@@ -87,6 +88,7 @@ namespace SSDB.Client.Pages.Catalog.Student
             _Nationalities = await GetDropDownListDataAsync(ListType.Nationalities);
             _Programs = await GetDropDownListDataAsync(ListType.Programs);
             _Specializations = await GetDropDownListDataAsync(ListType.Specializations);
+            _Degrees = await GetDropDownListDataAsync(ListType.Degrees);
         }
         private async Task<IEnumerable<int>> SearchInFuculties(string value) => await SearchItemsInIntList(value, _Fuculties);
         private async Task<IEnumerable<int>> SearchInAddmissions(string value)=> await SearchItemsInIntList(value, _Admissions);        
@@ -97,6 +99,7 @@ namespace SSDB.Client.Pages.Catalog.Student
         private async Task<IEnumerable<int>> SearchInNationalities(string value) => await SearchItemsInIntList(value, _Nationalities);
         private async Task<IEnumerable<int>> SearchInPrograms(string value) => await SearchItemsInIntList(value, _Programs);
         private async Task<IEnumerable<int>> SearchInSpecializations(string value) => await SearchItemsInIntList(value, _Specializations);
+        private async Task<IEnumerable<int>> SearchInDegrees(string value) => await SearchItemsInIntList(value, _Degrees);
 
         private async Task<List<DropDownListItemResponse>> GetDropDownListDataAsync(ListType type)
         {

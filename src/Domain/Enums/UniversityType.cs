@@ -5,4 +5,10 @@
         Inhouse,
         OutSource
     }
+    
+    public enum Gender
+    {
+        Male,
+        Female
+    }
 }

@@ -56,7 +56,7 @@ namespace SSDB.Application.Features.Students.Queries
             {
                 { _localizer["Id"], item => item.Id },
                 { _localizer["Number"], item => item.Id },
-                { _localizer["Name"], item => item.NameA },
+                { _localizer["Name"], item => item.FirstNameA },
                 { _localizer["Program"], item => item.Program.NameA },
                 { _localizer["Department"], item => item.Department.NameA },
                 { _localizer["Specialization"], item => item.Specialization.NameA },

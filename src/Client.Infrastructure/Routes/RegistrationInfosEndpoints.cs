@@ -28,6 +28,7 @@ namespace SSDB.Client.Infrastructure.Routes
         public static string GetForAddEdit = "api/v1/RegistrationInfo/GetByIdForAddEdit?id=";
         public static string Save = "api/v1/RegistrationInfo";
         public static string Export = "api/v1/RegistrationInfo/export";
-        public static string UpdateRegistrationInfoInfo = "api/v1/RegistrationInfo/UpdateRegistrationInfo";
+        public static string UpdateRegistrationInfo = "api/v1/RegistrationInfo/UpdateRegistrationInfo";
+
     }
 }

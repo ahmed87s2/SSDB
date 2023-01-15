@@ -10,7 +10,7 @@ namespace SSDB.Application.Specifications.Catalog
             Includes.Add(a => a.University);
             if (!string.IsNullOrEmpty(searchString))
             {
-                Criteria = p => p.Id != null && (p.NameA.Contains(searchString) || p.Comments.Contains(searchString) || p.Batch.Name.Contains(searchString) || p.University.Name.Contains(searchString));
+                Criteria = p => p.Id != null && (p.FirstNameA.Contains(searchString) || p.Comments.Contains(searchString) || p.Batch.Name.Contains(searchString) || p.University.Name.Contains(searchString));
             }
             else
             {

@@ -12,6 +12,7 @@
         Semesters,
         Specializations,
         Students,
-        Universities
+        Universities,
+        Degrees
     }
 }

@@ -15,6 +15,5 @@ namespace SSDB.Client.Infrastructure.Managers.Catalog.Registration
         Task<IResult<string>> ExportToExcelAsync(string searchString = "");
         Task<IResult<AddRegistrationCommand>> GetForAddEdit(int id);
         Task<IResult<GetRegistrationByIdResponse>> GetById(int id);
-        Task<IResult<string>> UpdateRegistrationAsync(UpdateRegistrationInfoCommand request);
     }
 }

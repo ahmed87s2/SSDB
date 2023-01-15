@@ -314,7 +314,7 @@ using System.Security.Claims;
     private bool _canViewChat;
     private bool _canViewStudents;
     private bool _canViewUniversities;
-    private bool _canViewRegistrations;
+    private bool _canViewRegistrationInfo;
     private bool _canViewPayments;
     private bool _canUpdateRegistrationInfo;
 
@@ -331,9 +331,9 @@ using System.Security.Claims;
         _canViewChat = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Communication.Chat)).Succeeded;
         _canViewStudents = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Students.View)).Succeeded;
         _canViewUniversities = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Universities.View)).Succeeded;
-        _canViewRegistrations = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Registrations.View)).Succeeded;
+        _canViewRegistrationInfo = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.RegistrationInfo.View)).Succeeded;
         _canViewPayments = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Payments.View)).Succeeded;
-        _canUpdateRegistrationInfo = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Registrations.UpdateInfo)).Succeeded;
+        _canUpdateRegistrationInfo = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.RegistrationInfo.UpdateInfo)).Succeeded;
     }
 
 #line default

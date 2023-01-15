@@ -13,6 +13,7 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using System;
 using static SSDB.Shared.Constants.Permission.Permissions;
+using SSDB.Domain.Enums;
 
 namespace SSDB.Application.Features.Payments.Commands
 {
@@ -53,18 +54,25 @@ namespace SSDB.Application.Features.Payments.Commands
             var payment = _mapper.Map<Payment>(command);
             payment.Date = DateTime.Now;
             await _unitOfWork.Repository<Payment>().AddAsync(payment);
-
-            var student = await _studentUnitOfWork.Repository<Student>().Entities
-                .FirstOrDefaultAsync(x=>x.Id == command.StudentNumber && x.UniversityId == command.UniversityId);
-            student.Status = "D";
-            if(student.Panalty > 0)
+            var university = await _unitOfWork.Repository<University>().GetByIdAsync(command.UniversityId);
+            if (university.Type.ToLower() == UniversityType.Inhouse.ToString().ToLower())
             {
-                student.Comments += $" ,{student.Panalty} Pannelty on [{DateTime.Now}]";
-                student.Panalty = 0;
-            }
+                var student = await _studentUnitOfWork.Repository<Student>().Entities
+                .FirstOrDefaultAsync(x => x.Id == command.StudentNumber && x.UniversityId == command.UniversityId);
+                student.Status = "D";
+                if (student.Panalty > 0)
+                {
+                    student.Comments += $" ,{student.Panalty} Pannelty on [{DateTime.Now}]";
+                    student.Panalty = 0;
+                }
 
-            await _studentUnitOfWork.Repository<Student>().UpdateAsync(student);
-            await _unitOfWork.Commit(cancellationToken);
+                await _studentUnitOfWork.Repository<Student>().UpdateAsync(student);
+                await _unitOfWork.Commit(cancellationToken);
+            }
+            else
+            {
+                //call University EndPoint to update Student Status
+            }
             return await Result<int>.SuccessAsync(payment.Id, _localizer["Payment Added"]);
         }
     }

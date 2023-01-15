@@ -1,0 +1,78 @@
+﻿@page "/catalog/UpdateRegistrationInfo"
+@attribute [Authorize(Policy = Permissions.RegistrationInfo.UpdateInfo)]
+@inject Microsoft.Extensions.Localization.IStringLocalizer<RegistrationInfo> _localizer
+@using SSDB.Application.Features.Registrations.Queries;
+
+<div class="d-flex justify-center col-6">
+
+    <EditForm Model="@_command" OnValidSubmit="SubmitAsync">
+        <FluentValidationValidator @ref="_fluentValidationValidator" />
+        <MudCard Elevation="25">
+            <div class="pr-5 pl-5 pb-10">
+                <MudCardHeader>
+                    <CardHeaderContent>
+                        <MudText Typo="Typo.h6">
+                            <MudIcon Icon="@Icons.Material.Filled.Add" Class="mr-3 mb-n1" />
+                            @_localizer["Update Registration Info"]
+                        </MudText>
+                    </CardHeaderContent>
+                    <CardHeaderActions>
+                    </CardHeaderActions>
+                </MudCardHeader>
+
+                <MudGrid>
+                    <MudItem xs="12">
+                        <div class="d-flex justify-center">
+                            <MudIcon Icon="@CustomIcons.BlazorHero" Color="Color.Primary" Size="Size.Large" ViewBox="0 0 500 500" Style="width: 100px; height: 100px;" />
+                        </div>
+                    </MudItem>
+                    <DataAnnotationsValidator />
+                    <MudItem xs="12">
+                        <div class="d-flex justify-center">
+                            <MudText Typo="Typo.h4">تحديث بيانات التسجيل</MudText>
+                        </div>
+                    </MudItem>
+                    <MudItem xs="12">
+                        <MudCheckBox @bind-Checked="@_command.IsForAll" Label="@_localizer["Update All Students?"]" Color="Color.Primary"></MudCheckBox>
+                    </MudItem>
+                    <MudItem xs="12">
+                        <MudAutocomplete T="int" Label="@_localizer["University"]" For="@(() => _command.UniversityId)"
+                                         @bind-Value="_command.UniversityId" ResetValueOnEmptyText="true" SearchFunc="@SearchInUniversities" Variant="Variant.Filled"
+                                         ToStringFunc="@(i => _Universities.FirstOrDefault(b => int.Parse(b.Value) == i)?.Key ?? string.Empty)" OffsetY="true" />
+                    </MudItem>
+
+                    @if (!@_command.IsForAll)
+                    {
+                        <MudItem xs="12" Class="d-flex justify-space-between align-center">
+                            <MudAutocomplete T="string" Label="@_localizer["Student"]" For="@(() => _command.StudentId)"
+                                         @bind-Value="_command.StudentId" ResetValueOnEmptyText="true" SearchFunc="@SearchInStudents" Variant="Variant.Filled"
+                                         ToStringFunc="@(i => _Students.FirstOrDefault(b => b.Value == i)?.Key ?? string.Empty)" OffsetY="true" />
+                        </MudItem>
+                    }
+
+                    @if(errorMessage !=""){
+                        <MudItem xs="12" Class="d-flex justify-space-between align-center">
+                            <MudTextField T="string" Disabled Label="Error" Error="true" Class="mud-error-text" Text="@errorMessage" Variant="Variant.Outlined" Lines="15" />
+                                
+                        </MudItem>
+                    }
+
+
+                </MudGrid>
+
+                <MudCardContent>
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton DisableElevation Variant="Variant.Filled" ButtonType="ButtonType.Submit" Disabled="@(!Validated)" Color="Color.Success">@_localizer["Update Info"]</MudButton>
+                </MudCardActions>
+            </div>
+        </MudCard>
+    </EditForm>
+
+</div>
+
+
+
+
+
+

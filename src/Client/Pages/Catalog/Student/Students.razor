@@ -54,7 +54,6 @@ else
             <MudTh><MudTableSortLabel T="GetAllPagedStudentsResponse" SortLabel="Number">@_localizer["Number"]</MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel T="GetAllPagedStudentsResponse" SortLabel="Name">@_localizer["Name"]</MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel T="GetAllPagedStudentsResponse" SortLabel="Phone">@_localizer["Phone"]</MudTableSortLabel></MudTh>
-            <MudTh><MudTableSortLabel T="GetAllPagedStudentsResponse" SortLabel="MedicalFees">@_localizer["MedicalFees"]</MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel T="GetAllPagedStudentsResponse" SortLabel="Status">@_localizer["Status"]</MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel T="GetAllPagedStudentsResponse" SortLabel="GraduationDate">@_localizer["GraduationDate"]</MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel T="GetAllPagedStudentsResponse" SortLabel="Addmission">@_localizer["Addmission"]</MudTableSortLabel></MudTh>
@@ -71,7 +70,6 @@ else
             <MudTd DataLabel="Number">@context.Id</MudTd>
             <MudTd DataLabel="Name"><MudHighlighter Text="@context.NameA" HighlightedText="@_searchString" /></MudTd>
             <MudTd DataLabel="Phone"><MudHighlighter Text="@context.Phone" HighlightedText="@_searchString" /></MudTd>
-            <MudTd DataLabel="MedicalFees">    <MudHighlighter Text="@context.MedicalFees.ToString()" HighlightedText="@_searchString" /></MudTd>
             <MudTd DataLabel="Status"><MudHighlighter Text="@context.Status" HighlightedText="@_searchString" /></MudTd>
             <MudTd DataLabel="GraduationDate">@context.GraduationDate.ToString("dd-MMM-yy")</MudTd>
             <MudTd DataLabel="Addmission"><MudHighlighter Text="@context.Addmission.Name" HighlightedText="@_searchString"/></MudTd>

@@ -16,8 +16,9 @@ using SSDB.Shared.Constants.Permission;
 using Microsoft.AspNetCore.Authorization;
 using SSDB.Application.Features.Registrations.Queries;
 using SSDB.Client.Infrastructure.Managers.Catalog.Utilities;
+using SSDB.Client.Pages.Catalog.Registration;
 
-namespace SSDB.Client.Pages.Catalog.Registration
+namespace SSDB.Client.Pages.Catalog.RegistrationInfo
 {
     public partial class Registrations
     {

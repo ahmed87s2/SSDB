@@ -8,11 +8,11 @@ namespace SSDB.Application.Validators.Features.Students.Commands.AddEdit
     {
         public AddEditStudentCommandValidator(IStringLocalizer<AddEditStudentCommandValidator> localizer)
         {
-            RuleFor(request => request.NameA)
+            RuleFor(request => request.FirstNameA)
                 .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["Name is required!"]);
-            RuleFor(request => request.NameA)
+            RuleFor(request => request.FirstNameA)
                 .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["Barcode is required!"]);
-            RuleFor(request => request.NameE)
+            RuleFor(request => request.FirstNameE)
                 .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["Description is required!"]);
             RuleFor(request => request.FucultyId)
                 .GreaterThan(0).WithMessage(x => localizer["University is required!"]);

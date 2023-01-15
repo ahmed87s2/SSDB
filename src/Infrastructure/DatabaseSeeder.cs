@@ -175,13 +175,20 @@ namespace SSDB.Infrastructure
                 allowedPermissions.Add(Permissions.Payments.View);
                 allowedPermissions.Add(Permissions.Payments.Search);
                 allowedPermissions.Add(Permissions.Payments.Export);
+                allowedPermissions.Add(Permissions.RegistrationInfo.View);
+                allowedPermissions.Add(Permissions.RegistrationInfo.Search);
+                allowedPermissions.Add(Permissions.RegistrationInfo.Export);
             }
             if (role.Name == RoleConstants.OutSourceRole)
             {
-                allowedPermissions.Add(Permissions.Registrations.UpdateInfo);
                 allowedPermissions.Add(Permissions.Payments.View);
                 allowedPermissions.Add(Permissions.Payments.Search);
                 allowedPermissions.Add(Permissions.Payments.Export);
+                allowedPermissions.Add(Permissions.RegistrationInfo.View);
+                allowedPermissions.Add(Permissions.RegistrationInfo.Search);
+                allowedPermissions.Add(Permissions.RegistrationInfo.Export);
+                allowedPermissions.Add(Permissions.RegistrationInfo.UpdateInfo);
+
             }
 
             foreach (var permission in allowedPermissions)

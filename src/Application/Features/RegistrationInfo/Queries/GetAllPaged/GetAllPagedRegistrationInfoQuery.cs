@@ -135,7 +135,7 @@ namespace SSDB.Application.Features.RegistrationInfo.Queries
                                 {
                                     UniversityId = x.UniversityId,
                                     StudentNumber = x.Id,
-                                    Name = x.NameA,
+                                    Name = x.FirstNameA,
                                     RegistrationFees = double.Parse(x.RegistrationFees.ToString()),
                                     CurrencyName = x.Currency.Name,
                                     NoStudyFees = x.NoStudyFees,

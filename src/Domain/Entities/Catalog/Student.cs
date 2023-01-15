@@ -7,8 +7,17 @@ namespace SSDB.Domain.Entities.Catalog
 {
     public class Student : AuditableEntity<string>
     {
-        public string NameA { get; set; }
-        public string NameE { get; set; }
+        public string FirstNameA { get; set; }
+        public string FourthNameA { get; set; }
+        public string SecondNameA { get; set; }
+        public string ThirdNameA { get; set; }
+        public string FirstNameE { get; set; }
+        public string SecondNameE { get; set; }
+        public string ThirdNameE { get; set; }
+        public string FourthNameE { get; set; }
+        public string IdentityNo { get; set; }
+        public string SeatNo { get; set; }
+        public int? DegreeId { get; set; }
         public int BatchId { get; set; }
         public int FucultyId { get; set; }
         public int DepartmentId { get; set; }
@@ -44,6 +53,7 @@ namespace SSDB.Domain.Entities.Catalog
         public Addmission Addmission { get; set; }
         public Department Department { get; set; }
         public Batch Batch { get; set; }
+        public Degree Degree { get; set; }
         public Currency Currency { get; set; }
         public Fuculty Fuculty { get; set; }
         public Program Program { get; set; }

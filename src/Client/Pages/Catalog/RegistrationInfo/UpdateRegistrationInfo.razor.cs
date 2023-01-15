@@ -13,8 +13,9 @@ using System.Linq;
 using System;
 using Microsoft.AspNetCore.Components;
 using SSDB.Client.Infrastructure.Managers.Catalog.Registration;
+using SSDB.Client.Infrastructure.Managers.Catalog.RegistrationInfo;
 
-namespace SSDB.Client.Pages.Catalog.Registration
+namespace SSDB.Client.Pages.Catalog.RegistrationInfo
 {
     public partial class UpdateRegistrationInfo
     {
@@ -24,7 +25,8 @@ namespace SSDB.Client.Pages.Catalog.Registration
         private List<DropDownListItemResponse> _Universities = new();
         private List<DropDownListItemResponse> _Students = new();
         [Inject] private IUtilitiesManager utilitiesManager { get; set; }
-        [Inject] private IRegistrationManager registrationManager { get; set; }
+        [Inject] private IRegistrationInfoManager registrationInfoManager { get; set; }
+        protected string errorMessage = "";
         protected override async Task OnInitializedAsync()
         {
             _Universities = await GetDropDownListDataAsync(ListType.Universities);
@@ -33,10 +35,11 @@ namespace SSDB.Client.Pages.Catalog.Registration
 
         private async Task SubmitAsync()
         {
-            var result = await registrationManager.UpdateRegistrationAsync(_command);
+            errorMessage = "";
+            var result = await registrationInfoManager.UpdateRegistrationAsync(_command);
             if (result.Succeeded)
             {
-                _snackBar.Add("Successfull, "+result.Data, Severity.Success);
+                _snackBar.Add("Successfull, " + result.Data, Severity.Success);
                 _navigationManager.NavigateTo("/catalog/Registrations", true);
             }
             else
@@ -44,6 +47,7 @@ namespace SSDB.Client.Pages.Catalog.Registration
                 foreach (var message in result.Messages)
                 {
                     _snackBar.Add(message, Severity.Error);
+                    errorMessage += message + ", ";
                 }
             }
         }

@@ -1,5 +1,5 @@
 ﻿@page "/catalog/Registrations"
-@attribute [Authorize(Policy = Permissions.Registrations.View)]
+@attribute [Authorize(Policy = Permissions.RegistrationInfo.View)]
 @inject Microsoft.Extensions.Localization.IStringLocalizer<Registrations> _localizer
 @using SSDB.Application.Features.Registrations.Queries;
 

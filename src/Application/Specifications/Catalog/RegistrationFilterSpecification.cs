@@ -11,8 +11,8 @@ namespace SSDB.Application.Specifications.Catalog
             if (!string.IsNullOrEmpty(searchString))
             {
                 double.TryParse(searchString, out double fees);
-                Criteria = p => p.StudentId != default && (p.Student.NameA.Contains(searchString) || 
-                p.Student.NameE.Contains(searchString) || 
+                Criteria = p => p.StudentId != default && (p.Student.FirstNameA.Contains(searchString) || 
+                p.Student.FirstNameE.Contains(searchString) || 
                 p.Semester.Name.Contains(searchString) || 
                 p.PaymentNo.Contains(searchString) || 
                 p.StudyFees == fees);

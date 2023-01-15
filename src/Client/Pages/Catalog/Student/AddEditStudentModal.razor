@@ -1,4 +1,5 @@
-﻿@inject Microsoft.Extensions.Localization.IStringLocalizer<AddEditStudentModal> _localizer
+﻿@using SSDB.Domain.Enums;
+@inject Microsoft.Extensions.Localization.IStringLocalizer<AddEditStudentModal> _localizer
 
 <EditForm Model="@AddEditStudentModel" OnValidSubmit="SaveAsync">
     <FluentValidationValidator @ref="_fluentValidationValidator" />
@@ -34,20 +35,51 @@
                         <MudTextField For="@(() => AddEditStudentModel.Id)" @bind-Value="AddEditStudentModel.Id" Label="@_localizer["Number"]" />
                     </MudItem>
                 }
-                <MudItem xs="12" md="4">
-                    <MudTextField For="@(() => AddEditStudentModel.NameA)" @bind-Value="AddEditStudentModel.NameA" Label="@_localizer["Name"]" />
-                </MudItem>
-                <MudItem xs="12" md="4">
-                    <MudTextField For="@(() => AddEditStudentModel.NameE)" @bind-Value="AddEditStudentModel.NameE" Label="@_localizer["NameE"]" />
-                </MudItem>
+                <MudGrid>
+                    <MudItem xs="3" md="3">
+                        <MudTextField For="@(() => AddEditStudentModel.FirstNameA)" Variant="Variant.Outlined" @bind-Value="AddEditStudentModel.FirstNameA" Label="@_localizer["First Name Ar"]" />
+                    </MudItem>
+                        <MudItem xs="3" md="3">
+                        <MudTextField For="@(() => AddEditStudentModel.SecondNameA)" Variant="Variant.Outlined" @bind-Value="AddEditStudentModel.FirstNameA" Label="@_localizer["Second Name Ar"]" />
+                    </MudItem>
+                        <MudItem xs="3" md="3">
+                        <MudTextField For="@(() => AddEditStudentModel.ThirdNameA)" Variant="Variant.Outlined" @bind-Value="AddEditStudentModel.FirstNameA" Label="@_localizer["Third Name Ar"]" />
+                    </MudItem>
+                    <MudItem xs="3" md="3">
+                        <MudTextField For="@(() => AddEditStudentModel.FourthNameA)" Variant="Variant.Outlined" @bind-Value="AddEditStudentModel.FirstNameA" Label="@_localizer["Fourth Name Ar"]" />
+                    </MudItem>
+                </MudGrid>
 
-                <MudItem xs="12" md="4">
-                    <MudTextField For="@(() => AddEditStudentModel.First_semster)" @bind-Value="AddEditStudentModel.First_semster" Label="@_localizer["First Semster"]" />
-                </MudItem>
-                <MudItem xs="12" md="4">
-                    <MudTextField For="@(() => AddEditStudentModel.Phone)" @bind-Value="AddEditStudentModel.Phone" Label="@_localizer["Phone"]" />
-                </MudItem>
+                <MudGrid>
+                    <MudItem xs="3" md="3">
+                        <MudTextField For="@(() => AddEditStudentModel.FirstNameE)" Variant="Variant.Outlined" @bind-Value="AddEditStudentModel.FirstNameA" Label="@_localizer["First Name En"]" />
+                    </MudItem>
+                        <MudItem xs="3" md="3">
+                        <MudTextField For="@(() => AddEditStudentModel.SecondNameE)" Variant="Variant.Outlined" @bind-Value="AddEditStudentModel.FirstNameA" Label="@_localizer["Second Name En"]" />
+                    </MudItem>
+                        <MudItem xs="3" md="3">
+                        <MudTextField For="@(() => AddEditStudentModel.ThirdNameE)" Variant="Variant.Outlined" @bind-Value="AddEditStudentModel.FirstNameA" Label="@_localizer["Third Name En"]" />
+                    </MudItem>
+                    <MudItem xs="3" md="3">
+                        <MudTextField For="@(() => AddEditStudentModel.FourthNameE)" Variant="Variant.Outlined" @bind-Value="AddEditStudentModel.FirstNameA" Label="@_localizer["Fourth Name En"]" />
+                    </MudItem>
+                </MudGrid>
                 
+                <MudItem xs="12" md="4">
+                    <MudSelect T="string" Label="@_localizer["Type"]" For="@(() => AddEditStudentModel.Gender)" @bind-Value="AddEditStudentModel.Gender" Variant="Variant.Outlined">
+                        <MudSelectItem T="string" Value="Gender.Male.ToString()">Male</MudSelectItem>
+                        <MudSelectItem T="string" Value="Gender.Female.ToString()">Female</MudSelectItem>
+                    </MudSelect>
+                </MudItem>
+                <MudItem xs="12" md="4">
+                    <MudTextField For="@(() => AddEditStudentModel.First_semster)" Variant="Variant.Outlined" @bind-Value="AddEditStudentModel.First_semster" Label="@_localizer["First Semster"]" />
+                </MudItem>
+                <MudItem xs="12" md="4">
+                    <MudTextField For="@(() => AddEditStudentModel.Phone)" Variant="Variant.Outlined" @bind-Value="AddEditStudentModel.Phone" Label="@_localizer["Phone"]" />
+                </MudItem>
+                <MudItem xs="12" md="4">
+                    <MudTextField For="@(() => AddEditStudentModel.IdentityNo)"  @bind-Value="AddEditStudentModel.IdentityNo" Label="@_localizer["National Id"]" />
+                </MudItem>
 
                 <MudItem xs="12" md="4">
                     <MudTextField For="@(() => AddEditStudentModel.MedicalFees)" @bind-Value="AddEditStudentModel.MedicalFees" Label="@_localizer["MedicalFees"]" />
@@ -79,7 +111,11 @@
                                      ToStringFunc="@(i => _Departments.FirstOrDefault(b => int.Parse(b.Value) == i)?.Key ?? string.Empty)" OffsetY="true" />
                 </MudItem>
 
-                
+                <MudItem xs="12" md="4">
+                    <MudAutocomplete T="int" Label="@_localizer["Degree"]" For="@(() => AddEditStudentModel.DegreeId)"
+                                     @bind-Value="AddEditStudentModel.DegreeId" ResetValueOnEmptyText="true" SearchFunc="@SearchInDegrees" Variant="Variant.Filled"
+                                     ToStringFunc="@(i => _Degrees.FirstOrDefault(b => int.Parse(b.Value) == i)?.Key ?? string.Empty)" OffsetY="true" />
+                </MudItem>
 
                 <MudItem xs="12" md="4">      
                     <MudAutocomplete T="int" Label="@_localizer["Fuculty"]" For="@(() => AddEditStudentModel.FucultyId)"

@@ -42,6 +42,7 @@ namespace SSDB.Infrastructure.Contexts
         public DbSet<University> Universities { get; set; }
         public DbSet<UniversityConfigs> UniversityConfigs { get; set; }
         public DbSet<Payment> Payments { get; set; }
+        public DbSet<Degree> Degrees { get; set; }
         public DbSet<StudentsRegistrationInfo> StudentsRegistrationInfo { get; set; }
         public DbSet<Document> Documents { get; set; }
         public DbSet<DocumentType> DocumentTypes { get; set; }

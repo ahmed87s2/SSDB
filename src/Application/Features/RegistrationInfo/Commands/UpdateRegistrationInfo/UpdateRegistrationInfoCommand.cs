@@ -58,9 +58,12 @@ namespace SSDB.Application.Features.Registrations.Commands
                 .FirstOrDefaultAsync(x => x.Id == command.UniversityId);
             try
             {
-                var result = (university.Type == UniversityType.Inhouse.ToString()) ?
-                    await GetInhouseReegistrationInfo(command, university) :
-                    GetOutSourseRegistrationInfo(command, university);
+                if ((university.Type == UniversityType.Inhouse.ToString()))
+                {
+                    return await Result<string>.FailAsync(_localizer[$"No need to update data for Inhouse Source {university.Name}"]);
+
+                }
+                var result = GetOutSourseRegistrationInfo(command, university);
 
                 if (result != null && result.Count > 0)
                 {
@@ -86,32 +89,32 @@ namespace SSDB.Application.Features.Registrations.Commands
             catch (Exception ex)
             {
                 await _unitOfWork.Rollback();
-                return await Result<string>.FailAsync(_localizer[$"Received Data is incorect, the expected format is\n {JsonConvert.SerializeObject(ex.Message)}"]);
+                return await Result<string>.FailAsync(_localizer[$"Received Data is incorect, the expected format is\n [\r\n  {{\r\n \"studentNumber\": \"string\",\r\n    \"name\": \"string\",\r\n    \"registrationFees\": 0,\r\n    \"currencyName\": \"string\",\r\n    \"noStudyFees\": true,\r\n    \"note\": \"string\",\r\n    \"fucultyName\": \"string\",\r\n    \"semester\": \"string\",\r\n    \"paymentNo\": \"string\",\r\n    \"status\": \"string\"\r\n  }}\r\n]"]);
             }
         }
 
-        private async Task<List<StudentsRegistrationInfo>> GetInhouseReegistrationInfo(UpdateRegistrationInfoCommand command, University university)
-        {
-            var registrations = _unitOfWork.Repository<Registration>().Entities
-                                .Where(x => x.UniversityId == university.Id)
-                                .Include(x => x.Student)
-                                .ThenInclude(x => x.Fuculty)
-                                .Include(x => x.Currency);
+        //private async Task<List<StudentsRegistrationInfo>> GetInhouseReegistrationInfo(UpdateRegistrationInfoCommand command, University university)
+        //{
+        //    var registrations = _unitOfWork.Repository<Registration>().Entities
+        //                        .Where(x => x.UniversityId == university.Id)
+        //                        .Include(x => x.Student)
+        //                        .ThenInclude(x => x.Fuculty)
+        //                        .Include(x => x.Currency);
 
-            if (command.IsForAll)
-            {
-                var registrationInfo = _mapper.Map<List<StudentsRegistrationInfo>>(await registrations.ToListAsync());
-                return registrationInfo;
-            }
+        //    if (command.IsForAll)
+        //    {
+        //        var registrationInfo = _mapper.Map<List<StudentsRegistrationInfo>>(await registrations.ToListAsync());
+        //        return registrationInfo;
+        //    }
 
-            if (string.IsNullOrEmpty(command.StudentId))
-            {
-                throw new Exception(_localizer["Student Number is required"]);
-            }
-            var filtered = await registrations.Where(x => x.StudentId == command.StudentId).ToListAsync();
-            var result = _mapper.Map<List<StudentsRegistrationInfo>>(filtered);
-            return result;
-        }
+        //    if (string.IsNullOrEmpty(command.StudentId))
+        //    {
+        //        throw new Exception(_localizer["Student Number is required"]);
+        //    }
+        //    var filtered = await registrations.Where(x => x.StudentId == command.StudentId).ToListAsync();
+        //    var result = _mapper.Map<List<StudentsRegistrationInfo>>(filtered);
+        //    return result;
+        //}
 
         private List<StudentsRegistrationInfo> GetOutSourseRegistrationInfo(UpdateRegistrationInfoCommand command, University university)
         {
@@ -133,7 +136,7 @@ namespace SSDB.Application.Features.Registrations.Commands
                     }
                     catch (Exception)
                     {
-                        throw new Exception(_localizer[$"Received Data is incorect, the expected format is\n {JsonConvert.SerializeObject(result)}"]);
+                        throw new Exception(_localizer[$"Received Data is incorect, the expected format is\n [\r\n  {{\r\n    \"universityId\": 0,\r\n    \"studentNumber\": \"string\",\r\n    \"name\": \"string\",\r\n    \"registrationFees\": 0,\r\n    \"currencyName\": \"string\",\r\n    \"noStudyFees\": true,\r\n    \"note\": \"string\",\r\n    \"fucultyName\": \"string\",\r\n    \"semester\": \"string\",\r\n    \"paymentNo\": \"string\",\r\n    \"status\": \"string\"\r\n  }}\r\n]"]);
                     }
 
                     if (!command.IsForAll)

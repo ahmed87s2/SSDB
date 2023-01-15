@@ -60,6 +60,8 @@ namespace SSDB.Application.Features.Utilities.Queries
                     return Result<List<DropDownListItemResponse>>.Success(await getStudentsInfo());
                 case ListType.Universities:
                     return Result<List<DropDownListItemResponse>>.Success(await getUniversitiesInfo());
+                case ListType.Degrees:
+                    return Result<List<DropDownListItemResponse>>.Success(await getDigreesInfo());
                 default:
                     return Result<List<DropDownListItemResponse>>.Fail("Invalid Request");
             }
@@ -156,6 +158,15 @@ namespace SSDB.Application.Features.Utilities.Queries
             }
             return await universities.Select(x => new DropDownListItemResponse { Key = x.Name, Value = x.Id.ToString() }).ToListAsync();
         }
+        private async Task<List<DropDownListItemResponse>> getDigreesInfo()
+        {
+            var degrees = _unitOfWork.Repository<Degree>().Entities;
+            if (!(await _userService.IsAdminAsync(_currentUser.UserId)))
+            {
+                degrees = degrees.Where(x => x.Id == int.Parse(_currentUser.UniversityId));
+            }
+            return await degrees.Select(x => new DropDownListItemResponse { Key = x.Name, Value = x.Id.ToString() }).ToListAsync();
+        }
 
         private async Task<List<DropDownListItemResponse>> getStudentsInfo()
         {
@@ -166,7 +177,7 @@ namespace SSDB.Application.Features.Utilities.Queries
             }
             var studetns = await students.Select(x => new DropDownListItemResponse
                 {
-                    Key = x.NameA,
+                    Key = x.FirstNameA,
                     Value = x.Id
                 }).ToListAsync();
             return studetns;
