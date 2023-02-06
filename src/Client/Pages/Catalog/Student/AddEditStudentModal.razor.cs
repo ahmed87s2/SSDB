@@ -83,18 +83,19 @@ namespace SSDB.Client.Pages.Catalog.Student
             return totalFees;
         }
 
-         private void getBatchFeesInfo(string value)
+        private void getBatchFeesInfo(string value)
         {
-            try
+            if (string.IsNullOrEmpty(value))
+                return;
+
+            DropDownListItemResponse selectedItem = _Batches.FirstOrDefault(x => x.Key?.Split('|')[0] == value);
+            if (selectedItem != null)
             {
-                DropDownListItemResponse selectedItem = _Batches.FirstOrDefault(x => x.Key.Split('|')[0] == value);
                 AddEditStudentModel.RegistrationFees = decimal.Parse(selectedItem?.Key.Split('|')[1].ToString());
                 AddEditStudentModel.StudyFees = decimal.Parse(selectedItem?.Key.Split('|')[2].ToString());
             }
-            catch (Exception es)
-            {
+            
 
-            }
 
         }
         private async Task LoadDataAsync()
