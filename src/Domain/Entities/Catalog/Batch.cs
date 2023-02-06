@@ -6,5 +6,9 @@ namespace SSDB.Domain.Entities.Catalog
     {
         public string Name { get; set; }
         public int UniversityId { get; set; }
+        public decimal RegistrationFees { get; set; }
+        public decimal? StudyFees { get; set; }
+
+
     }
 }

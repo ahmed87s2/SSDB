@@ -46,7 +46,7 @@ namespace SSDB.Application.Mappings
                 .ForMember(d => d.Student_no, opt => opt.MapFrom(x => x.Id))
                 .ForMember(d => d.Currency, opt => opt.MapFrom(x => x.Currency.Name))
                 .ForMember(d => d.Title, opt => opt.MapFrom(x => x.Specialization.NameA))
-                .ForMember(d => d.Total_amount, opt => opt.MapFrom(x => x.StudyFeesUpdated + x.MedicalFees + x.RegistrationFees))
+                .ForMember(d => d.Total_amount, opt => opt.MapFrom(x => x.StudyFees + x.MedicalFees + x.RegistrationFees))
                 ;
         }
 

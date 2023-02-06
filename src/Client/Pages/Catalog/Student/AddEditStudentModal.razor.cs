@@ -43,7 +43,7 @@ namespace SSDB.Client.Pages.Catalog.Student
         private List<DropDownListItemResponse> _Programs = new();
         private List<DropDownListItemResponse> _Specializations = new();
         private List<DropDownListItemResponse> _Degrees = new();
-
+        decimal totalFees;
         public void Cancel()
         {
             MudDialog.Cancel();
@@ -77,6 +77,26 @@ namespace SSDB.Client.Pages.Catalog.Student
             }
         }
 
+        public decimal getTotal()
+        {
+            totalFees = AddEditStudentModel.MedicalFees + AddEditStudentModel.RegistrationFees + AddEditStudentModel.StudyFees + AddEditStudentModel.Panalty;
+            return totalFees;
+        }
+
+         private void getBatchFeesInfo(string value)
+        {
+            try
+            {
+                DropDownListItemResponse selectedItem = _Batches.FirstOrDefault(x => x.Value == value);
+                AddEditStudentModel.RegistrationFees = decimal.Parse(selectedItem?.Key.Split('|')[1].ToString());
+                AddEditStudentModel.StudyFees = decimal.Parse(selectedItem?.Key.Split('|')[2].ToString());
+            }
+            catch (Exception es)
+            {
+
+            }
+
+        }
         private async Task LoadDataAsync()
         {
             _Fuculties = await GetDropDownListDataAsync(ListType.Fuculties);
@@ -91,7 +111,7 @@ namespace SSDB.Client.Pages.Catalog.Student
             _Degrees = await GetDropDownListDataAsync(ListType.Degrees);
         }
         private async Task<IEnumerable<int>> SearchInFuculties(string value) => await SearchItemsInIntList(value, _Fuculties);
-        private async Task<IEnumerable<int>> SearchInAddmissions(string value)=> await SearchItemsInIntList(value, _Admissions);        
+        private async Task<IEnumerable<int>> SearchInAddmissions(string value) => await SearchItemsInIntList(value, _Admissions);
         private async Task<IEnumerable<int>> SearchInDepartments(string value) => await SearchItemsInIntList(value, _Departments);
         private async Task<IEnumerable<int>> SearchInSemesters(string value) => await SearchItemsInIntList(value, _Semesters);
         private async Task<IEnumerable<int>> SearchInBatches(string value) => await SearchItemsInIntList(value, _Batches);
@@ -115,9 +135,9 @@ namespace SSDB.Client.Pages.Catalog.Student
         private async Task<IEnumerable<int>> SearchItemsInIntList(string value, List<DropDownListItemResponse> list)
         {
             if (string.IsNullOrEmpty(value))
-                return await Task.FromResult(list.Select(x =>int.Parse(x.Value)));
+                return await Task.FromResult(list.Select(x => int.Parse(x.Value)));
 
-            return  await Task.FromResult(list.Where(x => x.Key.Contains(value, StringComparison.InvariantCultureIgnoreCase))
+            return await Task.FromResult(list.Where(x => x.Key.Contains(value, StringComparison.InvariantCultureIgnoreCase))
                 .Select(x => int.Parse(x.Value)));
         }
 

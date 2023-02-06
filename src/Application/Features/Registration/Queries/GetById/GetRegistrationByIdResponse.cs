@@ -14,6 +14,7 @@ namespace SSDB.Application.Features.Registrations.Queries
         public double Fees { get; set; }
         public double StudyFees { get; set; }
         public bool NoStudyFees { get; set; }
+        public string AddmissionNo { get; set; }
         public int CurrencyId { get; set; }
         public string PaymentNo { get; set; }
         public int BranchId { get; set; }

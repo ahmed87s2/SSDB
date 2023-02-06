@@ -34,6 +34,7 @@ namespace SSDB.Application.Features.Students.Commands
         public string ThirdNameE { get; set; }
         [Required]
         public string FourthNameE { get; set; }
+        public string AddmissionNo { get; set; }
 
         public string IdentityNo { get; set; }
         public string SeatNo { get; set; }
@@ -42,7 +43,9 @@ namespace SSDB.Application.Features.Students.Commands
         public int BatchId { get; set; }
         public string Phone { get; set; }
         [Required]
-        public double MedicalFees { get; set; }
+        public decimal MedicalFees { get; set; }
+        [Required]
+        public decimal StudyFees { get; set; }
         [Required]
         public int FucultyId { get; set; }
         public int DepartmentId { get; set; }

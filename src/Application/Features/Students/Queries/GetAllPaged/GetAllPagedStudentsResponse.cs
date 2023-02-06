@@ -10,9 +10,10 @@ namespace SSDB.Application.Features.Students.Queries
         public string Id { get; set; }
         public int First_semster { get; set; }
         public string Phone { get; set; }
-        public double MedicalFees { get; set; }
+        public decimal MedicalFees { get; set; }
         public string NameA { get; set; }
         public string Status { get; set; }
+        public string AddmissionNo { get; set; }
         public DateTime GraduationDate { get; set; }
         public Addmission Addmission { get; set; }
         public Department Department { get; set; }

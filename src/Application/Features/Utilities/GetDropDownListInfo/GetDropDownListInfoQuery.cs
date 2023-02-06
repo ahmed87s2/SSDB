@@ -85,7 +85,7 @@ namespace SSDB.Application.Features.Utilities.Queries
                 batches = batches.Where(x => x.UniversityId == int.Parse(_currentUser.UniversityId));
             }
             return await batches
-                .Select(x => new DropDownListItemResponse { Key = x.Name, Value = x.Id.ToString() }).ToListAsync();
+                .Select(x => new DropDownListItemResponse { Key = $"{x.Name}|{x.RegistrationFees}|{x.StudyFees}", Value = x.Id.ToString() }).ToListAsync();
         }
         private async Task<List<DropDownListItemResponse>> getCurrenciesInfo()
         {

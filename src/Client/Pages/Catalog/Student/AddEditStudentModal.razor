@@ -27,117 +27,148 @@
                 @if (AddEditStudentModel.Id != null)
                 {
                     <MudItem xs="12" md="4">
-                        <MudTextField Disabled For="@(() => AddEditStudentModel.Id)" @bind-Value="AddEditStudentModel.Id" Label="@_localizer["Number"]" />
+                        <MudTextField Disabled For="@(() => AddEditStudentModel.Id)" @bind-Value="AddEditStudentModel.Id" Label="@_localizer["StdNumber"]" />
                     </MudItem>
                 }
                 else{
                     <MudItem xs="12" md="4">
-                        <MudTextField For="@(() => AddEditStudentModel.Id)" @bind-Value="AddEditStudentModel.Id" Label="@_localizer["Number"]" />
+                        <MudTextField For="@(() => AddEditStudentModel.Id)" @bind-Value="AddEditStudentModel.Id" Label="@_localizer["StdNumber"]" />
                     </MudItem>
                 }
+                <MudItem xs="12" md="4">
+                    <MudTextField For="@(() => AddEditStudentModel.AddmissionNo)" @bind-Value="AddEditStudentModel.AddmissionNo" Label="@_localizer["AddmissionNo"]" />
+                </MudItem>
                 <MudGrid>
                     <MudItem xs="3" md="3">
                         <MudTextField For="@(() => AddEditStudentModel.FirstNameA)" Variant="Variant.Outlined" @bind-Value="AddEditStudentModel.FirstNameA" Label="@_localizer["First Name Ar"]" />
                     </MudItem>
                         <MudItem xs="3" md="3">
-                        <MudTextField For="@(() => AddEditStudentModel.SecondNameA)" Variant="Variant.Outlined" @bind-Value="AddEditStudentModel.FirstNameA" Label="@_localizer["Second Name Ar"]" />
+                        <MudTextField For="@(() => AddEditStudentModel.SecondNameA)" Variant="Variant.Outlined" @bind-Value="AddEditStudentModel.SecondNameA" Label="@_localizer["Second Name Ar"]" />
                     </MudItem>
                         <MudItem xs="3" md="3">
-                        <MudTextField For="@(() => AddEditStudentModel.ThirdNameA)" Variant="Variant.Outlined" @bind-Value="AddEditStudentModel.FirstNameA" Label="@_localizer["Third Name Ar"]" />
+                        <MudTextField For="@(() => AddEditStudentModel.ThirdNameA)" Variant="Variant.Outlined" @bind-Value="AddEditStudentModel.ThirdNameA" Label="@_localizer["Third Name Ar"]" />
                     </MudItem>
                     <MudItem xs="3" md="3">
-                        <MudTextField For="@(() => AddEditStudentModel.FourthNameA)" Variant="Variant.Outlined" @bind-Value="AddEditStudentModel.FirstNameA" Label="@_localizer["Fourth Name Ar"]" />
+                        <MudTextField For="@(() => AddEditStudentModel.FourthNameA)" Variant="Variant.Outlined" @bind-Value="AddEditStudentModel.FourthNameA" Label="@_localizer["Fourth Name Ar"]" />
                     </MudItem>
                 </MudGrid>
 
                 <MudGrid>
                     <MudItem xs="3" md="3">
-                        <MudTextField For="@(() => AddEditStudentModel.FirstNameE)" Variant="Variant.Outlined" @bind-Value="AddEditStudentModel.FirstNameA" Label="@_localizer["First Name En"]" />
+                        <MudTextField For="@(() => AddEditStudentModel.FirstNameE)" Variant="Variant.Outlined" @bind-Value="AddEditStudentModel.FirstNameE" Label="@_localizer["First Name En"]" />
                     </MudItem>
                         <MudItem xs="3" md="3">
-                        <MudTextField For="@(() => AddEditStudentModel.SecondNameE)" Variant="Variant.Outlined" @bind-Value="AddEditStudentModel.FirstNameA" Label="@_localizer["Second Name En"]" />
+                        <MudTextField For="@(() => AddEditStudentModel.SecondNameE)" Variant="Variant.Outlined" @bind-Value="AddEditStudentModel.SecondNameE" Label="@_localizer["Second Name En"]" />
                     </MudItem>
                         <MudItem xs="3" md="3">
-                        <MudTextField For="@(() => AddEditStudentModel.ThirdNameE)" Variant="Variant.Outlined" @bind-Value="AddEditStudentModel.FirstNameA" Label="@_localizer["Third Name En"]" />
+                        <MudTextField For="@(() => AddEditStudentModel.ThirdNameE)" Variant="Variant.Outlined" @bind-Value="AddEditStudentModel.ThirdNameE" Label="@_localizer["Third Name En"]" />
                     </MudItem>
                     <MudItem xs="3" md="3">
-                        <MudTextField For="@(() => AddEditStudentModel.FourthNameE)" Variant="Variant.Outlined" @bind-Value="AddEditStudentModel.FirstNameA" Label="@_localizer["Fourth Name En"]" />
+                        <MudTextField For="@(() => AddEditStudentModel.FourthNameE)" Variant="Variant.Outlined" @bind-Value="AddEditStudentModel.FourthNameE" Label="@_localizer["Fourth Name En"]" />
                     </MudItem>
                 </MudGrid>
                 
-                <MudItem xs="12" md="4">
+                <MudItem xs="12" md="3">
                     <MudSelect T="string" Label="@_localizer["Type"]" For="@(() => AddEditStudentModel.Gender)" @bind-Value="AddEditStudentModel.Gender" Variant="Variant.Outlined">
                         <MudSelectItem T="string" Value="Gender.Male.ToString()">Male</MudSelectItem>
                         <MudSelectItem T="string" Value="Gender.Female.ToString()">Female</MudSelectItem>
                     </MudSelect>
                 </MudItem>
-                <MudItem xs="12" md="4">
-                    <MudTextField For="@(() => AddEditStudentModel.First_semster)" Variant="Variant.Outlined" @bind-Value="AddEditStudentModel.First_semster" Label="@_localizer["First Semster"]" />
-                </MudItem>
-                <MudItem xs="12" md="4">
+                <MudItem xs="12" md="3">
                     <MudTextField For="@(() => AddEditStudentModel.Phone)" Variant="Variant.Outlined" @bind-Value="AddEditStudentModel.Phone" Label="@_localizer["Phone"]" />
                 </MudItem>
-                <MudItem xs="12" md="4">
+                
+                <MudItem xs="12" md="3">
+                    <MudAutocomplete T="int" Label="@_localizer["Nationality"]" For="@(() => AddEditStudentModel.NationalityId)"
+                                     @bind-Value="AddEditStudentModel.NationalityId" ResetValueOnEmptyText="true" SearchFunc="@SearchInNationalities" Variant="Variant.Filled"
+                                     ToStringFunc="@(i => _Nationalities.FirstOrDefault(b => int.Parse(b.Value) == i)?.Key ?? string.Empty)" OffsetY="true" />
+                </MudItem>
+                <MudItem xs="12" md="3">
                     <MudTextField For="@(() => AddEditStudentModel.IdentityNo)"  @bind-Value="AddEditStudentModel.IdentityNo" Label="@_localizer["National Id"]" />
                 </MudItem>
+                
 
-                <MudItem xs="12" md="4">
-                    <MudTextField For="@(() => AddEditStudentModel.MedicalFees)" @bind-Value="AddEditStudentModel.MedicalFees" Label="@_localizer["MedicalFees"]" />
-                </MudItem>
-                <MudItem xs="12" md="4">
-                    <MudTextField For="@(() => AddEditStudentModel.Status)" @bind-Value="AddEditStudentModel.Status" Label="@_localizer["Status"]" />
-                </MudItem>
-                <MudItem xs="12" md="4">
-                    <MudTextField For="@(() => AddEditStudentModel.GraduationDate)" @bind-Value="AddEditStudentModel.GraduationDate" Label="@_localizer["GraduationDate"]" />
-                </MudItem>
 
-                <MudItem xs="12" md="4">
-                    <MudTextField For="@(() => AddEditStudentModel.RegistrationFees)" @bind-Value="AddEditStudentModel.RegistrationFees" Label="@_localizer["Registration Fees"]" />
-                </MudItem>
 
-                <MudItem xs="12" md="4">
-                    <MudTextField For="@(() => AddEditStudentModel.Panalty)" @bind-Value="AddEditStudentModel.Panalty" Label="@_localizer["Panalty"]" />
-                </MudItem>
+                
+                
 
-                <MudItem xs="12" md="4">
-                    <MudAutocomplete T="int" Label="@_localizer["Addmission"]" For="@(() => AddEditStudentModel.AddmissionId)"
-                                     @bind-Value="AddEditStudentModel.AddmissionId" ResetValueOnEmptyText="true" SearchFunc="@SearchInAddmissions" Variant="Variant.Filled"
-                                     ToStringFunc="@(i => _Admissions.FirstOrDefault(b => int.Parse(b.Value) == i)?.Key ?? string.Empty)" OffsetY="true" />
-                </MudItem>
-
-                <MudItem xs="12" md="4">
-                    <MudAutocomplete T="int" Label="@_localizer["Department"]" For="@(() => AddEditStudentModel.DepartmentId)"
-                                     @bind-Value="AddEditStudentModel.DepartmentId" ResetValueOnEmptyText="true" SearchFunc="@SearchInDepartments" Variant="Variant.Filled"
-                                     ToStringFunc="@(i => _Departments.FirstOrDefault(b => int.Parse(b.Value) == i)?.Key ?? string.Empty)" OffsetY="true" />
-                </MudItem>
-
-                <MudItem xs="12" md="4">
+                <MudItem xs="12" md="3">
                     <MudAutocomplete T="int" Label="@_localizer["Degree"]" For="@(() => AddEditStudentModel.DegreeId)"
                                      @bind-Value="AddEditStudentModel.DegreeId" ResetValueOnEmptyText="true" SearchFunc="@SearchInDegrees" Variant="Variant.Filled"
                                      ToStringFunc="@(i => _Degrees.FirstOrDefault(b => int.Parse(b.Value) == i)?.Key ?? string.Empty)" OffsetY="true" />
                 </MudItem>
 
-                <MudItem xs="12" md="4">      
+                <MudItem xs="12" md="3">      
                     <MudAutocomplete T="int" Label="@_localizer["Fuculty"]" For="@(() => AddEditStudentModel.FucultyId)"
                                      @bind-Value="AddEditStudentModel.FucultyId" ResetValueOnEmptyText="true" SearchFunc="@SearchInFuculties" Variant="Variant.Filled"
                                      ToStringFunc="@(i => _Fuculties.FirstOrDefault(b => int.Parse(b.Value) == i)?.Key ?? string.Empty)" OffsetY="true" />
                 </MudItem>
-                
-                <MudItem xs="12" md="4">
-                    <MudAutocomplete T="int" Label="@_localizer["Batch"]" For="@(() => AddEditStudentModel.BatchId)"
-                                     @bind-Value="AddEditStudentModel.BatchId" ResetValueOnEmptyText="true" SearchFunc="@SearchInBatches" Variant="Variant.Filled"
-                                     ToStringFunc="@(i => _Batches.FirstOrDefault(b => int.Parse(b.Value) == i)?.Key ?? string.Empty)" OffsetY="true" />
+                <MudItem xs="12" md="3">
+                    <MudAutocomplete T="int" Label="@_localizer["Program"]" For="@(() => AddEditStudentModel.ProgramId)"
+                                     @bind-Value="AddEditStudentModel.ProgramId" ResetValueOnEmptyText="true" SearchFunc="@SearchInPrograms" Variant="Variant.Filled"
+                                     ToStringFunc="@(i => _Programs.FirstOrDefault(b => int.Parse(b.Value) == i)?.Key ?? string.Empty)" OffsetY="true" />
                 </MudItem>
 
-                <MudItem xs="12" md="4">
+                <MudItem xs="12" md="3">
+                    <MudAutocomplete T="int" Label="@_localizer["Department"]" For="@(() => AddEditStudentModel.DepartmentId)"
+                                     @bind-Value="AddEditStudentModel.DepartmentId" ResetValueOnEmptyText="true" SearchFunc="@SearchInDepartments" Variant="Variant.Filled"
+                                     ToStringFunc="@(i => _Departments.FirstOrDefault(b => int.Parse(b.Value) == i)?.Key ?? string.Empty)" OffsetY="true" />
+                </MudItem>
+                <MudItem xs="12" md="3">
+                    <MudAutocomplete T="int" Label="@_localizer["Addmission"]" For="@(() => AddEditStudentModel.AddmissionId)"
+                                     @bind-Value="AddEditStudentModel.AddmissionId" ResetValueOnEmptyText="true" SearchFunc="@SearchInAddmissions" Variant="Variant.Filled"
+                                     ToStringFunc="@(i => _Admissions.FirstOrDefault(b => int.Parse(b.Value) == i)?.Key ?? string.Empty)" OffsetY="true" />
+                </MudItem>
+
+
+                <MudItem xs="12" md="3">
+                    <MudAutocomplete T="int" Label="@_localizer["Specialization"]" For="@(() => AddEditStudentModel.SpecializationId)"
+                                     @bind-Value="AddEditStudentModel.SpecializationId" ResetValueOnEmptyText="true" SearchFunc="@SearchInSpecializations" Variant="Variant.Filled"
+                                     ToStringFunc="@(i => _Specializations.FirstOrDefault(b => int.Parse(b.Value) == i)?.Key ?? string.Empty)" OffsetY="true" />
+                </MudItem>
+
+                <MudItem xs="12" md="2">
+                    <MudAutocomplete T="int" Label="@_localizer["Batch"]" For="@(() => AddEditStudentModel.BatchId)" 
+                                     @bind-Value="AddEditStudentModel.BatchId" ResetValueOnEmptyText="true" SearchFunc="@SearchInBatches" Variant="Variant.Filled"
+                                     ToStringFunc="@(i => _Batches.FirstOrDefault(b => int.Parse(b.Value) == i)?.Key.Split('|')[0] ?? string.Empty)" OffsetY="true" />
+
+                </MudItem>
+
+                <MudItem xs="12" md="2">
                     <MudAutocomplete T="int" Label="@_localizer["Semester"]" For="@(() => AddEditStudentModel.SemesterId)"
                                      @bind-Value="AddEditStudentModel.SemesterId" ResetValueOnEmptyText="true" SearchFunc="@SearchInSemesters" Variant="Variant.Filled"
                                      ToStringFunc="@(i => _Semesters.FirstOrDefault(b => int.Parse(b.Value) == i)?.Key ?? string.Empty)" OffsetY="true" />
                 </MudItem>
 
-                
+                <MudItem xs="12" md="2">
+                    <MudTextField For="@(() => AddEditStudentModel.First_semster)" Variant="Variant.Outlined" @bind-Value="AddEditStudentModel.First_semster" Label="@_localizer["First Semster"]" />
+                </MudItem>
 
-                <MudItem xs="12" md="4">
+
+
+                <MudItem xs="12" md="2">
+                    <MudTextField For="@(() => AddEditStudentModel.MedicalFees)" onchange="@getTotal()" @bind-Value="AddEditStudentModel.MedicalFees" Label="@_localizer["MedicalFees"]" />
+                </MudItem>
+                
+                <MudItem xs="12" md="2">
+                    <MudTextField For="@(() => AddEditStudentModel.RegistrationFees)" onchange="@getTotal()" @bind-Value="AddEditStudentModel.RegistrationFees" Label="@_localizer["Registration Fees"]" />
+                </MudItem>
+
+                <MudItem xs="12" md="2">
+                    <MudTextField For="@(() => AddEditStudentModel.StudyFees)" onchange="@getTotal()" @bind-Value="AddEditStudentModel.StudyFees" Label="@_localizer["Study Fees"]" />
+                </MudItem>
+
+                <MudItem xs="12" md="2">
+                    <MudTextField For="@(() => AddEditStudentModel.Panalty)" onchange="@getTotal()" @bind-Value="AddEditStudentModel.Panalty" Label="@_localizer["Panalty"]" />
+                </MudItem>
+
+                <MudItem xs="12" md="2">
+                    <MudTextField  @bind-Value="totalFees" Disabled Label="@_localizer["Total"]" />
+                </MudItem>
+
+                
+                <MudItem xs="12" md="2">
                     <MudAutocomplete T="int" Label="@_localizer["Currency"]" For="@(() => AddEditStudentModel.CurrencyId)"
                                      @bind-Value="AddEditStudentModel.CurrencyId" ResetValueOnEmptyText="true" SearchFunc="@SearchInCurrencies" Variant="Variant.Filled"
                                      ToStringFunc="@(i => _Currencies.FirstOrDefault(b => int.Parse(b.Value) == i)?.Key ?? string.Empty)" OffsetY="true" />
@@ -145,21 +176,16 @@
 
 
                 <MudItem xs="12" md="4">
-                    <MudAutocomplete T="int" Label="@_localizer["Nationality"]" For="@(() => AddEditStudentModel.NationalityId)"
-                                     @bind-Value="AddEditStudentModel.NationalityId" ResetValueOnEmptyText="true" SearchFunc="@SearchInNationalities" Variant="Variant.Filled"
-                                     ToStringFunc="@(i => _Nationalities.FirstOrDefault(b => int.Parse(b.Value) == i)?.Key ?? string.Empty)" OffsetY="true" />
-                </MudItem>
-                 <MudItem xs="12" md="4">
-                    <MudAutocomplete T="int" Label="@_localizer["Program"]" For="@(() => AddEditStudentModel.ProgramId)"
-                                     @bind-Value="AddEditStudentModel.ProgramId" ResetValueOnEmptyText="true" SearchFunc="@SearchInPrograms" Variant="Variant.Filled"
-                                     ToStringFunc="@(i => _Programs.FirstOrDefault(b => int.Parse(b.Value) == i)?.Key ?? string.Empty)" OffsetY="true" />
-                </MudItem>
-                <MudItem xs="12" md="4">
-                    <MudAutocomplete T="int" Label="@_localizer["Specialization"]" For="@(() => AddEditStudentModel.SpecializationId)"
-                                     @bind-Value="AddEditStudentModel.SpecializationId" ResetValueOnEmptyText="true" SearchFunc="@SearchInSpecializations" Variant="Variant.Filled"
-                                     ToStringFunc="@(i => _Specializations.FirstOrDefault(b => int.Parse(b.Value) == i)?.Key ?? string.Empty)" OffsetY="true" />
+                    <MudTextField For="@(() => AddEditStudentModel.GraduationDate)" @bind-Value="AddEditStudentModel.GraduationDate" Label="@_localizer["GraduationDate"]" />
                 </MudItem>
 
+
+
+                <MudItem xs="12" md="4">
+                    <MudTextField For="@(() => AddEditStudentModel.Status)" @bind-Value="AddEditStudentModel.Status" Label="@_localizer["Status"]" />
+                </MudItem>
+
+                 
             </MudGrid>
         </DialogContent>
         <DialogActions>

@@ -23,6 +23,7 @@ namespace SSDB.Domain.Entities.Catalog
         public int DepartmentId { get; set; }
         public int ProgramId { get; set; }
         public int AddmissionId { get; set; }
+        public string AddmissionNo { get; set; }
         public string AddmissionFormNo { get; set; }
         public int First_semster { get; set; }
         public string Phone { get; set; }
@@ -34,6 +35,7 @@ namespace SSDB.Domain.Entities.Catalog
         public int SpecializationId { get; set; }
         public DateTime? GraduationDate { get; set; }
         public decimal? MedicalFees { get; set; }
+        public decimal? StudyFees { get; set; }
         public int? StdPassword { get; set; }
         public bool NoStudyFees { get; set; }
         public int CurrencyId { get; set; }
