@@ -129,7 +129,7 @@
                 </MudItem>
 
                 <MudItem xs="12" md="2">
-                    <MudAutocomplete T="int" Label="@_localizer["Batch"]" For="@(() => AddEditStudentModel.BatchId)" 
+                    <MudAutocomplete T="int" Label="@_localizer["Batch"]" For="@(() => AddEditStudentModel.BatchId)" TextChanged="@getBatchFeesInfo"
                                      @bind-Value="AddEditStudentModel.BatchId" ResetValueOnEmptyText="true" SearchFunc="@SearchInBatches" Variant="Variant.Filled"
                                      ToStringFunc="@(i => _Batches.FirstOrDefault(b => int.Parse(b.Value) == i)?.Key.Split('|')[0] ?? string.Empty)" OffsetY="true" />
 

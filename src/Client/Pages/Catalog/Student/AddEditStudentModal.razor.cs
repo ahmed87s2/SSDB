@@ -87,7 +87,7 @@ namespace SSDB.Client.Pages.Catalog.Student
         {
             try
             {
-                DropDownListItemResponse selectedItem = _Batches.FirstOrDefault(x => x.Value == value);
+                DropDownListItemResponse selectedItem = _Batches.FirstOrDefault(x => x.Key.Split('|')[0] == value);
                 AddEditStudentModel.RegistrationFees = decimal.Parse(selectedItem?.Key.Split('|')[1].ToString());
                 AddEditStudentModel.StudyFees = decimal.Parse(selectedItem?.Key.Split('|')[2].ToString());
             }
