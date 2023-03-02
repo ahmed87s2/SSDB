@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SSDB.Shared.Constants.Application;
+using Microsoft.Extensions.Configuration;
 
 namespace SSDB.Server.Extensions
 {
@@ -28,12 +29,12 @@ namespace SSDB.Server.Extensions
             return app;
         }
 
-        internal static void ConfigureSwagger(this IApplicationBuilder app)
+        internal static void ConfigureSwagger(this IApplicationBuilder app, Microsoft.Extensions.Configuration.IConfiguration _configuration)
         {
             app.UseSwagger();
             app.UseSwaggerUI(options =>
             {
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", typeof(Program).Assembly.GetName().Name);
+                options.SwaggerEndpoint(_configuration.GetValue<string>("BaseUrl")+"swagger/v1/swagger.json", typeof(Program).Assembly.GetName().Name);
                 options.RoutePrefix = "swagger";
                 options.DisplayRequestDuration();
             });

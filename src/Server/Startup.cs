@@ -81,6 +81,7 @@ namespace SSDB.Server
                 RequestPath = new PathString("/Files")
             });
             app.UseRequestLocalizationByCulture();
+            app.UsePathBase(_configuration.GetValue<string>("BaseUrl"));
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
@@ -90,7 +91,7 @@ namespace SSDB.Server
                 Authorization = new[] { new HangfireAuthorizationFilter() }
             });
             app.UseEndpoints();
-            app.ConfigureSwagger();
+            app.ConfigureSwagger(_configuration);
             app.Initialize(_configuration);
         }
     }
