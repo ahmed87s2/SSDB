@@ -404,3 +404,9 @@ FodyWeavers.xsd
 # Additional files built by Visual Studio
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio
+/src/Application/obj/Debug/net5.0/Application.csproj.AssemblyReference.cache
+/src/Client/obj/Debug/net5.0/Client.csproj.AssemblyReference.cache
+/src/Client.Infrastructure/obj/Debug/net5.0/Client.Infrastructure.csproj.AssemblyReference.cache
+/src/Infrastructure/obj/Debug/net5.0/Infrastructure.csproj.AssemblyReference.cache
+/src/Infrastructure.Shared/obj/Debug/net5.0/Infrastructure.Shared.csproj.AssemblyReference.cache
+/src/Server/obj/Debug/net5.0/Server.csproj.AssemblyReference.cache
