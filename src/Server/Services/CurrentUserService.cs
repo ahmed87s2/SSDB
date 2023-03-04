@@ -12,12 +12,14 @@ namespace SSDB.Server.Services
         public CurrentUserService(IHttpContextAccessor httpContextAccessor)
         {
             UniversityId = httpContextAccessor.HttpContext?.User?.FindFirstValue(ClaimTypes.GroupSid);
+            UserName = httpContextAccessor.HttpContext?.User?.FindFirstValue(ClaimTypes.GivenName);
             UserId = httpContextAccessor.HttpContext?.User?.FindFirstValue(ClaimTypes.NameIdentifier);
             Claims = httpContextAccessor.HttpContext?.User?.Claims.AsEnumerable().Select(item => new KeyValuePair<string, string>(item.Type, item.Value)).ToList();
         }
 
         public string UserId { get; }
         public string UniversityId { get; }
+        public string UserName { get; }
         public List<KeyValuePair<string, string>> Claims { get; set; }
     }
 }

@@ -56,12 +56,12 @@ namespace SSDB.Infrastructure.Contexts
                 {
                     case EntityState.Added:
                         entry.Entity.CreatedOn = _dateTimeService.NowUtc;
-                        entry.Entity.CreatedBy = _currentUserService.UserId;
+                        entry.Entity.CreatedBy = _currentUserService.UserName;
                         break;
 
                     case EntityState.Modified:
                         entry.Entity.LastModifiedOn = _dateTimeService.NowUtc;
-                        entry.Entity.LastModifiedBy = _currentUserService.UserId;
+                        entry.Entity.LastModifiedBy = _currentUserService.UserName;
                         break;
                 }
             }

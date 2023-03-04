@@ -112,6 +112,7 @@ namespace SSDB.Infrastructure.Services.Identity
             var claims = new List<Claim>
             {
                 new(ClaimTypes.GroupSid, (user.UniversityId??0).ToString()),
+                new(ClaimTypes.GivenName, (user.UserName).ToString()),
                 new(ClaimTypes.NameIdentifier, user.Id),
                 new(ClaimTypes.Email, user.Email),
                 new(ClaimTypes.Name, user.FirstName),

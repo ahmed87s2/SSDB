@@ -6,5 +6,6 @@ namespace SSDB.Application.Interfaces.Services
     {
         string UserId { get; }
         string UniversityId { get; }
+        string UserName { get; }
     }
 }

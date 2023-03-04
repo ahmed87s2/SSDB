@@ -21,5 +21,7 @@ namespace SSDB.Client.Extensions
         
         internal static string GetUniversityId(this ClaimsPrincipal claimsPrincipal)
            => claimsPrincipal.FindFirstValue(ClaimTypes.GroupSid);
+        internal static string GetUserName(this ClaimsPrincipal claimsPrincipal)
+           => claimsPrincipal.FindFirstValue(ClaimTypes.GivenName);
     }
 }
