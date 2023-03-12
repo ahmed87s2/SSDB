@@ -27,7 +27,7 @@ namespace SSDB.Client.Pages.Identity
             {
                 await _authenticationManager.Logout();
                 _snackBar.Add(_localizer["Your Profile has been updated. Please Login to Continue."], Severity.Success);
-                _navigationManager.NavigateTo("/");
+                _navigationManager.NavigateTo("");
             }
             else
             {
@@ -85,7 +85,7 @@ namespace SSDB.Client.Pages.Identity
                 {
                     await _localStorage.SetItemAsync(StorageConstants.Local.UserImageURL, result.Data);
                     _snackBar.Add(_localizer["Profile picture added."], Severity.Success);
-                    _navigationManager.NavigateTo("/account", true);
+                    _navigationManager.NavigateTo("account", true);
                 }
                 else
                 {
@@ -115,7 +115,7 @@ namespace SSDB.Client.Pages.Identity
                     await _localStorage.RemoveItemAsync(StorageConstants.Local.UserImageURL);
                     ImageDataUrl = string.Empty;
                     _snackBar.Add(_localizer["Profile picture deleted."], Severity.Success);
-                    _navigationManager.NavigateTo("/account", true);
+                    _navigationManager.NavigateTo("account", true);
                 }
                 else
                 {

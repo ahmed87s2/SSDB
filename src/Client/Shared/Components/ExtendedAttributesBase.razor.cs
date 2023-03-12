@@ -76,7 +76,7 @@ namespace SSDB.Client.Shared.Components
             if (!_canViewExtendedAttributes)
             {
                 _snackBar.Add(_localizer["Not Allowed."], Severity.Error);
-                _navigationManager.NavigateTo("/");
+                _navigationManager.NavigateTo("");
             }
             _canEditExtendedAttributes = (await _authorizationService.AuthorizeAsync(_currentUser, ExtendedAttributesEditPolicyName)).Succeeded;
             _canCreateExtendedAttributes = (await _authorizationService.AuthorizeAsync(_currentUser, ExtendedAttributesCreatePolicyName)).Succeeded;
@@ -136,7 +136,7 @@ namespace SSDB.Client.Shared.Components
                 {
                     _snackBar.Add(message, Severity.Error);
                 }
-                _navigationManager.NavigateTo("/");
+                _navigationManager.NavigateTo("");
             }
         }
 

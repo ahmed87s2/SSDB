@@ -325,7 +325,7 @@ using Microsoft.AspNetCore.SignalR.Client;
     {
         await HubConnection.SendAsync(ApplicationConstants.SignalR.OnDisconnect, CurrentUserId);
         await _authenticationManager.Logout();
-        _navigationManager.NavigateTo("/login");
+        _navigationManager.NavigateTo("login");
         MudDialog.Close(DialogResult.Ok(true));
     }
     void Cancel() => MudDialog.Cancel();

@@ -63,7 +63,7 @@ namespace SSDB.Client.Pages.Identity
             if (result.Succeeded)
             {
                 _snackBar.Add(result.Messages[0], Severity.Success);
-                _navigationManager.NavigateTo("/identity/users");
+                _navigationManager.NavigateTo("identity/users");
             }
             else
             {

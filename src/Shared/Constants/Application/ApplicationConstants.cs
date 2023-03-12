@@ -4,7 +4,7 @@
     {
         public static class SignalR
         {
-            public const string HubUrl = "/signalRHub";
+            public const string HubUrl = "signalRHub";
             public const string SendUpdateDashboard = "UpdateDashboardAsync";
             public const string ReceiveUpdateDashboard = "UpdateDashboard";
             public const string SendRegenerateTokens = "RegenerateTokensAsync";

@@ -3,11 +3,11 @@
 
 <UserCard />
 <MudNavMenu>
-    <MudNavLink Href="/" Match="NavLinkMatch.All" Icon="@Icons.Material.Outlined.Home">@_localizer["Home"]</MudNavLink>
+    <MudNavLink Href="" Match="NavLinkMatch.All" Icon="@Icons.Material.Outlined.Home">@_localizer["Home"]</MudNavLink>
 
     @if (_canViewDashboards)
     {
-        <MudNavLink Href="/dashboard" Icon="@Icons.Material.Outlined.Dashboard">
+        <MudNavLink Href="dashboard" Icon="@Icons.Material.Outlined.Dashboard">
             @_localizer["Dashboard"]
         </MudNavLink>
     }
@@ -15,27 +15,27 @@
     <MudListSubheader Class="mt-2 mb-n2">@_localizer["Catalog Management"]</MudListSubheader>
     @if (_canViewStudents)
     {
-        <MudNavLink Href="/catalog/Students" Icon="@Icons.Material.Outlined.GroupWork">
+        <MudNavLink Href="catalog/Students" Icon="@Icons.Material.Outlined.GroupWork">
             @_localizer["Students"]
         </MudNavLink>
     }
     @if (_canViewUniversities)
     {
-        <MudNavLink Href="/catalog/Universities" Icon="@Icons.Material.Outlined.ModelTraining">
+        <MudNavLink Href="catalog/Universities" Icon="@Icons.Material.Outlined.ModelTraining">
             @_localizer["Universities"]
         </MudNavLink>
     }
 
     @if (_canViewRegistrationInfo)
     {
-        <MudNavLink Href="/catalog/RegistrationInfo" Icon="@Icons.Material.Outlined.CheckCircleOutline">
+        <MudNavLink Href="catalog/RegistrationInfo" Icon="@Icons.Material.Outlined.CheckCircleOutline">
             @_localizer["Registrations"]
         </MudNavLink>
     }
 
     @if (_canViewPayments)
     {
-        <MudNavLink Href="/catalog/Payments" Icon="@Icons.Material.Outlined.Payment">
+        <MudNavLink Href="catalog/Payments" Icon="@Icons.Material.Outlined.Payment">
             @_localizer["Payments"]
         </MudNavLink>
     }
@@ -43,7 +43,7 @@
 
     @if (_canUpdateRegistrationInfo)
     {
-        <MudNavLink Href="/catalog/UpdateRegistrationInfo" Icon="@Icons.Material.Outlined.MarkChatRead">
+        <MudNavLink Href="catalog/UpdateRegistrationInfo" Icon="@Icons.Material.Outlined.MarkChatRead">
             @_localizer["Update Registration Info"]
         </MudNavLink>
     }
@@ -53,13 +53,13 @@
         <MudListSubheader Class="mt-2 mb-n2">@_localizer["Administrator"]</MudListSubheader>
         @if (_canViewUsers)
         {
-            <MudNavLink Href="/identity/users" Icon="@Icons.Material.Outlined.Person">
+            <MudNavLink Href="identity/users" Icon="@Icons.Material.Outlined.Person">
                 @_localizer["Users"]
             </MudNavLink>
         }
         @if (_canViewRoles)
         {
-            <MudNavLink Href="/identity/roles" Icon="@Icons.Material.Outlined.Person">@_localizer["Roles"]</MudNavLink>
+            <MudNavLink Href="identity/roles" Icon="@Icons.Material.Outlined.Person">@_localizer["Roles"]</MudNavLink>
         }
     }
 

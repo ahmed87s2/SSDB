@@ -40,7 +40,7 @@ namespace SSDB.Client.Pages.Catalog.RegistrationInfo
             if (result.Succeeded)
             {
                 _snackBar.Add("Successfull, " + result.Data, Severity.Success);
-                _navigationManager.NavigateTo("/catalog/Registrations", true);
+                _navigationManager.NavigateTo("catalog/Registrations", true);
             }
             else
             {

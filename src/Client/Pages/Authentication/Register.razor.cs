@@ -17,7 +17,7 @@ namespace SSDB.Client.Pages.Authentication
             if (response.Succeeded)
             {
                 _snackBar.Add(response.Messages[0], Severity.Success);
-                _navigationManager.NavigateTo("/login");
+                _navigationManager.NavigateTo("login");
                 _registerUserModel = new RegisterRequest();
             }
             else

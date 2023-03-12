@@ -18,7 +18,7 @@ namespace SSDB.Client.Pages.Authentication
             var state = await _stateProvider.GetAuthenticationStateAsync();
             if (state != new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity())))
             {
-                _navigationManager.NavigateTo("/");
+                _navigationManager.NavigateTo("");
             }
         }
 
@@ -28,7 +28,7 @@ namespace SSDB.Client.Pages.Authentication
             if (result.Succeeded)
             {
                 _snackBar.Add(string.Format(_localizer["Welcome {0}"], _tokenModel.UserName), Severity.Success);
-                _navigationManager.NavigateTo("/", true);
+                _navigationManager.NavigateTo("", true);
             }
             else
             {

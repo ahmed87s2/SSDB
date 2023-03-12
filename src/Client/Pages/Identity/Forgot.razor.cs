@@ -17,7 +17,7 @@ namespace SSDB.Client.Pages.Identity
             if (result.Succeeded)
             {
                 _snackBar.Add(_localizer["Done!"], Severity.Success);
-                _navigationManager.NavigateTo("/");
+                _navigationManager.NavigateTo("");
             }
             else
             {

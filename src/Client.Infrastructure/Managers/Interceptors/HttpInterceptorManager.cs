@@ -52,7 +52,7 @@ namespace SSDB.Client.Infrastructure.Managers.Interceptors
                     Console.WriteLine(ex.Message);
                     _snackBar.Add(_localizer["You are Logged Out."], Severity.Error);
                     await _authenticationManager.Logout();
-                    _navigationManager.NavigateTo("/");
+                    _navigationManager.NavigateTo("");
                 }
             }
         }

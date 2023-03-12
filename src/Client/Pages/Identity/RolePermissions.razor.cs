@@ -87,7 +87,7 @@ namespace SSDB.Client.Pages.Identity
                 {
                     _snackBar.Add(error, Severity.Error);
                 }
-                _navigationManager.NavigateTo("/identity/roles");
+                _navigationManager.NavigateTo("identity/roles");
             }
         }
 
@@ -100,7 +100,7 @@ namespace SSDB.Client.Pages.Identity
                 _snackBar.Add(result.Messages[0], Severity.Success);
                 await HubConnection.SendAsync(ApplicationConstants.SignalR.SendRegenerateTokens);
                 await HubConnection.SendAsync(ApplicationConstants.SignalR.OnChangeRolePermissions, _currentUser.GetUserId(), request.RoleId);
-                _navigationManager.NavigateTo("/identity/roles");
+                _navigationManager.NavigateTo("identity/roles");
             }
             else
             {

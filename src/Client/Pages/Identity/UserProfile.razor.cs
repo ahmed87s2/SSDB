@@ -35,7 +35,7 @@ namespace SSDB.Client.Pages.Identity
             if (result.Succeeded)
             {
                 _snackBar.Add(_localizer["Updated User Status."], Severity.Success);
-                _navigationManager.NavigateTo("/identity/users");
+                _navigationManager.NavigateTo("identity/users");
             }
             else
             {
