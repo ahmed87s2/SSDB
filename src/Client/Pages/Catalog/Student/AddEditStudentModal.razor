@@ -1,5 +1,6 @@
 ﻿@using SSDB.Domain.Enums;
 @inject Microsoft.Extensions.Localization.IStringLocalizer<AddEditStudentModal> _localizer
+@*<link href="~/css/deviders.css" rel="stylesheet" />*@
 
 <EditForm Model="@AddEditStudentModel" OnValidSubmit="SaveAsync">
     <FluentValidationValidator @ref="_fluentValidationValidator" />
@@ -38,7 +39,12 @@
                 <MudItem xs="12" md="4">
                     <MudTextField For="@(() => AddEditStudentModel.AddmissionNo)" @bind-Value="AddEditStudentModel.AddmissionNo" Label="@_localizer["AddmissionNo"]" />
                 </MudItem>
-                <MudGrid>
+                
+
+                <MudGrid Class="ml-1 mr-1 mb-2">
+                    <MudItem xs="12" md="12" Style="padding-bottom:0px">
+                        <MudText Class="flex-grow-1">@AddEditStudentModel.FirstNameA @AddEditStudentModel.SecondNameA  @AddEditStudentModel.ThirdNameA  @AddEditStudentModel.FourthNameA</MudText>
+                    </MudItem>
                     <MudItem xs="3" md="3">
                         <MudTextField For="@(() => AddEditStudentModel.FirstNameA)" Variant="Variant.Outlined" @bind-Value="AddEditStudentModel.FirstNameA" Label="@_localizer["First Name Ar"]" />
                     </MudItem>
@@ -53,7 +59,10 @@
                     </MudItem>
                 </MudGrid>
 
-                <MudGrid>
+                <MudGrid Class="ml-1 mr-1">
+                    <MudItem xs="12" md="12" Style="padding-bottom:0px">
+                        <MudText Class="flex-grow-1">@AddEditStudentModel.FirstNameE @AddEditStudentModel.SecondNameE  @AddEditStudentModel.ThirdNameE  @AddEditStudentModel.FourthNameE</MudText>
+                    </MudItem>
                     <MudItem xs="3" md="3">
                         <MudTextField For="@(() => AddEditStudentModel.FirstNameE)" Variant="Variant.Outlined" @bind-Value="AddEditStudentModel.FirstNameE" Label="@_localizer["First Name En"]" />
                     </MudItem>
