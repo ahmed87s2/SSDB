@@ -56,7 +56,7 @@ else
             <MudTh><MudTableSortLabel T="GetAllPagedStudentsResponse" SortLabel="Phone">@_localizer["Phone"]</MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel T="GetAllPagedStudentsResponse" SortLabel="Status">@_localizer["Status"]</MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel T="GetAllPagedStudentsResponse" SortLabel="GraduationDate">@_localizer["GraduationDate"]</MudTableSortLabel></MudTh>
-            <MudTh><MudTableSortLabel T="GetAllPagedStudentsResponse" SortLabel="Addmission">@_localizer["Addmission"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedStudentsResponse" SortLabel="AddmissionType">@_localizer["AddmissionType"]</MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel T="GetAllPagedStudentsResponse" SortLabel="Department">@_localizer["Department"]</MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel T="GetAllPagedStudentsResponse" SortLabel="Batch">@_localizer["Batch"]</MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel T="GetAllPagedStudentsResponse" SortLabel="Currency">@_localizer["Currency"]</MudTableSortLabel></MudTh>
@@ -72,13 +72,12 @@ else
             <MudTd DataLabel="Phone"><MudHighlighter Text="@context.Phone" HighlightedText="@_searchString" /></MudTd>
             <MudTd DataLabel="Status"><MudHighlighter Text="@context.Status" HighlightedText="@_searchString" /></MudTd>
             <MudTd DataLabel="GraduationDate">@context.GraduationDate.ToString("dd-MMM-yy")</MudTd>
-            <MudTd DataLabel="Addmission"><MudHighlighter Text="@context.Addmission.Name" HighlightedText="@_searchString"/></MudTd>
+            <MudTd DataLabel="AddmissionType"><MudHighlighter Text="@context.AddmissionType" HighlightedText="@_searchString" /></MudTd>
             <MudTd DataLabel="Department"><MudHighlighter Text="@context.Department.NameA" HighlightedText="@_searchString" /></MudTd>
             <MudTd DataLabel="Batch"><MudHighlighter Text="@context.Batch.Name" HighlightedText="@_searchString"/></MudTd>
             <MudTd DataLabel="Currency"><MudHighlighter Text="@context.Currency.Name" HighlightedText="@_searchString"/></MudTd>
             <MudTd DataLabel="Fuculty"><MudHighlighter Text="@context.Fuculty.NameA" HighlightedText="@_searchString" /></MudTd>
             <MudTd DataLabel="Program"><MudHighlighter Text="@context.Program.NameA" HighlightedText="@_searchString" /></MudTd>
-            <MudTd DataLabel="Specialization"><MudHighlighter Text="@context.Specialization.NameA" HighlightedText="@_searchString" /></MudTd>
             <MudTd DataLabel="Semester"><MudHighlighter Text="@context.Semester.Name" HighlightedText="@_searchString"/></MudTd>
 
             <MudTd DataLabel="Actions" Style="text-align: right">

@@ -148,7 +148,7 @@ namespace SSDB.Client.Pages.Identity
 
         private void ManagePermissions(string roleId)
         {
-            _navigationManager.NavigateTo($"/identity/role-permissions/{roleId}");
+            _navigationManager.NavigateTo($"identity/role-permissions/{roleId}");
         }
     }
 }

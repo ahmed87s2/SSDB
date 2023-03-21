@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SSDB.Infrastructure.Contexts;
 
 namespace SSDB.Infrastructure.Migrations
 {
     [DbContext(typeof(BlazorHeroContext))]
-    partial class BlazorHeroContextModelSnapshot : ModelSnapshot
+    [Migration("20230319160441_Removed Tables Updated Relations2")]
+    partial class RemovedTablesUpdatedRelations2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -191,8 +193,6 @@ namespace SSDB.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("UniversityId");
 
                     b.ToTable("Currencies");
                 });
@@ -1234,17 +1234,6 @@ namespace SSDB.Infrastructure.Migrations
                     b.Navigation("Program");
                 });
 
-            modelBuilder.Entity("SSDB.Domain.Entities.Catalog.Currency", b =>
-                {
-                    b.HasOne("SSDB.Domain.Entities.Catalog.University", "University")
-                        .WithMany()
-                        .HasForeignKey("UniversityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("University");
-                });
-
             modelBuilder.Entity("SSDB.Domain.Entities.Catalog.Department", b =>
                 {
                     b.HasOne("SSDB.Domain.Entities.Catalog.Fuculty", "Fuculty")
@@ -1257,7 +1246,7 @@ namespace SSDB.Infrastructure.Migrations
             modelBuilder.Entity("SSDB.Domain.Entities.Catalog.Fuculty", b =>
                 {
                     b.HasOne("SSDB.Domain.Entities.Catalog.University", "University")
-                        .WithMany()
+                        .WithMany("Fuculties")
                         .HasForeignKey("UniversityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1355,7 +1344,7 @@ namespace SSDB.Infrastructure.Migrations
                         .IsRequired();
 
                     b.HasOne("SSDB.Domain.Entities.Catalog.University", "University")
-                        .WithMany()
+                        .WithMany("Students")
                         .HasForeignKey("UniversityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1424,6 +1413,13 @@ namespace SSDB.Infrastructure.Migrations
                         .HasForeignKey("UniversityId");
 
                     b.Navigation("University");
+                });
+
+            modelBuilder.Entity("SSDB.Domain.Entities.Catalog.University", b =>
+                {
+                    b.Navigation("Fuculties");
+
+                    b.Navigation("Students");
                 });
 
             modelBuilder.Entity("SSDB.Domain.Entities.Misc.Document", b =>

@@ -50,7 +50,7 @@ namespace SSDB.Application.Features.Students.Commands
         public int FucultyId { get; set; }
         public int DepartmentId { get; set; }
         public int ProgramId { get; set; }
-        public int AddmissionId { get; set; }
+        public string AddmissionType { get; set; }
         public string AddmissionFormNo { get; set; }
         public int First_semster { get; set; }
         public int NationalityId { get; set; }
@@ -76,6 +76,7 @@ namespace SSDB.Application.Features.Students.Commands
         public int Panalty { get; set; }
         public decimal ToLocalCurrency { get; set; }
         public decimal StudyFeesUpdated { get; set; }
+        public int UniversityId { get; set; }
     }
 
     internal class AddEditStudentCommandHandler : IRequestHandler<AddEditStudentCommand, Result<string>>

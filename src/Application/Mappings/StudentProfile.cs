@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using SSDB.Application.Features.RegistrationInfo;
 using SSDB.Application.Features.Registrations.Queries;
 using SSDB.Application.Features.Students.Commands;
 using SSDB.Application.Features.Students.Queries;
@@ -45,8 +46,17 @@ namespace SSDB.Application.Mappings
                 .ForMember(d => d.Panalty, opt => opt.MapFrom(x => x.Panalty))
                 .ForMember(d => d.Student_no, opt => opt.MapFrom(x => x.Id))
                 .ForMember(d => d.Currency, opt => opt.MapFrom(x => x.Currency.Name))
-                .ForMember(d => d.Title, opt => opt.MapFrom(x => x.Specialization.NameA))
                 .ForMember(d => d.Total_amount, opt => opt.MapFrom(x => x.StudyFees + x.MedicalFees + x.RegistrationFees))
+
+
+                ;CreateMap<GetRegistrationInfoByIdResponse, Student>().ReverseMap()
+                .ForMember(d => d.Name, opt => opt.MapFrom(s => $"{s.FirstNameA} {s.SecondNameA} {s.ThirdNameA} {s.FourthNameA}"))
+                .ForMember(d => d.StudentNumber, opt => opt.MapFrom(x => x.Id))
+                .ForMember(d => d.FucultyName, opt => opt.MapFrom(x => x.Fuculty.NameA))
+                .ForMember(d => d.Note, opt => opt.MapFrom(x => x.Comments))
+                .ForMember(d => d.Semester, opt => opt.MapFrom(x => x.Semester.Name))
+                .ForMember(d => d.CurrencyName, opt => opt.MapFrom(x => x.Currency.Name))
+                .ForMember(d => d.RegistrationFees, opt => opt.MapFrom(x => x.StudyFees + x.MedicalFees + x.RegistrationFees))
                 ;
         }
 

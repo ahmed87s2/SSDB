@@ -22,7 +22,7 @@ namespace SSDB.Domain.Entities.Catalog
         public int FucultyId { get; set; }
         public int DepartmentId { get; set; }
         public int ProgramId { get; set; }
-        public int AddmissionId { get; set; }
+        public string AddmissionType { get; set; }
         public string AddmissionNo { get; set; }
         public string AddmissionFormNo { get; set; }
         public int First_semster { get; set; }
@@ -52,14 +52,11 @@ namespace SSDB.Domain.Entities.Catalog
         public int Panalty { get; set; }
         public int UniversityId { get; set; }
         public University University { get; set; }
-        public Addmission Addmission { get; set; }
         public Department Department { get; set; }
         public Batch Batch { get; set; }
-        public Degree Degree { get; set; }
         public Currency Currency { get; set; }
         public Fuculty Fuculty { get; set; }
         public Program Program { get; set; }
-        public Specialization Specialization { get; set; }
         public Semester Semester { get; set; }
     }
 }

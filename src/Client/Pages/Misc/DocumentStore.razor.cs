@@ -190,7 +190,7 @@ namespace SSDB.Client.Pages.Misc
 
         private void ManageExtendedAttributes(int documentId)
         {
-            _navigationManager.NavigateTo($"/extended-attributes/{typeof(Document).Name}/{documentId}");
+            _navigationManager.NavigateTo($"extended-attributes/{typeof(Document).Name}/{documentId}");
         }
     }
 }

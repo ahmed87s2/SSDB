@@ -34,7 +34,7 @@ namespace SSDB.Server.Controllers.v1.Catalog
         /// <param name="query">Registration Id</param>
         /// <returns>Status 200 OK</returns>
         [Authorize(Policy = Permissions.RegistrationInfo.View)]
-        [HttpGet(nameof(GetRegistrationInfo))]
+        [HttpGet(nameof(GetRegistrationInfo)+ "/{UniversityId}/{StudentId}")]
         public async Task<ActionResult<GetRegistrationInfoByIdResponse>> GetRegistrationInfo([FromRoute]GetRegistrationInfoByIdQuery query)
         {
             var RegistrationInforesult = await _mediator.Send(query);

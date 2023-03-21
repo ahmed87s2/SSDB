@@ -46,11 +46,9 @@ namespace SSDB.Application.Features.Students.Queries
                 .Specify(StudentFilterSpec)
                 .Include(x=>x.Program)
                 .Include(x=>x.Department)
-                .Include(x=>x.Specialization)
                 .Include(x=>x.Semester)
                 .Include(x=>x.Batch)
                 .Include(x=>x.Fuculty)
-                .Include(x=>x.Addmission)
                 .ToListAsync( cancellationToken);
             var data = await _excelService.ExportAsync(Students, mappers: new Dictionary<string, Func<Student, object>>
             {
@@ -59,11 +57,9 @@ namespace SSDB.Application.Features.Students.Queries
                 { _localizer["Name"], item => item.FirstNameA },
                 { _localizer["Program"], item => item.Program.NameA },
                 { _localizer["Department"], item => item.Department.NameA },
-                { _localizer["Specialization"], item => item.Specialization.NameA },
                 { _localizer["Semester"], item => item.Semester.Name },
                 { _localizer["Batch"], item => item.Batch.Name },
                 { _localizer["Fuculty"], item => item.Fuculty.NameA },
-                { _localizer["Addmission"], item => item.Addmission.Name },
                 { _localizer["Status"], item => item.Status }
             }, sheetName: _localizer["Students"]);
 

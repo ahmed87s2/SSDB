@@ -14,9 +14,9 @@ namespace SSDB.Infrastructure.Repositories
             _repository = repository;
         }
 
-        public async Task<bool> IsUniversityUsed(int studentId)
+        public async Task<bool> IsUniversityUsed(int universityId)
         {
-            return await _repository.Entities.AnyAsync(b => b.AddmissionId == studentId);
+            return await _repository.Entities.AnyAsync(b => b.UniversityId == universityId);
         }
     }
 }

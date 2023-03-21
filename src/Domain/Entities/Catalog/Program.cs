@@ -6,6 +6,7 @@ namespace SSDB.Domain.Entities.Catalog
     {
         public string NameE { get; set; }
         public string NameA { get; set; }
-        public int UniversityId { get; set; }
+        public int? DepartmentId { get; set; }
+        public Department Department { get; set; }
     }
 }

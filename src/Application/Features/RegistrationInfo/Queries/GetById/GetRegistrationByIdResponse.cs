@@ -9,7 +9,7 @@ namespace SSDB.Application.Features.RegistrationInfo
         public int UniversityId { get; set; }
         public string StudentNumber { get; set; }
         public string Name { get; set; }
-        public double RegistrationFees { get; set; }
+        public decimal? RegistrationFees { get; set; }
         public string CurrencyName { get; set; }
         public bool NoStudyFees { get; set; }
         public string Note { get; set; }

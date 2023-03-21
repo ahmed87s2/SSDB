@@ -19,6 +19,11 @@ using SSDB.Application.Features.Utilities.Queries;
 using SSDB.Application.Features.Utilities.GetDropDownListInfo;
 using SSDB.Client.Infrastructure.Managers.Catalog.Utilities;
 using SSDB.Application.Enums;
+using SSDB.Application.Interfaces.Services;
+using SSDB.Shared.Wrapper;
+using SSDB.Client.Pages.Identity;
+using SSDB.Domain.Enums;
+using MudBlazor.Charts;
 
 namespace SSDB.Client.Pages.Catalog.Student
 {
@@ -33,7 +38,6 @@ namespace SSDB.Client.Pages.Catalog.Student
 
         private FluentValidationValidator _fluentValidationValidator;
         private bool Validated => _fluentValidationValidator.Validate(options => { options.IncludeAllRuleSets(); });
-        private List<DropDownListItemResponse> _Admissions = new();
         private List<DropDownListItemResponse> _Departments = new();
         private List<DropDownListItemResponse> _Fuculties = new();
         private List<DropDownListItemResponse> _Semesters = new();
@@ -41,8 +45,16 @@ namespace SSDB.Client.Pages.Catalog.Student
         private List<DropDownListItemResponse> _Currencies = new();
         private List<DropDownListItemResponse> _Nationalities = new();
         private List<DropDownListItemResponse> _Programs = new();
-        private List<DropDownListItemResponse> _Specializations = new();
-        private List<DropDownListItemResponse> _Degrees = new();
+        private List<DropDownListItemResponse> _Universities = new();
+
+        private List<DropDownListItemResponse> _FilteredDepartments = new();
+        private List<DropDownListItemResponse> _FilteredFuculties = new();
+        private List<DropDownListItemResponse> _FilteredSemesters = new();
+        private List<DropDownListItemResponse> _FilteredBatches = new();
+        private List<DropDownListItemResponse> _FilteredCurrencies = new();
+        private List<DropDownListItemResponse> _FilteredNationalities = new();
+        private List<DropDownListItemResponse> _FilteredPrograms = new();
+        private List<DropDownListItemResponse> _FilteredUniversities = new();
         decimal totalFees;
         public void Cancel()
         {
@@ -83,7 +95,7 @@ namespace SSDB.Client.Pages.Catalog.Student
             return totalFees;
         }
 
-        private void getBatchFeesInfo(string value)
+        private async Task getBatchFeesInfo(string value)
         {
             if (string.IsNullOrEmpty(value))
                 return;
@@ -93,53 +105,125 @@ namespace SSDB.Client.Pages.Catalog.Student
             {
                 AddEditStudentModel.RegistrationFees = decimal.Parse(selectedItem?.Key.Split('|')[1].ToString());
                 AddEditStudentModel.StudyFees = decimal.Parse(selectedItem?.Key.Split('|')[2].ToString());
+                AddEditStudentModel.BatchId = int.Parse(selectedItem.Value);
+                _FilteredSemesters = await GetDropDownListDataAsync(ListType.Semesters, AddEditStudentModel.BatchId);
             }
-            
-
-
         }
+
+        private async Task getUniversityInfo(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+                return;
+
+            DropDownListItemResponse selectedItem = _Universities.FirstOrDefault(x => x.Key == value);
+            if (selectedItem != null)
+            {
+                _FilteredFuculties = await GetDropDownListDataAsync(ListType.Fuculties,int.Parse(selectedItem.Value));
+                _FilteredCurrencies = await GetDropDownListDataAsync(ListType.Currency, int.Parse(selectedItem.Value));
+                AddEditStudentModel.UniversityId = int.Parse(selectedItem.Value);
+            }
+        }
+        private async Task getFucultiesInfo(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+                return;
+
+            DropDownListItemResponse selectedItem = _Fuculties.FirstOrDefault(x => x.Key == value);
+            if (selectedItem != null)
+            {
+                _FilteredDepartments = await GetDropDownListDataAsync(ListType.Departments, int.Parse(selectedItem.Value));
+                AddEditStudentModel.FucultyId = int.Parse(selectedItem.Value);
+            }
+        }
+
+        private async Task getDepartmentsInfo(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                return;
+            }
+                
+
+            DropDownListItemResponse selectedItem = _Departments.FirstOrDefault(x => x.Key == value);
+            if (selectedItem != null)
+            {
+                _FilteredPrograms = await GetDropDownListDataAsync(ListType.Programs, int.Parse(selectedItem.Value));
+                AddEditStudentModel.DepartmentId = int.Parse(selectedItem.Value);
+            }
+        }
+
+        private async Task getProgramsInfo(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+                return;
+
+            DropDownListItemResponse selectedItem = _Programs.FirstOrDefault(x => x.Key == value);
+            if (selectedItem != null)
+            {
+                _FilteredBatches = await GetDropDownListDataAsync(ListType.Batches, int.Parse(selectedItem.Value));
+                AddEditStudentModel.ProgramId = int.Parse(selectedItem.Value);
+            }
+        }
+
+
         private async Task LoadDataAsync()
         {
+            _Universities = await GetDropDownListDataAsync(ListType.Universities);
             _Fuculties = await GetDropDownListDataAsync(ListType.Fuculties);
-            _Admissions = await GetDropDownListDataAsync(ListType.Addmission);
             _Departments = await GetDropDownListDataAsync(ListType.Departments);
             _Semesters = await GetDropDownListDataAsync(ListType.Semesters);
             _Batches = await GetDropDownListDataAsync(ListType.Batches);
             _Currencies = await GetDropDownListDataAsync(ListType.Currency);
             _Nationalities = await GetDropDownListDataAsync(ListType.Nationalities);
             _Programs = await GetDropDownListDataAsync(ListType.Programs);
-            _Specializations = await GetDropDownListDataAsync(ListType.Specializations);
-            _Degrees = await GetDropDownListDataAsync(ListType.Degrees);
-        }
-        private async Task<IEnumerable<int>> SearchInFuculties(string value) => await SearchItemsInIntList(value, _Fuculties);
-        private async Task<IEnumerable<int>> SearchInAddmissions(string value) => await SearchItemsInIntList(value, _Admissions);
-        private async Task<IEnumerable<int>> SearchInDepartments(string value) => await SearchItemsInIntList(value, _Departments);
-        private async Task<IEnumerable<int>> SearchInSemesters(string value) => await SearchItemsInIntList(value, _Semesters);
-        private async Task<IEnumerable<int>> SearchInBatches(string value) => await SearchItemsInIntList(value, _Batches);
-        private async Task<IEnumerable<int>> SearchInCurrencies(string value) => await SearchItemsInIntList(value, _Currencies);
-        private async Task<IEnumerable<int>> SearchInNationalities(string value) => await SearchItemsInIntList(value, _Nationalities);
-        private async Task<IEnumerable<int>> SearchInPrograms(string value) => await SearchItemsInIntList(value, _Programs);
-        private async Task<IEnumerable<int>> SearchInSpecializations(string value) => await SearchItemsInIntList(value, _Specializations);
-        private async Task<IEnumerable<int>> SearchInDegrees(string value) => await SearchItemsInIntList(value, _Degrees);
 
-        private async Task<List<DropDownListItemResponse>> GetDropDownListDataAsync(ListType type)
+            _FilteredUniversities = _Universities;
+            AddEditStudentModel.UniversityId = int.Parse(_Universities.FirstOrDefault().Value);
+        }
+
+
+        private async Task<IEnumerable<int>> SearchInUniversities(string value) => await SearchItemsInIntList(value, _Universities);
+        private async Task<IEnumerable<int>> SearchInFuculties(string value) => await SearchItemsInIntList(value, _FilteredFuculties, AddEditStudentModel.UniversityId);
+        private async Task<IEnumerable<int>> SearchInDepartments(string value) => await SearchItemsInIntList(value, _FilteredDepartments, AddEditStudentModel.FucultyId);
+        private async Task<IEnumerable<int>> SearchInSemesters(string value) => await SearchItemsInIntList(value, _FilteredSemesters, AddEditStudentModel.BatchId);
+        private async Task<IEnumerable<int>> SearchInBatches(string value) => await SearchItemsInIntList(value, _FilteredBatches, AddEditStudentModel.ProgramId);
+        private async Task<IEnumerable<int>> SearchInCurrencies(string value) => await SearchItemsInIntList(value, _FilteredCurrencies, AddEditStudentModel.UniversityId);
+        private async Task<IEnumerable<int>> SearchInNationalities(string value) => await SearchItemsInIntList(value, _Nationalities);
+        private async Task<IEnumerable<int>> SearchInPrograms(string value) => await SearchItemsInIntList(value, _FilteredPrograms, AddEditStudentModel.FucultyId);
+
+        private async Task<List<DropDownListItemResponse>> GetDropDownListDataAsync(ListType type,int reference=0)
         {
             var data = await utilitiesManager.GetDropDownListDataAsync(type);
             if (data.Succeeded)
             {
+                if (reference != 0)
+                {
+                    return data.Data.Where(x => x.Reference == reference.ToString()).ToList();
+                }
                 return data.Data;
             }
+
+
+
             return new List<DropDownListItemResponse>();
         }
 
 
-        private async Task<IEnumerable<int>> SearchItemsInIntList(string value, List<DropDownListItemResponse> list)
+        private async Task<IEnumerable<int>> SearchItemsInIntList(string value, List<DropDownListItemResponse> list,int reference = 0)
         {
             if (string.IsNullOrEmpty(value))
                 return await Task.FromResult(list.Select(x => int.Parse(x.Value)));
 
-            return await Task.FromResult(list.Where(x => x.Key.Contains(value, StringComparison.InvariantCultureIgnoreCase))
+            var result =  await Task.FromResult(list.Where(x => x.Key.Contains(value, StringComparison.InvariantCultureIgnoreCase) )
                 .Select(x => int.Parse(x.Value)));
+
+            if(reference !=0)
+            {
+                result = await Task.FromResult(list.Where(x => x.Key.Contains(value, StringComparison.InvariantCultureIgnoreCase) && x.Reference == reference.ToString())
+                .Select(x => int.Parse(x.Value)));
+            }
+
+            return result;
         }
 
     }

@@ -2,7 +2,6 @@
 {
     public enum ListType
     {
-        Addmission,
         Batches,
         Currency,
         Departments,
@@ -10,9 +9,7 @@
         Nationalities,
         Programs,
         Semesters,
-        Specializations,
         Students,
-        Universities,
-        Degrees
+        Universities
     }
 }

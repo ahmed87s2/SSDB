@@ -37,7 +37,7 @@ namespace SSDB.Application.Features.RegistrationInfo
         public async Task<Result<GetRegistrationInfoByIdResponse>> Handle(GetRegistrationInfoByIdQuery request, CancellationToken cancellationToken)
         {
             var university = await _unitOfWork.Repository<University>().GetByIdAsync(request.UniversityId);
-            if(university.Type == UniversityType.Inhouse.ToString())
+            if(university.Type.ToLower() == UniversityType.Inhouse.ToString().ToLower())
             {
                 var student = await _studentsUnitOfWork.Repository<Student>().Entities
                     .Include(x=>x.Currency)

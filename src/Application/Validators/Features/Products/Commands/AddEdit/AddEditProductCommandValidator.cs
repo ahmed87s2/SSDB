@@ -9,15 +9,28 @@ namespace SSDB.Application.Validators.Features.Students.Commands.AddEdit
         public AddEditStudentCommandValidator(IStringLocalizer<AddEditStudentCommandValidator> localizer)
         {
             RuleFor(request => request.FirstNameA)
-                .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["Name is required!"]);
-            RuleFor(request => request.FirstNameA)
-                .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["Barcode is required!"]);
+                .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["FirstName Ar is required!"]);
+            RuleFor(request => request.SecondNameA)
+                .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["SecondName Ar is required!"]);
+            RuleFor(request => request.ThirdNameA)
+                .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["ThirdName Ar is required!"]);
+            RuleFor(request => request.FourthNameA)
+                .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["FourthName Ar is required!"]);
+
             RuleFor(request => request.FirstNameE)
-                .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["Description is required!"]);
-            RuleFor(request => request.FucultyId)
-                .GreaterThan(0).WithMessage(x => localizer["University is required!"]);
-            RuleFor(request => request.MedicalFees)
-                .GreaterThan(0).WithMessage(x => localizer["Rate must be greater than 0"]);
+                .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["FirstName En is required!"]);
+            RuleFor(request => request.SecondNameE)
+                .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["SecondName En is required!"]);
+            RuleFor(request => request.ThirdNameE)
+                .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["ThirdName En is required!"]);
+            RuleFor(request => request.FourthNameE)
+                .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["FourthName En is required!"]);
+
+
+            RuleFor(request => request.Gender)
+                .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["Gender is required!"]);
+            RuleFor(request => request.AddmissionNo)
+                .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["AddmissionNo is required "]);
         }
     }
 }

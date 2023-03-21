@@ -61,14 +61,12 @@ namespace SSDB.Application.Features.Students.Queries
             if (request.OrderBy?.Any() != true)
             {
                 var data = await _unitOfWork.Repository<Student>().Entities
-                    .Include(x => x.Addmission)
                     .Include(x => x.Department)
                     .Include(x => x.Batch)
                     .Include(x => x.Currency)
                     .Include(x => x.Fuculty)
                     .Include(x => x.Program)
-                    .Include(x => x.Semester)
-                    .Include(x => x.Specialization)                    
+                    .Include(x => x.Semester)                
                    .Specify(studentFilterSpec)
                    .Where(expression)
                    .ToPaginatedListAsync(request.PageNumber, request.PageSize);
@@ -79,14 +77,12 @@ namespace SSDB.Application.Features.Students.Queries
             {
                 var ordering = string.Join(",", request.OrderBy); // of the form fieldname [ascending|descending], ...
                 var data = await _unitOfWork.Repository<Student>().Entities
-                    .Include(x => x.Addmission)
                     .Include(x => x.Department)
                     .Include(x => x.Batch)
                     .Include(x => x.Currency)
                     .Include(x => x.Fuculty)
                     .Include(x => x.Program)
                     .Include(x => x.Semester)
-                    .Include(x => x.Specialization)
                    .Specify(studentFilterSpec)
                    .Where(expression)
                    .OrderBy(ordering)

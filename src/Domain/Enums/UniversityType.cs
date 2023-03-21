@@ -11,4 +11,10 @@
         Male,
         Female
     }
+
+    public enum Admission
+    {
+        Public,
+        Private
+    }
 }

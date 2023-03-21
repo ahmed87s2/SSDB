@@ -29,7 +29,6 @@ namespace SSDB.Infrastructure.Contexts
 
         public DbSet<ChatHistory<BlazorHeroUser>> ChatHistories { get; set; }
         public DbSet<Student> Students { get; set; }
-        public DbSet<Addmission> Addmissions { get; set; }
         public DbSet<Batch> Batches { get; set; }
         public DbSet<Currency> Currencies { get; set; }
         public DbSet<Department> Departments { get; set; }
@@ -38,11 +37,9 @@ namespace SSDB.Infrastructure.Contexts
         public DbSet<Program> Programs { get; set; }
         public DbSet<Registration> Registrations { get; set; }
         public DbSet<Semester> Semesters { get; set; }
-        public DbSet<Specialization> Specializations { get; set; }
         public DbSet<University> Universities { get; set; }
         public DbSet<UniversityConfigs> UniversityConfigs { get; set; }
         public DbSet<Payment> Payments { get; set; }
-        public DbSet<Degree> Degrees { get; set; }
         public DbSet<StudentsRegistrationInfo> StudentsRegistrationInfo { get; set; }
         public DbSet<Document> Documents { get; set; }
         public DbSet<DocumentType> DocumentTypes { get; set; }
@@ -144,69 +141,6 @@ namespace SSDB.Infrastructure.Contexts
                 .IsRequired()
                 .HasMaxLength(50));
             
-            //builder.Entity<University>().HasMany<Batch>()
-            //        .WithOne()
-            //        .HasForeignKey(d => d.UniversityId)
-            //        .OnDelete(DeleteBehavior.NoAction);
-
-            //builder.Entity<University>().HasMany<Department>()
-            //        .WithOne()
-            //        .HasForeignKey(d => d.UniversityId)
-            //        .OnDelete(DeleteBehavior.NoAction);
-
-
-            //builder.Entity<University>().HasMany<Fuculty>()
-            //        .WithOne()
-            //        .HasForeignKey(d => d.UniversityId)
-            //        .OnDelete(DeleteBehavior.NoAction);
-
-
-            //builder.Entity<University>().HasMany<Currency>()
-            //        .WithOne()
-            //        .HasForeignKey(d => d.UniversityId)
-            //        .OnDelete(DeleteBehavior.NoAction);
-
-
-            //builder.Entity<University>().HasMany<Addmission>()
-            //        .WithOne()
-            //        .HasForeignKey(d => d.UniversityId)
-            //        .OnDelete(DeleteBehavior.NoAction);
-
-            //builder.Entity<University>().HasMany<Payment>()
-            //        .WithOne()
-            //        .HasForeignKey(d => d.UniversityId)
-            //        .OnDelete(DeleteBehavior.NoAction);
-
-            //builder.Entity<University>().HasMany<Program>()
-            //        .WithOne()
-            //        .HasForeignKey(d => d.UniversityId)
-            //        .OnDelete(DeleteBehavior.NoAction);
-
-            //builder.Entity<University>().HasMany<Registration>()
-            //        .WithOne()
-            //        .HasForeignKey(d => d.UniversityId)
-            //        .OnDelete(DeleteBehavior.NoAction);
-
-            //builder.Entity<University>().HasMany<Semester>()
-            //        .WithOne()
-            //        .HasForeignKey(d => d.UniversityId)
-            //        .OnDelete(DeleteBehavior.NoAction);
-
-            //builder.Entity<University>().HasMany<Specialization>()
-            //        .WithOne()
-            //        .HasForeignKey(d => d.UniversityId)
-            //        .OnDelete(DeleteBehavior.NoAction);
-
-            //builder.Entity<University>().HasMany<Student>()
-            //        .WithOne()
-            //        .HasForeignKey(d => d.UniversityId)
-            //        .OnDelete(DeleteBehavior.NoAction);
-
-            //builder.Entity<University>().HasMany<StudentsRegistrationInfo>()
-            //        .WithOne()
-            //        .HasForeignKey(d => d.UniversityId)
-            //        .OnDelete(DeleteBehavior.NoAction);
-
             //builder.Entity<University>().HasMany<Department>()
             //        .WithOne()
             //        .HasForeignKey(d => d.UniversityId)

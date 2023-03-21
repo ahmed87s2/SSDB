@@ -36,7 +36,6 @@ namespace SSDB.Application.Features.Students.Queries
                 .Include(x => x.Currency)
                 .Include(x => x.Fuculty)
                 .Include(x => x.Semester)
-                .Include(x => x.Specialization)
                 .Include(x => x.Batch)
                 .Include(x => x.Department)
                 .Where(x => x.Id == request.StudentNumber && (x.Status == "U" || x.Status == "N"))
